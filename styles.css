@@ -76,6 +76,11 @@ body {
     font-size: 1.75rem;
   }
 }
+@media (min-width: 768px) and (min-width: 1280px) {
+  .header3 {
+    padding-bottom: 24px;
+  }
+}
 @media (min-width: 1280px) {
   .header3 {
     font-size: 2rem;
@@ -574,7 +579,7 @@ body {
 }
 
 .case-study__header1, .case-study__header2 {
-  padding: 0;
+  padding-top: 0;
 }
 .case-study__close-container {
   padding-inline: 1.25rem;
@@ -628,14 +633,8 @@ body {
   }
 }
 .case-study__content {
-  margin-top: 24px;
   margin: 0;
   max-width: 720px;
-}
-@media (min-width: 1280px) {
-  .case-study__content {
-    margin-top: 40px;
-  }
 }
 .case-study__content-first {
   grid-column: 1/-1;
