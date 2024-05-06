@@ -335,7 +335,7 @@ body {
 @media (min-width: 1280px) {
   .main {
     margin-inline: auto;
-    max-width: 1200px;
+    max-width: 1000px;
   }
 }
 
@@ -664,25 +664,24 @@ body {
 .case-study__caption-extra {
   padding-bottom: 40px;
 }
-
-section {
+.case-study__section {
   margin-top: 48px;
   padding-inline: 1.25rem;
 }
 @media (min-width: 768px) {
-  section {
+  .case-study__section {
     padding-inline: 4rem;
   }
 }
 @media (min-width: 1280px) {
-  section {
+  .case-study__section {
     padding-inline: 5rem;
     margin-inline: auto;
     min-width: 1020px;
   }
 }
 @media (min-width: 1280px) {
-  section {
+  .case-study__section {
     margin-top: 64px;
     max-width: 1000px;
     margin-inline: auto;
