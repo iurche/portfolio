@@ -90,7 +90,7 @@ body {
 .header4 {
   margin: 0;
   padding: 0;
-  padding-bottom: 16px;
+  padding-bottom: 8px;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
@@ -630,6 +630,11 @@ body {
   .case-study__block {
     --columns: 12;
     column-gap: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .case-study__block {
+    padding-top: 24px;
   }
 }
 .case-study__content {
