@@ -240,24 +240,11 @@ body {
 }
 
 .header {
-  padding-inline: 1.25rem;
   margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-@media (min-width: 768px) {
-  .header {
-    padding-inline: 4rem;
-  }
-}
-@media (min-width: 1280px) {
-  .header {
-    padding-inline: 5rem;
-    margin-inline: auto;
-    min-width: 1020px;
-  }
 }
 .header__img {
   width: auto;
