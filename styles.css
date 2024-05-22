@@ -1,3 +1,29 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes expand {
+  from {
+    transform: scale(0.8, 0.8);
+  }
+  /* Start at 80% size */
+  to {
+    transform: scale(1, 1);
+  }
+  /* Expand to full size */
+}
+@keyframes shrink {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(0.8, 0.8);
+  }
+}
 body {
   font-family: Arsenal, Helvetica, sans-serif;
   color: #222222;
@@ -650,9 +676,13 @@ body {
 }
 .case-study__image {
   width: 100%;
+  grid-column: 1/-1;
+  object-fit: cover;
 }
 .case-study__caption {
   text-align: center;
+  width: 100%;
+  margin-inline: auto;
 }
 .case-study__caption-extra {
   padding-bottom: 40px;
@@ -679,6 +709,82 @@ body {
     max-width: 1000px;
     margin-inline: auto;
   }
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #222222;
+  text-align: center;
+}
+
+.lightbox img {
+  display: block;
+  max-width: 100vw;
+  overflow-y: auto;
+}
+
+#lightbox-content:target,
+#lightbox-content-1:target,
+#lightbox-content-2:target,
+#lightbox-content-3:target,
+#lightbox-content-4:target,
+#lightbox-content-7:target,
+#lightbox-content-8:target,
+#lightbox-content-10:target,
+#lightbox-content-11:target,
+#lightbox-content-12:target,
+#lightbox-content-13:target {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  animation: expand 0.2s ease-in-out forwards;
+}
+
+#lightbox-content-5:target,
+#lightbox-content-6:target,
+#lightbox-content-9:target {
+  display: flex;
+  max-height: 100vh;
+  justify-content: center;
+  align-items: start;
+  animation: expand 0.2s ease-in-out forwards;
+}
+
+#lightbox-content {
+  animation: shrink 4s ease-in-out backwards;
+}
+
+.lightbox-close-text {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  /* Add cursor pointer for better UX */
+}
+
+.lightbox-close-text:hover {
+  opacity: 0.8;
+  /* Slight opacity change on hover for better UX */
+}
+
+.lightbox-close-text:link,
+.lightbox-close-text:visited {
+  text-decoration: none;
+  /* Remove default underline from link */
+}
+
+.user-profile__challenge {
+  margin-top: 16px;
 }
 
 .monee__content-left {
