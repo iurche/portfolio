@@ -742,10 +742,25 @@ body {
   display: flex;
   width: 100vw;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
   animation: expand 0.2s ease-in-out forwards;
+}
+@media (min-width: 1280px) {
+  #lightbox-content:target,
+  #lightbox-content-1:target,
+  #lightbox-content-2:target,
+  #lightbox-content-3:target,
+  #lightbox-content-4:target,
+  #lightbox-content-7:target,
+  #lightbox-content-8:target,
+  #lightbox-content-10:target,
+  #lightbox-content-11:target,
+  #lightbox-content-12:target,
+  #lightbox-content-13:target {
+    align-items: start;
+  }
 }
 
 #lightbox-content-5:target,
@@ -754,8 +769,15 @@ body {
   display: flex;
   max-height: 100vh;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   animation: expand 0.2s ease-in-out forwards;
+}
+@media (min-width: 1280px) {
+  #lightbox-content-5:target,
+  #lightbox-content-6:target,
+  #lightbox-content-9:target {
+    align-items: start;
+  }
 }
 
 #lightbox-content {
