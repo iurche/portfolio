@@ -284,7 +284,12 @@ body {
 .header__header1 {
   margin-top: 20px;
   margin-bottom: 0;
-  padding-bottom: 24px;
+  padding-bottom: 0;
+}
+@media (min-width: 1280px) {
+  .header__header1 {
+    padding-bottom: 24px;
+  }
 }
 .header__subheaders {
   list-style: none;
@@ -300,13 +305,14 @@ body {
   .header__subheaders {
     flex-direction: row;
     justify-content: space-between;
+    text-align: center;
     max-width: 664px;
   }
 }
 @media (min-width: 1280px) {
   .header__subheaders {
     max-width: 1200px;
-    margin-bottom: 80px;
+    margin-bottom: 64px;
   }
 }
 .header__buttons {
@@ -398,7 +404,7 @@ body {
 }
 @media (min-width: 1280px) {
   .projects__article {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
   }
 }
 .projects__content {
@@ -521,9 +527,6 @@ body {
     grid-column: 1/6;
   }
 }
-.about__skill {
-  padding-bottom: 16px;
-}
 .about__trainings {
   grid-column: 1/-1;
 }
@@ -537,8 +540,14 @@ body {
     grid-column: 7/13;
   }
 }
+.about__body {
+  padding-bottom: 8px;
+}
+.about__body-training {
+  padding-bottom: 4px;
+}
 .about__caption {
-  margin-top: 8px;
+  margin-top: 0;
 }
 
 .footer {
