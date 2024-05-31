@@ -847,6 +847,8 @@ body {
 .hero__intro {
   margin-top: 40px;
   padding-inline: 1.25rem;
+  margin-inline: auto;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
 }
@@ -860,6 +862,11 @@ body {
     padding-inline: 5rem;
     margin-inline: auto;
     min-width: 1020px;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__intro {
+    padding-inline: 0;
   }
 }
 @media (min-width: 1280px) {
@@ -875,29 +882,58 @@ body {
 }
 
 .recommendations {
-  padding-inline: 1.25rem;
   padding-top: 40px;
   padding-bottom: 40px;
   margin-top: 40px;
   margin-bottom: 40px;
   background-color: #F4DB61;
 }
+.recommendations__header2 {
+  margin-inline: auto;
+  max-width: 1000px;
+  padding-inline: 1.25rem;
+}
 @media (min-width: 768px) {
-  .recommendations {
+  .recommendations__header2 {
     padding-inline: 4rem;
   }
 }
 @media (min-width: 1280px) {
-  .recommendations {
+  .recommendations__header2 {
     padding-inline: 5rem;
     margin-inline: auto;
     min-width: 1020px;
+  }
+}
+@media (min-width: 1280px) {
+  .recommendations__header2 {
+    padding-inline: 0;
   }
 }
 .recommendations__wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-inline: auto;
+  max-width: 1000px;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .recommendations__wrapper {
+    padding-inline: 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .recommendations__wrapper {
+    padding-inline: 5rem;
+    margin-inline: auto;
+    min-width: 1020px;
+  }
+}
+@media (min-width: 1280px) {
+  .recommendations__wrapper {
+    padding-inline: 0;
+  }
 }
 @media (min-width: 1280px) {
   .recommendations__wrapper {
@@ -907,11 +943,15 @@ body {
 }
 .recommendations__header3 {
   padding-bottom: 16px;
+  margin-inline: auto;
+  max-width: 1000px;
 }
 
 .training {
   padding-inline: 1.25rem;
   padding-top: 40px;
+  margin-inline: auto;
+  max-width: 1000px;
 }
 @media (min-width: 768px) {
   .training {
@@ -923,6 +963,11 @@ body {
     padding-inline: 5rem;
     margin-inline: auto;
     min-width: 1020px;
+  }
+}
+@media (min-width: 1280px) {
+  .training {
+    padding-inline: 0;
   }
 }
 .training__lists {
