@@ -31,21 +31,55 @@
       </a>
     </div>
 
-    <section class="case-study__section intro">
+    <section class="case-study__section intro"  id="overview">
       <h1 class="header1 case-study__header1">User profile redesign</h1>
+
+      <p class="body case-study__content user-profile__copy">
+          This project resulted in signed-off high-fidelity mock-ups for a modular self-service platform that could be
+          assembled using a set of proposed components.
+        </p>
+
+        <p class="body case-study__content user-profile__copy">
+          Within this project, we updated the Information Architecture, and redesigned the navigation. For better
+          concept communication, we created prototypes in Figma and HTML & CSS and developed a set of components ready
+          to be shipped for development.
+        </p>
+
+           <a href="#lightbox-content-9">
+        <img
+          class="case-study__image"
+          src="images/User-profile-solution.gif"
+          alt="The screenshots of the before and after the redesign of user profile"
+        />
+      </a>
+
+       <a href="#overview" class="lightbox-close">
+        <div id="lightbox-content-9" class="lightbox">
+         <img src="images/User-profile-solution.gif" alt="Full-size Image">
+          <a href="#overview" class="lightbox-close-text">Close</a>
+        </div>
+      </a>
+      
+      <p class="capttion case-study__caption case-study__caption-extra">A snippet from the Figma prototype of the final proposal</p>
     </section>
 
     <section class="case-study__section user-profile__challenge" id="challenge">
       <h2 class="header2 case-study__header2">Challenge</h2>
       <div class="case-study__content user-profile__content">
-        <h3 class="header3 case-study__header3 user-profile__header3">Business problem</h3>
+       
         <p class="body case-study__copy user-profile__copy">
-          As Lynk & Co was maturing and its number of customers was growing, there was a problem with supporting the users after the purchase. Users would have to call the Customer support for documents updates, damage report, managing their reservation, etc. This led to the company losing money and reputation. Also, it generated significant workload on Customer support specialist, which affected their job satisfaction and increased turnover. 
+          As Lynk & Co was maturing and its number of customers was growing, there was a problem with supporting users after the purchase. For nearly every procedure such as document updates, damage reporting, reservation management, service requests, etc., users would have to call Customer support. This created a broken experience for users and an extra burden on the business.
         </p>
+
 
       <h3 class="header3 case-study__header3 user-profile__header3">User problem</h3>
       <p class="body case-study__copy user-profile__copy">
-          For every simple action regarding their car or membership users, would have to call the Customer support center. The long waiting times, as well as the problems with explaining the issues over the phone, created a lot of discontent. Customers expected User profile to be the tool where they’d be able to manage their account and related services. 
+        Calling the customer service, long waiting time on the line, and difficulties explaining the issues over the phone, created a lot of discontent among the users.
+      </p>
+
+       <h3 class="header3 case-study__header3 user-profile__header3">Business problem</h3>
+       <p class="body case-study__copy user-profile__copy">
+        On top of the repudiation damage from not delivering on the “hassle-free mobility” promise, the company was losing money on the ever-growing Customer support department. Never-ending calls generated a significant workload on the Customer support specialist. This led to more Customer specialist hires and higher turnover.
       </p>
 
       <p class="body case-study__copy user-profile__copy">
@@ -78,21 +112,21 @@
       <div class="case-study__content user-profile__content" id="research">
           <h3 class="header3 case-study__header3 user-profile__header3">Research</h3>
           <ul class="body case-study__list user-profile__list">
-            <li>Heuristic evaluation of the current version</li>
             <li>Cards sorting to improve navigation</li>
+            <li>Heuristic evaluation of the current version</li>
             <li>Stakeholders interview</li>
           </ul>
 
           <h4 class="header4 case-study__header4 user-profile__header">Findings</h4>
           <ul class="body case-study__list user-profile__list">
             <li>
-              The company was failing to deliver on its “hassle-free” promise, which resulted in a frustrating user
-              journey after the conversion.
+             Based on the card-sorting results, we reduced the number of sections in the main menu from 8 to 3 (Miller's law).
             </li>
-            <li>The company was losing money on manually supporting the customers. Automation was needed.</li>
             <li>
-              The current version of the User profile section was hard-coded, and the dev team could not afford to
-              constantly update the platform when new needs appeared.
+              The elements that users weren't sure about remained as first-level menu section; grouped elements became combined in the same section.
+            </li>
+            <li>
+              The first section Account Overview caused confusions, so we decided to split this section into two: Overview and Account. 
             </li>
           </ul>
         </div>
@@ -254,14 +288,14 @@
     </section>
 
     <section class="case-study__section decisions">
-      <h2 class="header2 case-study__header2">Design decisions</h2>
+      <h2 class="header2 case-study__header2">Impact</h2>
 
       <!-- IMPROVED NAVIGATION -->
       <div class="case-study__content user-profile__content" id="navigation">
         <h3 class="header3 case-study__header3 user-profile__header3">Improved navigation</h3>
         <p class="body case-study__copy user-profile__copy">
           To reduce task completion task, we redesigned the navigation based on the users expectations that were
-          revealed during card sorting task. This way, we had only 3 (instead of 7) first level menu items and moved the
+          revealed during card sorting task. This way, we had only 3 (instead of 8) first level menu items and moved the
           rest of the menu items onto the second level. This way, users are met with only few options at a time.
         </p>
       </div>
@@ -341,39 +375,11 @@
     <section class="case-study__section result" id="result">
       <h2 class="header2 case-study__header2">Result</h2>
 
-      <p class="body case-study__content user-profile__copy">
-          This project resulted in signed-off high-fidelity mock-ups for a modular self-service platform that could be
-          assembled using a set of proposed components.
-        </p>
-
-        <p class="body case-study__content user-profile__copy">
-          Within this project, we updated the Information Architecture, and redesigned the navigation. For better
-          concept communication, we created prototypes in Figma and HTML & CSS and developed a set of components ready
-          to be shipped for development.
-        </p>
-
         <p class="body case-study__copy user-profile__copy">
           Alongside the set of components, this project resulted in hi-fi mock-ups that were tested and signed off by
           the stakeholders. This is the first step of updating the platform. The next steps would include adding more
           features, the frontend part for which would be easily created by site editors in the CMS.
         </p>
-
-      <a href="#lightbox-content-9">
-        <img
-          class="case-study__image"
-          src="images/User-profile-solution.gif"
-          alt="The screenshots of the before and after the redesign of user profile"
-        />
-      </a>
-
-       <a href="#result" class="lightbox-close">
-        <div id="lightbox-content-9" class="lightbox">
-         <img src="images/User-profile-solution.gif" alt="Full-size Image">
-          <a href="#result" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      
-      <p class="capttion case-study__caption case-study__caption-extra">A snippet from the Figma prototype of the final proposal</p>
 
      <a href="#lightbox-content-10">
       <img
