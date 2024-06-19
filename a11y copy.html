@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6WMELGH2P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F6WMELGH2P');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility audit | Portfolio</title>
+   <link rel="icon" type="image/webp" href="images/favicon.webp">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="case-study a11y">
+    <div class="case-study__close-container">
+      <a href="index.html" class="case-study__close-link" aria-label="Return to main page">
+        <img class="case-study__close-icon" src="images/close_icon.svg" alt="Close the case study" />
+      </a>
+    </div>
+
+    <section class="case-study__section intro">
+      <h1 class="header1 case-study__header1">Accessibility audit</h1>
+
+      <div class="case-study__block a11y__block">
+        <div class="case-study__content case-study__content-first a11y__content">
+          <h3 class="header3 case-study__header3 a11y__header3">My Role</h3>
+           <ul class="body case-study__list a11y__list">
+            <li><strong>UX Designer with a focus on Accessibility.</strong> I leveraged my knowledge of WCAG guidelines and assistive technologies to ensure our digital platforms are usable by a wider audience, fostering a more inclusive user experience.</li>
+            <li><strong>Project manager.</strong> Due to limited team capacity, I had to perform some of the tasks of a project manager, especially the ones that concern the initial stages of a project.</li>
+          </ul>
+        </div>
+
+        <div class="case-study__content case-study__content-second a11y__content">
+          <h3 class="header3 case-study__header3 user-profile__header3">What I did</h3>
+          <ul class="body case-study__list user-profile__list">
+            <li>Project definition, justification, and planning</li>
+            <li>Stakeholder identification and management</li>
+            <li>Automated and manual website testing and findings presentation</li>
+            <li>Mid-Fi Wireframes</li>
+            <li>Hi-Fi mock-ups (together with UI designer)</li>
+            <li>Components for Design System (together with UI designer)</li>
+            <li>Accessibility statement prepparation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-study__section challenge">
+      <h2 class="header2 case-study__header2">Challenge</h2>
+      <div class="case-study__content a11y__content">
+        <p class="body case-study__copy a11y__copy">
+          In the design team, we realized that our digital platforms were not accessible for people having different ways of using the web, especially for those using assistive technology. As website redesign was already in the backlog, we knew that it was the time to plan with accessibility as a success criterion for design and development.
+        </p>
+
+        <p class="body case-study__copy a11y__copy">
+          On top of the moral motivation to make our platforms accessible, there was a legal one. Our business was preparing for the expansion to other markets where Accessible legislation was already in effect, and European Accessibility Act would come into effect across the EU in the near future.  
+        </p>
+      </div>
+    </section>
+
+    <section class="case-study__section result" id="result">
+      <h2 class="header2 case-study__header2">Result</h2>
+      <div class="case-study__content user-profile__content">
+        <p class="body case-study__copy user-profile__copy">
+          This project resulted in a comprehensive website audit with the list of uncomformities with the guidelines, links to the guidelines and their success criteria. This audit was later used to add tasks to the design and development backlogs to fix the issues. 
+        </p>
+      </div>
+
+     <a href="#lightbox-content">
+      <img
+        class="case-study__image"
+        src="images/List of pages.png"
+        alt="Screenshot with documented unconformities"
+      />
+      </a>
+
+       <a href="#result" class="lightbox-close">
+          <div id="lightbox-content" class="lightbox">
+            <img src="images/List of pages.png" alt="Full-size Image">
+          
+            <a href="#challenge" class="lightbox-close-text">Close</a>
+          </div>
+        </a>
+
+      <p class="capttion case-study__caption">A screenshot with documented unconformities</p>
+    </section>
+
+   <section class="case-study__section achievements">
+      <h2 class="header2 case-study__header2">The process</h2>
+      <div class="case-study__content a11y__content">
+        <h3 class="header3 case-study__header3 a11y__header3" 
+            id="a-test">
+            Step 1: Automated tests
+        </h3>
+      </div>
+
+
+      <a href="#lightbox-content-1">
+        <img
+          class="case-study__image"
+          src="images/axeDevTool screenshot.png"
+          alt="axeDevTools test results"
+        />
+      </a>
+
+      <a href="#a-test" class="lightbox-close">
+        <div id="lightbox-content-1" class="lightbox">
+          <img src="images/axeDevTool screenshot.png" alt="Full-size Image">
+        
+          <a href="#a-test" class="lightbox-close-text">Close</a>
+        </div>
+      </a>
+
+      <p class="capttion case-study__caption">A screenshot with an automated test using axeDevTools</p>
+
+
+      <div class="case-study__content a11y__content">
+        <h3 class="header3 case-study__header3 a11y__header3"
+            id="m-test">
+            Step 2: Manual tests</h3>
+      </div>
+
+      <a href="#lightbox-content-2">
+        <img
+          class="case-study__image"
+          src="images/VoiceOver.png"
+          alt="Using VoiceOver tool"
+        />
+      </a>
+      
+      <a href="#m-test" class="lightbox-close">
+        <div id="lightbox-content-2" class="lightbox">
+          <img src="images/VoiceOver.png" alt="Full-size Image">
+        
+          <a href="#m-test" class="lightbox-close-text">Close</a>
+        </div>
+      </a>
+      <p class="capttion case-study__caption">A screenshot with an manual test using VoiceOver</p>
+
+      <div class="case-study__content a11y__content">
+        <h3 class="header3 case-study__header3 a11y__header3"
+            id="doc-resutls">
+            Step 3: Document results
+        </h3>
+      </div>
+
+      <a href="#lightbox-content-3">
+        <img
+          class="case-study__image"
+          src="images/Annotations-full.png"
+          alt="Figma file with annotations"
+        />
+      </a>
+
+      <a href="#doc-resutls" class="lightbox-close">
+        <div id="lightbox-content-3" class="lightbox">
+          <img src="images/Annotations-full.png" alt="Full-size Image">
+        
+          <a href="#doc-resutls" class="lightbox-close-text">Close</a>
+        </div>
+      </a>
+
+       <p class="capttion case-study__caption">Figma file with annotations for tags and properties to use for A11y</p>
+    </section>
+
+    <footer class="footer">
+      <ul class="footer__links">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/iura-osadchuk"
+            class="link footer__link"
+            target="_blank"
+            aria-label="Opens in a new tab"
+          >
+            My LinkedIn
+            <img src="images/new_window_icon_beige.svg" alt="Open in new window icon" />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://docs.google.com/document/d/18r_Zml1oGOXEkrHsc8pevsyfbx61abYbQSUGcjqnl8g/edit?usp=sharing"
+            class="link footer__link"
+            target="_blank"
+            aria-label="Opens in a new tab"
+          >
+            My CV
+            <img src="images/new_window_icon_beige.svg" alt="Open in new window icon" />
+          </a>
+        </li>
+
+        <li>
+          <a 
+            href="https://music.youtube.com/playlist?list=PLC71vVTEszT9Po9P16v8e7Xg0EmEZaflq&si=Qumorw2Ni3bmFR2L" 
+            class="link footer__link"
+            target="_blank"
+            aria-label="Opens in a new tab">
+            Playlist for work
+            <img src="images/new_window_icon_beige.svg" alt="Open in new window icon" />
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
