@@ -20,69 +20,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Dark theme overrides for Order Help case study ── */
-    body.order-help {
-      background-color: #1a1a1a;
-      color: #f5f5dc;
-    }
-
-    .order-help .header1,
-    .order-help .header2,
-    .order-help .header3,
-    .order-help .header4 {
-      color: #f5f5dc;
-    }
-
-    .order-help .body,
-    .order-help .case-study__copy {
-      color: #d4d4c8;
-    }
-
-    .order-help .capttion,
-    .order-help .case-study__caption {
-      color: #999;
-      font-style: italic;
-    }
-
-    .order-help strong {
-      color: #f5f5dc;
-    }
-
-    .order-help .case-study__list {
-      color: #d4d4c8;
-    }
-
-    /* Close button — text style for dark theme */
-    .order-help .case-study__close-container {
-      margin: 20px 0;
-    }
-
-    .order-help .case-study__close-link {
-      background-color: transparent;
-      border: 1px solid #3a3a3a;
-      color: #f5f5dc;
-      text-decoration: none;
-      font-size: 14px;
-      font-family: Arsenal, Helvetica, sans-serif;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 80px;
-      height: auto;
-      position: fixed;
-    }
-
-    .order-help .case-study__close-link:hover {
-      background-color: #2a2a2a;
-    }
-
-    /* Image placeholders */
+    /* Image placeholders — shown until real images are added */
     .oh-image-placeholder {
       width: 100%;
-      background-color: #2a2a2a;
-      border-radius: 8px;
-      border: 1px solid #3a3a3a;
+      background-color: #ede8df;
+      border-radius: 4px;
+      border: 1px solid #d4cfc8;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -97,58 +40,42 @@
     }
 
     .oh-image-placeholder__text {
-      color: #555;
+      color: #999;
       font-size: 14px;
       font-style: italic;
       text-align: center;
       padding: 20px;
+      font-family: Arsenal, Helvetica, sans-serif;
     }
 
     /* Usability test finding cards */
     .oh-finding-card {
-      background-color: #252525;
+      background-color: #f0ece4;
       padding: 24px;
-      border-radius: 8px;
+      border-radius: 4px;
       margin-bottom: 16px;
-      border-left: 4px solid #8b7355;
+      border-left: 4px solid #222222;
     }
 
     .oh-finding-card p {
-      font-size: 16px;
-      line-height: 1.75;
+      font-size: 18px;
+      line-height: 2rem;
       margin: 0 0 12px 0;
-      color: #d4d4c8;
+      color: #222222;
+      font-family: Arsenal, Helvetica, sans-serif;
     }
 
     .oh-finding-card p:last-child {
       margin-bottom: 0;
-      color: #b8b8a0;
-    }
-
-    /* Footer — dark override */
-    .order-help .footer {
-      background-color: #111111;
-      border-top: 1px solid #3a3a3a;
-      margin-top: 80px;
-    }
-
-    .order-help .footer__link {
-      color: #f5f5dc;
-    }
-
-    .order-help .link:hover {
-      border-bottom: 1px solid #f5f5dc;
-      color: #f5f5dc;
     }
   </style>
 </head>
 
-<body class="case-study order-help">
+<body class="case-study">
 
-  <!-- Close button -->
   <div class="case-study__close-container">
     <a href="index.html" class="case-study__close-link" aria-label="Return to main page">
-      ✕ Close the case study
+      <img class="case-study__close-icon" src="images/close_icon.svg" alt="Close the case study">
     </a>
   </div>
 
