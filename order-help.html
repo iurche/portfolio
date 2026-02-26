@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6WMELGH2P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F6WMELGH2P');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Help V2 | Portfolio</title>
+  <link rel="icon" type="image/webp" href="images/favicon.webp">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Image placeholders — shown until real images are added */
+    .oh-image-placeholder {
+      width: 100%;
+      background-color: #ede8df;
+      border-radius: 4px;
+      border: 1px solid #d4cfc8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      box-sizing: border-box;
+    }
+
+    @media (min-width: 768px) {
+      .oh-image-placeholder {
+        min-height: 360px;
+      }
+    }
+
+    .oh-image-placeholder__text {
+      color: #999;
+      font-size: 14px;
+      font-style: italic;
+      text-align: center;
+      padding: 20px;
+      font-family: Arsenal, Helvetica, sans-serif;
+    }
+
+    /* Usability test finding cards */
+    .oh-finding-card {
+      background-color: #f0ece4;
+      padding: 24px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border-left: 4px solid #222222;
+    }
+
+    .oh-finding-card p {
+      font-size: 18px;
+      line-height: 2rem;
+      margin: 0 0 12px 0;
+      color: #222222;
+      font-family: Arsenal, Helvetica, sans-serif;
+    }
+
+    .oh-finding-card p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body class="case-study">
+
+  <div class="case-study__close-container">
+    <a href="index.html" class="case-study__close-link" aria-label="Return to main page">
+      <img class="case-study__close-icon" src="images/close_icon.svg" alt="Close the case study">
+    </a>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section class="case-study__section intro" id="intro">
+
+    <h1 class="header1 case-study__header1">
+      Order Help V2: From Crisis to 2% Deflection
+    </h1>
+
+    <p class="body case-study__copy">
+      This project resulted in a self-service tool that deflected ~2% of post-order support contacts and reduced customer effort. I transformed a failed product that created 0.76 extra contacts per order into a solution that surpassed business goals and enabled automated order management.
+    </p>
+
+    <p class="body case-study__copy">
+      Within this project, I analysed 200+ support cases to diagnose failure modes, conducted usability testing with 10 users, designed three solution proposals, and collaborated with stakeholders across CARE leadership, operations, and product to align on a feasible path forward.
+    </p>
+
+    <!-- Hero image — replace src when available -->
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Order Help interface comparison — Before &amp; After]</span>
+    </div>
+    <p class="capttion case-study__caption">A snippet from the Figma prototype of the final proposal</p>
+
+  </section>
+
+  <!-- ── CHALLENGE ── -->
+  <section class="case-study__section challenge" id="challenge">
+
+    <h2 class="header2 case-study__header2">Challenge</h2>
+
+    <p class="body case-study__copy">
+      In December 2024, Vistaprint launched Order Help (V1) to enable customers to manage orders without contacting support. Within weeks, the tool was creating 0.76 extra contacts per order instead of reducing them. It was rolled back after one month, and I was brought in to diagnose what went wrong and design a solution.
+    </p>
+
+    <h3 class="header3 case-study__header3" id="user-problem">User problem</h3>
+    <p class="body case-study__copy">
+      Users were promised "Get support quickly on your own," but 82% ended up waiting 24 hours for email responses. The flow didn't reveal this until the final step, leading users to abandon and use faster channels (chat/phone), creating follow-up cases. Out of 50 follow-up cases analysed, 23 were customers who didn't wait for email and moved to chat immediately.
+    </p>
+
+    <h3 class="header3 case-study__header3" id="business-problem">Business problem</h3>
+    <p class="body case-study__copy">
+      While the tool achieved 0.91% contact deflection through automated flows, this was completely negated by the 0.76 extra contacts it generated. The business needed to deflect 0.46% of post-order volume to reduce support costs, but the current solution was creating more work, not less. Operational issues compounded the problem: out of 200 cases reviewed, 98 had specialists asking for photos that customers had already uploaded.
+    </p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Key metrics comparison — V1 failure vs V2 success]</span>
+    </div>
+    <p class="capttion case-study__caption">The impact of Order Help V1 vs V2 on contact volume</p>
+
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="case-study__section process" id="process">
+
+    <h2 class="header2 case-study__header2">Process</h2>
+
+    <!-- Research -->
+    <h3 class="header3 case-study__header3" id="research">Research</h3>
+    <ul class="body case-study__list">
+      <li>Support case analysis (200+ cases via Salesforce)</li>
+      <li>Follow-up case deep dive (50 cases)</li>
+      <li>Customer support specialist interviews</li>
+      <li>Workshop with CARE leadership</li>
+      <li>Usability testing (10 users, UK, ages 40–60)</li>
+    </ul>
+
+    <h4 class="header4 case-study__header4">Findings</h4>
+    <ul class="body case-study__list">
+      <li><strong>Broken promise of speed:</strong> 82% of users expected instant help but got 24-hour email wait times</li>
+      <li><strong>Late discovery of delays:</strong> Users only learned about the 24-hour wait at the final step, causing abandonment</li>
+      <li><strong>Operational failures:</strong> 98 out of 200 cases had specialists requesting photos already uploaded; specialists closed cases before the customer replied</li>
+      <li><strong>Email created back-and-forth:</strong> 0.56 extra emails per order due to missing information or unclear specialist responses</li>
+    </ul>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[User research findings visualisation]</span>
+    </div>
+    <p class="capttion case-study__caption">Support case analysis revealing operational issues</p>
+
+    <!-- Define -->
+    <h3 class="header3 case-study__header3" id="define">Define</h3>
+    <ul class="body case-study__list">
+      <li>Defining design principles and constraints</li>
+      <li>Stakeholder alignment on feasibility requirements</li>
+      <li>Success metrics definition (AHT reduction, automation rate, deflection %)</li>
+    </ul>
+
+    <h4 class="header4 case-study__header4">Scope</h4>
+    <p class="body case-study__copy">
+      The business needed a self-service tool that would reduce customer effort and deflect support contacts without creating operational burden. The solution had to set clear expectations (no false promises of instant resolution), offer channel flexibility (let users choose their preferred contact method), and be operationally feasible given limited automation capabilities. Based on stakeholder workshops, I established four design principles: simplicity first, clear expectations, channel flexibility, and operational feasibility.
+    </p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Order Help flow diagram and decision tree]</span>
+    </div>
+    <p class="capttion case-study__caption">User flow architecture for Order Help V2</p>
+
+    <!-- Ideate -->
+    <h3 class="header3 case-study__header3" id="ideate">Ideate</h3>
+    <ul class="body case-study__list">
+      <li>Three solution proposals exploring different trade-offs</li>
+      <li>Mid-fidelity wireframes for stakeholder alignment</li>
+      <li>Evaluation matrix: Usability, Feasibility, Customer Expectations</li>
+    </ul>
+
+    <p class="body case-study__copy">
+      <strong>Proposal A (Selected):</strong> Non-automated flows prepare detailed cases and hand them to CARE via the user's preferred channel. Strong usability and customer-centricity, moderate dev effort due to Chat Anywhere dependency.
+    </p>
+    <p class="body case-study__copy">
+      <strong>Proposal B:</strong> Minimal flow to contact cards with order number prepopulated. Faster implementation but adds friction with extra screens before users can contact support.
+    </p>
+    <p class="body case-study__copy">
+      <strong>Proposal C:</strong> Automation-only approach with no case creation for non-automated reasons. High feasibility and clear expectations, but limited coverage given current automation constraints.
+    </p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Mid-fidelity wireframes of three proposals]</span>
+    </div>
+    <p class="capttion case-study__caption">A snippet of mid-fidelity wireframes for Proposal A</p>
+
+    <!-- Test -->
+    <h3 class="header3 case-study__header3" id="test">Test</h3>
+    <ul class="body case-study__list">
+      <li>Usability testing with 10 UK users (ages 40–60) via UserTesting</li>
+      <li>Analysis in HeyMarvin to identify patterns</li>
+      <li>Iterative design updates based on findings</li>
+    </ul>
+
+    <h4 class="header4 case-study__header4">Key test findings &amp; design responses</h4>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> Users expected human support for cancellations and were confused by "24 hours" messaging</p>
+      <p><strong>Response:</strong> Removed "24 hours" from success screens, added clear confirmation that the order was cancelled</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> "Get help with this order" button was not prominent enough</p>
+      <p><strong>Response:</strong> Improved visual hierarchy, ensured "View all products" didn't compete for attention</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> "Submit as email" made users think they needed to exit the flow</p>
+      <p><strong>Response:</strong> Changed copy to "Continue to submit via email" for clarity</p>
+    </div>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Documented usability test results and insights]</span>
+    </div>
+    <p class="capttion case-study__caption">Documented usability test results from HeyMarvin</p>
+
+    <!-- Finalize -->
+    <h3 class="header3 case-study__header3" id="finalize">Finalize</h3>
+    <ul class="body case-study__list">
+      <li>High-fidelity mockups in Figma</li>
+      <li>Interactive prototypes for stakeholder sign-off</li>
+      <li>Design system components and specifications</li>
+      <li>Collaboration with engineering on feasibility</li>
+    </ul>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Figma prototype walkthrough GIF]</span>
+    </div>
+    <p class="capttion case-study__caption">Figma prototype of the final Order Help V2 experience</p>
+
+    <!-- Stakeholder alignment -->
+    <h3 class="header3 case-study__header3" id="stakeholders">Stakeholder alignment</h3>
+    <p class="body case-study__copy">
+      Throughout the project, I navigated complex stakeholder dynamics to ensure buy-in across CARE leadership, operations, product, and engineering. The hardest challenge was aligning diverse expectations while maintaining design quality.
+    </p>
+    <p class="body case-study__copy">To address concerns, I:</p>
+    <ul class="body case-study__list">
+      <li>Presented three proposals with clear trade-offs (usability vs. feasibility vs. customer expectations) to facilitate informed decision-making</li>
+      <li>Led stakeholder presentations explaining the value proposition and business impact of each approach</li>
+      <li>Facilitated workshops with CARE leadership to understand operational constraints and validate automation feasibility</li>
+      <li>Collaborated closely with engineering to ensure design system components were technically feasible and maintainable</li>
+      <li>Co-authored PRDs with PM to align on success metrics and rollout strategy</li>
+    </ul>
+
+  </section>
+
+  <!-- ── IMPACT ── -->
+  <section class="case-study__section impact" id="impact">
+
+    <h2 class="header2 case-study__header2">Impact</h2>
+
+    <h3 class="header3 case-study__header3" id="customer-effort">Reduced customer effort &amp; improved clarity</h3>
+    <p class="body case-study__copy">
+      By removing false promises of instant resolution, improving visual hierarchy, and clarifying copy throughout the flow, users reported high confidence in the updated experience. Usability testing showed most users understood cancellation processes, contact expectations, and remediation options clearly.
+    </p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Order Help user flow demonstration]</span>
+    </div>
+    <p class="capttion case-study__caption">A snippet from the Figma prototype showing the updated user flow</p>
+
+    <h3 class="header3 case-study__header3" id="business-goals">Surpassed business goals</h3>
+    <p class="body case-study__copy">
+      Order Help V2 achieved ~2% sustained contact deflection, significantly surpassing the 0.46% goal. The solution reduced back-and-forth emails, eliminated the 6.5% follow-up case rate, and enabled expansion with additional automated flows (order tracking, late/missing/damaged product resolution).
+    </p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Metrics dashboard showing deflection performance]</span>
+    </div>
+    <p class="capttion case-study__caption">Performance metrics showing sustained 2% contact deflection</p>
+
+    <h3 class="header3 case-study__header3" id="automation">Foundation for scalable automation</h3>
+    <p class="body case-study__copy">
+      The modular design approach enabled quick expansion post-launch. By prioritising non-automated flows first (to reduce Average Handle Time) and automation second (for deflection), we balanced quick wins with long-term strategic value. This created a foundation for adding new automated capabilities without rebuilding the entire system.
+    </p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Design system components and specifications]</span>
+    </div>
+    <p class="capttion case-study__caption">A snippet from the design system specifications</p>
+
+  </section>
+
+  <!-- ── RESULT ── -->
+  <section class="case-study__section result" id="result">
+
+    <h2 class="header2 case-study__header2">Result</h2>
+    <p class="body case-study__copy">
+      This project resulted in a launched self-service tool that transformed a failed product into a business success. Order Help V2 achieved ~2% sustained contact deflection, reduced customer effort through clearer expectations, and created a foundation for scalable automation. The modular design enabled post-launch expansion with order tracking and automated issue resolution flows.
+    </p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Order Help homepage — Final design]</span>
+    </div>
+    <p class="capttion case-study__caption">The final design of the Order Help entry point</p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Contact selection screen — Final design]</span>
+    </div>
+    <p class="capttion case-study__caption">The final design of the contact channel selection</p>
+
+    <div class="oh-image-placeholder">
+      <span class="oh-image-placeholder__text">[Cancellation flow — Final design]</span>
+    </div>
+    <p class="capttion case-study__caption">The final design of the automated cancellation flow</p>
+
+    <!-- My role & What I did -->
+    <div class="case-study__block">
+      <div class="case-study__content case-study__content-first">
+        <h3 class="header3 case-study__header3">My role</h3>
+        <p class="body case-study__copy">
+          IC Designer in product triad (PM, Engineering Lead, Design) who led end-to-end UX research and design while collaborating closely with data analysts, customer support specialists, CARE leadership, and stakeholders. I drove discovery when PM bandwidth was limited and shared product thinking throughout the project.
+        </p>
+      </div>
+
+      <div class="case-study__content case-study__content-second">
+        <h3 class="header3 case-study__header3">What I did</h3>
+        <ul class="body case-study__list">
+          <li>Support case analysis (200+ cases) and follow-up case deep dive (50 cases)</li>
+          <li>Customer support specialist interviews and CARE leadership workshops</li>
+          <li>User research (usability testing with 10 users, analysed in HeyMarvin)</li>
+          <li>Design principles definition and stakeholder alignment</li>
+          <li>Three solution proposals with trade-off analysis</li>
+          <li>Mid-fidelity wireframes and high-fidelity mockups</li>
+          <li>Interactive prototypes in Figma</li>
+          <li>Design system components and specifications</li>
+          <li>Co-authored PRDs and defined success metrics with PM</li>
+          <li>Stakeholder presentations and cross-functional collaboration</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <ul class="footer__links">
+
+      <li>
+        <a href="https://www.linkedin.com/in/iura-osadchuk"
+           class="link footer__link"
+           target="_blank"
+           aria-label="Opens in a new tab">
+          My LinkedIn
+          <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
+        </a>
+      </li>
+
+      <li>
+        <a href="https://docs.google.com/document/d/18r_Zml1oGOXEkrHsc8pevsyfbx61abYbQSUGcjqnl8g/edit?usp=sharing"
+           class="link footer__link"
+           target="_blank"
+           aria-label="Opens in a new tab">
+          My CV
+          <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
+        </a>
+      </li>
+
+      <li>
+        <a href="https://music.youtube.com/playlist?list=PLC71vVTEszT9Po9P16v8e7Xg0EmEZaflq&si=Qumorw2Ni3bmFR2L"
+           class="link footer__link"
+           target="_blank"
+           aria-label="Opens in a new tab">
+          Playlist for work
+          <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
+        </a>
+      </li>
+
+    </ul>
+  </footer>
+
+</body>
+</html>
