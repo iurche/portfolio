@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F6WMELGH2P"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-F6WMELGH2P');
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Help V2 | Portfolio</title>
+  <title>Order Help | Portfolio</title>
   <link rel="icon" type="image/webp" href="images/favicon.webp">
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
 
   <style>
-    /* Image placeholders — shown until real images are added */
     .oh-image-placeholder {
       width: 100%;
       background-color: #ede8df;
@@ -48,7 +49,6 @@
       font-family: Arsenal, Helvetica, sans-serif;
     }
 
-    /* Usability test finding cards */
     .oh-finding-card {
       background-color: #f0ece4;
       padding: 24px;
@@ -68,6 +68,582 @@
     .oh-finding-card p:last-child {
       margin-bottom: 0;
     }
+
+    .oh-phase-label {
+      display: inline-block;
+      background-color: #222222;
+      color: #f5f0e8;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .oh-metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    @media (min-width: 768px) {
+      .oh-metric-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .oh-metric-card {
+      background-color: #f0ece4;
+      border-radius: 4px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .oh-metric-card__number {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #222222;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .oh-metric-card__label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #666;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── CASE STUDY VISUALS ── */
+    .oh-viz {
+      width: 100%;
+      background-color: #f0ece4;
+      border-radius: 4px;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .oh-viz { padding: 32px; }
+    }
+
+    .oh-viz__section-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666666;
+      margin: 0 0 10px 0;
+    }
+
+    .oh-viz__title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #222222;
+      margin: 0 0 20px 0;
+      line-height: 1.3;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__title { font-size: 22px; }
+    }
+
+    .oh-viz__divider {
+      width: 100%;
+      height: 1px;
+      background-color: #d4cfc8;
+      margin: 12px 0;
+    }
+
+    /* ── Metrics compare ── */
+    .oh-viz__two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .oh-viz__col {
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .oh-viz__col--dark { background-color: #222222; }
+    .oh-viz__col--light { background-color: #ede8df; }
+    .oh-viz__col-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin: 0 0 4px 0;
+    }
+    .oh-viz__col--dark .oh-viz__col-label { color: #f5f0e8; }
+    .oh-viz__col--light .oh-viz__col-label { color: #222222; }
+    .oh-viz__metric-card {
+      border-radius: 4px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .oh-viz__metric-card--dark { background-color: #333333; }
+    .oh-viz__metric-card--light { background-color: #e0dbd3; }
+    .oh-viz__metric-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.1;
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__metric-num { font-size: 34px; }
+    }
+    .oh-viz__metric-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+      display: block;
+    }
+    .oh-viz__col--dark .oh-viz__metric-num { color: #f5f0e8; }
+    .oh-viz__col--dark .oh-viz__metric-label { color: #999999; }
+    .oh-viz__col--light .oh-viz__metric-num { color: #222222; }
+    .oh-viz__col--light .oh-viz__metric-label { color: #666666; }
+
+    /* ── Stats row ── */
+    .oh-viz__stats-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__stats-row { grid-template-columns: repeat(4, 1fr); }
+    }
+    .oh-viz__stat-card {
+      background-color: #222222;
+      border-radius: 4px;
+      padding: 14px;
+    }
+    .oh-viz__stat-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #f5f0e8;
+      display: block;
+      line-height: 1.1;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__stat-num { font-size: 26px; }
+    }
+    .oh-viz__stat-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #999999;
+      display: block;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* ── Findings grid ── */
+    .oh-viz__findings-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__findings-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .oh-viz__finding-card {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .oh-viz__finding-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #222222;
+      line-height: 1;
+    }
+    .oh-viz__finding-text {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Flow steps ── */
+    .oh-viz__flow {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__flow { flex-direction: row; align-items: stretch; }
+    }
+    .oh-viz__step {
+      border-radius: 4px;
+      padding: 18px;
+      flex: 1;
+    }
+    .oh-viz__step--first { background-color: #222222; }
+    .oh-viz__step--rest { background-color: #ede8df; }
+    .oh-viz__step-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #999999;
+      margin: 0 0 6px 0;
+    }
+    .oh-viz__step-title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      line-height: 1.3;
+    }
+    .oh-viz__step--first .oh-viz__step-title { color: #f5f0e8; }
+    .oh-viz__step--rest .oh-viz__step-title { color: #222222; }
+    .oh-viz__step-body {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .oh-viz__step--first .oh-viz__step-body { color: #aaaaaa; }
+    .oh-viz__step--rest .oh-viz__step-body { color: #666666; }
+    .oh-viz__flow-arrow {
+      display: none;
+      align-self: center;
+      color: #999999;
+      font-size: 16px;
+      padding: 0 2px;
+      flex-shrink: 0;
+    }
+    @media (min-width: 768px) { .oh-viz__flow-arrow { display: block; } }
+
+    /* ── Wireframes ── */
+    .oh-viz__wireframes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__wireframes { grid-template-columns: repeat(3, 1fr); }
+    }
+    .oh-viz__wf-col { display: flex; flex-direction: column; gap: 10px; }
+    .oh-viz__wf-chip {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+    .oh-viz__wf-chip--selected { background-color: #222222; color: #f5f0e8; }
+    .oh-viz__wf-chip--alt { background-color: #d4cfc8; color: #444444; }
+    .oh-viz__phone {
+      background-color: #fafaf8;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 340px;
+    }
+    .oh-viz__phone-nav { height: 38px; flex-shrink: 0; }
+    .oh-viz__phone-nav--dark { background-color: #222222; }
+    .oh-viz__phone-nav--mid { background-color: #444444; }
+    .oh-viz__phone-nav--light { background-color: #333333; }
+    .oh-viz__phone-body {
+      flex: 1;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      overflow: hidden;
+    }
+    .oh-viz__phone-summary {
+      background-color: #f0ece4;
+      border-radius: 3px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .oh-viz__wf-line { height: 7px; border-radius: 2px; background-color: #d4cfc8; }
+    .oh-viz__phone-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow: hidden;
+    }
+    .oh-viz__wf-row { border-radius: 3px; flex-shrink: 0; }
+    .oh-viz__wf-row--card { height: 32px; background-color: #f0ece4; }
+    .oh-viz__wf-row--card-alt { height: 32px; background-color: #e8e3db; }
+    .oh-viz__phone-cta {
+      display: flex;
+      gap: 6px;
+      padding: 8px 12px;
+      flex-shrink: 0;
+      background-color: #ede8df;
+    }
+    .oh-viz__cta-btn { flex: 1; height: 32px; border-radius: 4px; }
+    .oh-viz__cta-btn--dark { background-color: #222222; }
+    .oh-viz__cta-btn--light { background-color: #f0ece4; border: 1px solid #d4cfc8; }
+    .oh-viz__wf-tradeoff {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Session chips ── */
+    .oh-viz__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+    .oh-viz__chip {
+      background-color: #ede8df;
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+    }
+
+    /* ── Insight cards ── */
+    .oh-viz__insights-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__insights-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .oh-viz__insight-card {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .oh-viz__insight-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #999999;
+    }
+    .oh-viz__insight-finding {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #222222;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .oh-viz__insight-response {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Roadmap ── */
+    .oh-viz__roadmap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__roadmap { grid-template-columns: repeat(3, 1fr); }
+    }
+    .oh-viz__quarter-col { display: flex; flex-direction: column; gap: 0; }
+    .oh-viz__quarter-header {
+      display: inline-flex;
+      padding: 5px 12px;
+      border-radius: 3px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #f5f0e8;
+      width: fit-content;
+      margin-bottom: 6px;
+    }
+    .oh-viz__quarter-header--q4 { background-color: #222222; }
+    .oh-viz__quarter-header--q1 { background-color: #444444; }
+    .oh-viz__quarter-header--q2 { background-color: #666666; }
+    .oh-viz__quarter-card {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 14px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .oh-viz__quarter-title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #222222;
+      margin: 0;
+    }
+    .oh-viz__quarter-sub {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #999999;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .oh-viz__quarter-body {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .oh-viz__roadmap-metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__roadmap-metrics { grid-template-columns: repeat(3, 1fr); }
+    }
+    .oh-viz__roadmap-metric {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 14px 16px;
+    }
+    .oh-viz__roadmap-metric-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #222222;
+      display: block;
+    }
+    .oh-viz__roadmap-metric-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 12px;
+      color: #666666;
+      display: block;
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* ── Bar chart ── */
+    .oh-viz__chart-wrap {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+    .oh-viz__bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      height: 220px;
+      border-bottom: 2px solid #222222;
+      position: relative;
+      min-width: 260px;
+    }
+    .oh-viz__target-line {
+      position: absolute;
+      bottom: 29%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #aaaaaa;
+      z-index: 1;
+    }
+    .oh-viz__bar-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+    .oh-viz__bar {
+      border-radius: 3px 3px 0 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 7px;
+      position: relative;
+      z-index: 2;
+    }
+    .oh-viz__bar-val {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .oh-viz__bar--b1 { height: 19%; background-color: #e8e3db; border: 1px solid #d4cfc8; }
+    .oh-viz__bar--b2 { height: 31%; background-color: #c8c2ba; }
+    .oh-viz__bar--b3 { height: 56%; background-color: #888888; }
+    .oh-viz__bar--b4 { height: 94%; background-color: #222222; }
+    .oh-viz__bar--b1 .oh-viz__bar-val { color: #666; }
+    .oh-viz__bar--b2 .oh-viz__bar-val { color: #333; }
+    .oh-viz__bar--b3 .oh-viz__bar-val { color: #f5f0e8; }
+    .oh-viz__bar--b4 .oh-viz__bar-val { color: #f5f0e8; }
+    .oh-viz__bar-labels {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      min-width: 260px;
+    }
+    .oh-viz__bar-xlabel {
+      flex: 1;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #666666;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .oh-viz__bar-xlabel--last {
+      font-weight: 700;
+      color: #222222;
+    }
+    .oh-viz__chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .oh-viz__chart-legend-line {
+      height: 2px;
+      width: 32px;
+      background-color: #aaaaaa;
+      flex-shrink: 0;
+    }
+    .oh-viz__chart-legend-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #888888;
+    }
   </style>
 </head>
 
@@ -83,22 +659,87 @@
   <section class="case-study__section intro" id="intro">
 
     <h1 class="header1 case-study__header1">
-      Order Help V2: From Crisis to 2% Deflection
+      Order Help: From 0.76 Extra Contacts Per Order to a Self-Service Platform
     </h1>
 
     <p class="body case-study__copy">
-      This project resulted in a self-service tool that deflected ~2% of post-order support contacts and reduced customer effort. I transformed a failed product that created 0.76 extra contacts per order into a solution that surpassed business goals and enabled automated order management.
+      What started as a crisis became a platform. After Vistaprint's first Order Help launch created 0.76 extra contacts
+      per order instead of reducing them, I led the end-to-end redesign and expansion of the tool — turning a failed
+      product into a self-service system that deflected an increasing share of post-order contacts and enabled fully
+      automated issue resolution across order tracking, damaged products, and late or missing deliveries.
     </p>
 
     <p class="body case-study__copy">
-      Within this project, I analysed 200+ support cases to diagnose failure modes, conducted usability testing with 10 users, designed three solution proposals, and collaborated with stakeholders across CARE leadership, operations, and product to align on a feasible path forward.
+      Across all phases of this project, I analysed 200+ support cases, conducted usability testing with 35+ users,
+      designed and tested four distinct flows, led discovery independently when PM support was unavailable, and pushed
+      back on decisions that would have undermined the product's operational integrity — one of which was reversed by
+      leadership as a result.
     </p>
 
-    <!-- Hero image — replace src when available -->
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Order Help interface comparison — Before &amp; After]</span>
+    <div class="oh-metric-row">
+      <div class="oh-metric-card">
+        <span class="oh-metric-card__number">0.3% → 1.5%+</span>
+        <span class="oh-metric-card__label">Deflection rate growth across all flows (and still climbing)</span>
+      </div>
+      <div class="oh-metric-card">
+        <span class="oh-metric-card__number">67%</span>
+        <span class="oh-metric-card__label">Of tracking users resolve their concern without creating a support
+          ticket</span>
+      </div>
+      <div class="oh-metric-card">
+        <span class="oh-metric-card__number">4 flows</span>
+        <span class="oh-metric-card__label">Launched across 3 quarters: relaunch, tracking, damaged, late/missing</span>
+      </div>
     </div>
-    <p class="capttion case-study__caption">A snippet from the Figma prototype of the final proposal</p>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Platform overview — four self-service flows</p>
+      <div class="oh-viz__flow">
+        <div class="oh-viz__step oh-viz__step--first">
+          <p class="oh-viz__step-num">ENTRY</p>
+          <p class="oh-viz__step-title">Order Help</p>
+          <p class="oh-viz__step-body">My Account → Orders → Get help with this order</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">TRACK</p>
+          <p class="oh-viz__step-title">Order Status</p>
+          <p class="oh-viz__step-body">Live tracking per item — 67% resolve without a ticket</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">RESOLVE</p>
+          <p class="oh-viz__step-title">Self-Service</p>
+          <p class="oh-viz__step-body">Damaged, late, or missing — automated reprint, refund, or store credit</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">ESCALATE</p>
+          <p class="oh-viz__step-title">Contact CARE</p>
+          <p class="oh-viz__step-body">Chat, phone, or email — with case pre-populated in Salesforce</p>
+        </div>
+      </div>
+      <div class="oh-viz__divider"></div>
+      <div class="oh-viz__stats-row">
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">4</span>
+          <span class="oh-viz__stat-label">Self-service flows launched</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">35+</span>
+          <span class="oh-viz__stat-label">Users tested across all flows</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">1.5%+</span>
+          <span class="oh-viz__stat-label">Deflection rate and climbing</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">67%</span>
+          <span class="oh-viz__stat-label">Tracking users resolve without a ticket</span>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">The Order Help platform across all four self-service flows</p>
 
   </section>
 
@@ -108,29 +749,69 @@
     <h2 class="header2 case-study__header2">Challenge</h2>
 
     <p class="body case-study__copy">
-      In December 2024, Vistaprint launched Order Help (V1) to enable customers to manage orders without contacting support. Within weeks, the tool was creating 0.76 extra contacts per order instead of reducing them. It was rolled back after one month, and I was brought in to diagnose what went wrong and design a solution.
+      In December 2024, Vistaprint launched Order Help (V1) to enable customers to manage orders without contacting
+      support. Within weeks, the tool was creating 0.76 extra contacts per order instead of reducing them. It was rolled
+      back after one month, and I was brought in to diagnose what went wrong and design a solution.
     </p>
 
     <h3 class="header3 case-study__header3" id="user-problem">User problem</h3>
     <p class="body case-study__copy">
-      Users were promised "Get support quickly on your own," but 82% ended up waiting 24 hours for email responses. The flow didn't reveal this until the final step, leading users to abandon and use faster channels (chat/phone), creating follow-up cases. Out of 50 follow-up cases analysed, 23 were customers who didn't wait for email and moved to chat immediately.
+      Users were promised "Get support quickly on your own," but 82% ended up waiting 24 hours for email responses. The
+      flow didn't reveal this until the final step, leading users to abandon and use faster channels (chat/phone),
+      creating follow-up cases. Out of 50 follow-up cases analysed, 23 were customers who didn't wait for email and
+      moved to chat immediately.
     </p>
 
     <h3 class="header3 case-study__header3" id="business-problem">Business problem</h3>
     <p class="body case-study__copy">
-      While the tool achieved 0.91% contact deflection through automated flows, this was completely negated by the 0.76 extra contacts it generated. The business needed to deflect 0.46% of post-order volume to reduce support costs, but the current solution was creating more work, not less. Operational issues compounded the problem: out of 200 cases reviewed, 98 had specialists asking for photos that customers had already uploaded.
+      While the tool achieved 0.91% contact deflection through automated flows, this was completely negated by the 0.76
+      extra contacts it generated. The business needed to deflect 0.46% of post-order volume to reduce support costs,
+      but the current solution was creating more work, not less. Operational issues compounded the problem: out of 200
+      cases reviewed, 98 had specialists asking for photos that customers had already uploaded.
     </p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Key metrics comparison — V1 failure vs V2 success]</span>
+    <div class="oh-viz oh-viz-compare">
+      <div class="oh-viz__two-col">
+        <div class="oh-viz__col oh-viz__col--dark">
+          <p class="oh-viz__col-label">V1 — The Failure</p>
+          <div class="oh-viz__metric-card oh-viz__metric-card--dark">
+            <span class="oh-viz__metric-num">0.76</span>
+            <span class="oh-viz__metric-label">extra contacts per order generated</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--dark">
+            <span class="oh-viz__metric-num">6.5%</span>
+            <span class="oh-viz__metric-label">follow-up case rate from V1 contacts</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--dark">
+            <span class="oh-viz__metric-num">0.91%</span>
+            <span class="oh-viz__metric-label">deflection — fully negated by contact generation</span>
+          </div>
+        </div>
+        <div class="oh-viz__col oh-viz__col--light">
+          <p class="oh-viz__col-label">Redesign — Results</p>
+          <div class="oh-viz__metric-card oh-viz__metric-card--light">
+            <span class="oh-viz__metric-num">1.5%+</span>
+            <span class="oh-viz__metric-label">deflection rate and still climbing</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--light">
+            <span class="oh-viz__metric-num">67%</span>
+            <span class="oh-viz__metric-label">of tracking users resolve without creating a ticket</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--light">
+            <span class="oh-viz__metric-num">0%</span>
+            <span class="oh-viz__metric-label">follow-up case rate — V1's 6.5% fully eliminated</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">The impact of Order Help V1 vs V2 on contact volume</p>
+    <p class="capttion case-study__caption">Deflection rate trajectory from V1 rollback through full platform launch</p>
 
   </section>
 
-  <!-- ── PROCESS ── -->
+  <!-- ── PHASE 1: RELAUNCH ── -->
   <section class="case-study__section process" id="process">
 
+    <span class="oh-phase-label">Phase 1 — Q4: Relaunch (Order Help V2)</span>
     <h2 class="header2 case-study__header2">Process</h2>
 
     <!-- Research -->
@@ -145,16 +826,38 @@
 
     <h4 class="header4 case-study__header4">Findings</h4>
     <ul class="body case-study__list">
-      <li><strong>Broken promise of speed:</strong> 82% of users expected instant help but got 24-hour email wait times</li>
-      <li><strong>Late discovery of delays:</strong> Users only learned about the 24-hour wait at the final step, causing abandonment</li>
-      <li><strong>Operational failures:</strong> 98 out of 200 cases had specialists requesting photos already uploaded; specialists closed cases before the customer replied</li>
-      <li><strong>Email created back-and-forth:</strong> 0.56 extra emails per order due to missing information or unclear specialist responses</li>
+      <li><strong>Broken promise of speed:</strong> 82% of users expected instant help but got 24-hour email wait times
+      </li>
+      <li><strong>Late discovery of delays:</strong> Users only learned about the 24-hour wait at the final step,
+        causing abandonment</li>
+      <li><strong>Operational failures:</strong> 98 out of 200 cases had specialists requesting photos already uploaded;
+        specialists closed cases before the customer replied</li>
+      <li><strong>Email created back-and-forth:</strong> 0.56 extra emails per order due to missing information or
+        unclear specialist responses</li>
     </ul>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[User research findings visualisation]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Support case analysis — root causes of V1 failure</p>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">82%</span>
+          <p class="oh-viz__finding-text">of users ended up waiting 24 hours for email — despite being promised instant help</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">0.76</span>
+          <p class="oh-viz__finding-text">extra contacts per order generated — the tool created more support work than it deflected</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">98/200</span>
+          <p class="oh-viz__finding-text">cases had specialists requesting photos customers had already uploaded through Order Help</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">0.56</span>
+          <p class="oh-viz__finding-text">extra emails per order from back-and-forth due to missing info or unclear specialist responses</p>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">Support case analysis revealing operational issues</p>
+    <p class="capttion case-study__caption">Support case analysis revealing the root causes of V1's failure</p>
 
     <!-- Define -->
     <h3 class="header3 case-study__header3" id="define">Define</h3>
@@ -166,11 +869,60 @@
 
     <h4 class="header4 case-study__header4">Scope</h4>
     <p class="body case-study__copy">
-      The business needed a self-service tool that would reduce customer effort and deflect support contacts without creating operational burden. The solution had to set clear expectations (no false promises of instant resolution), offer channel flexibility (let users choose their preferred contact method), and be operationally feasible given limited automation capabilities. Based on stakeholder workshops, I established four design principles: simplicity first, clear expectations, channel flexibility, and operational feasibility.
+      The business needed a self-service tool that would reduce customer effort and deflect support contacts without
+      creating operational burden. The solution had to set clear expectations (no false promises of instant resolution),
+      offer channel flexibility (let users choose their preferred contact method), and be operationally feasible given
+      limited automation capabilities. Based on stakeholder workshops, I established four design principles: simplicity
+      first, clear expectations, channel flexibility, and operational feasibility.
     </p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Order Help flow diagram and decision tree]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">V2 — Four design principles</p>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">01</span>
+          <p class="oh-viz__finding-text">Simplicity first — no unnecessary steps or screens between the user and resolution</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">02</span>
+          <p class="oh-viz__finding-text">Clear expectations — no false promises of instant resolution, channel wait times shown upfront</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">03</span>
+          <p class="oh-viz__finding-text">Channel flexibility — let users choose chat, phone, or email based on their own urgency</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">04</span>
+          <p class="oh-viz__finding-text">Operational feasibility — aligned with Salesforce workflows and CARE team capabilities</p>
+        </div>
+      </div>
+      <div class="oh-viz__divider"></div>
+      <p class="oh-viz__section-label">V2 — Redesigned flow</p>
+      <div class="oh-viz__flow">
+        <div class="oh-viz__step oh-viz__step--first">
+          <p class="oh-viz__step-num">01 — ENTER</p>
+          <p class="oh-viz__step-title">Select order & issue</p>
+          <p class="oh-viz__step-body">User identifies the order and reason for contact</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">02 — INFORM</p>
+          <p class="oh-viz__step-title">Provide details</p>
+          <p class="oh-viz__step-body">Photos and description collected upfront — no re-requesting</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">03 — CHOOSE</p>
+          <p class="oh-viz__step-title">Select channel</p>
+          <p class="oh-viz__step-body">Chat, phone, or email with realistic wait times shown</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">04 — RESOLVE</p>
+          <p class="oh-viz__step-title">Case submitted</p>
+          <p class="oh-viz__step-body">Full context pre-populated in Salesforce for CARE specialists</p>
+        </div>
+      </div>
     </div>
     <p class="capttion case-study__caption">User flow architecture for Order Help V2</p>
 
@@ -183,19 +935,112 @@
     </ul>
 
     <p class="body case-study__copy">
-      <strong>Proposal A (Selected):</strong> Non-automated flows prepare detailed cases and hand them to CARE via the user's preferred channel. Strong usability and customer-centricity, moderate dev effort due to Chat Anywhere dependency.
+      <strong>Proposal A (Selected):</strong> Non-automated flows prepare detailed cases and hand them to CARE via the
+      user's preferred channel. Strong usability and customer-centricity, moderate dev effort due to Chat Anywhere
+      dependency.
     </p>
     <p class="body case-study__copy">
-      <strong>Proposal B:</strong> Minimal flow to contact cards with order number prepopulated. Faster implementation but adds friction with extra screens before users can contact support.
+      <strong>Proposal B:</strong> Minimal flow to contact cards with order number prepopulated. Faster implementation
+      but adds friction with extra screens before users can contact support.
     </p>
     <p class="body case-study__copy">
-      <strong>Proposal C:</strong> Automation-only approach with no case creation for non-automated reasons. High feasibility and clear expectations, but limited coverage given current automation constraints.
+      <strong>Proposal C:</strong> Automation-only approach with no case creation for non-automated reasons. High
+      feasibility and clear expectations, but limited coverage given current automation constraints.
     </p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Mid-fidelity wireframes of three proposals]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Three proposals — trade-off evaluation</p>
+      <div class="oh-viz__wireframes">
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--selected">A — Selected</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div class="oh-viz__phone-summary">
+                <div class="oh-viz__wf-line" style="width:60%"></div>
+                <div class="oh-viz__wf-line" style="width:40%"></div>
+              </div>
+              <div class="oh-viz__phone-list">
+                <div class="oh-viz__wf-row oh-viz__wf-row--card" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:55%"></div>
+                </div>
+                <div class="oh-viz__wf-row" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;background:#222;border-radius:3px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#555;flex-shrink:0"></div>
+                  <div style="height:6px;border-radius:2px;background:#555;width:60%"></div>
+                </div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:50%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--light"></div>
+            </div>
+          </div>
+          <p class="oh-viz__wf-tradeoff">Detailed case prep + channel choice. Best UX, moderate dev effort</p>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">B — Not selected</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--mid"></div>
+            <div class="oh-viz__phone-body">
+              <div class="oh-viz__phone-summary">
+                <div class="oh-viz__wf-line" style="width:70%"></div>
+              </div>
+              <div class="oh-viz__phone-list">
+                <div class="oh-viz__wf-row oh-viz__wf-row--card"></div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card-alt"></div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card"></div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card-alt"></div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+            </div>
+          </div>
+          <p class="oh-viz__wf-tradeoff">Minimal flow to contact cards. Faster to build, but adds extra screens before users can contact support</p>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">C — Not selected</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--light"></div>
+            <div class="oh-viz__phone-body">
+              <div class="oh-viz__phone-summary">
+                <div class="oh-viz__wf-line" style="width:50%"></div>
+                <div class="oh-viz__wf-line" style="width:30%"></div>
+              </div>
+              <div class="oh-viz__phone-list">
+                <div class="oh-viz__wf-row oh-viz__wf-row--card" style="height:80px"></div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card-alt" style="height:50px"></div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+            </div>
+          </div>
+          <p class="oh-viz__wf-tradeoff">Automation-only, no case creation. Clear expectations, but limited coverage given current automation constraints</p>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">A snippet of mid-fidelity wireframes for Proposal A</p>
+    <p class="capttion case-study__caption">Mid-fidelity wireframes for Proposal A</p>
+
+    <!-- A key pushback moment -->
+    <h3 class="header3 case-study__header3" id="pushback-v2">A decision I pushed back on</h3>
+    <p class="body case-study__copy">
+      Early in the project, there was pressure to quickly patch V1 rather than rethink the flow. I pushed back, arguing
+      that the data — the follow-up case patterns, the back-and-forth email volume, the photo re-request rate — pointed
+      to structural problems, not surface ones. Fixing copy and loading states wouldn't address the fact that the tool
+      was generating contacts, not deflecting them. The team aligned on a full redesign.
+    </p>
+    <p class="body case-study__copy">
+      Later, a decision was made not to create Salesforce cases when automated resolutions were issued — meaning
+      specialists would have no visibility into what the system had done on a customer's behalf. I escalated this with
+      other UX designers in the domain, and we presented the operational risk to stakeholders collectively. The decision
+      was reversed.
+    </p>
 
     <!-- Test -->
     <h3 class="header3 case-study__header3" id="test">Test</h3>
@@ -208,13 +1053,16 @@
     <h4 class="header4 case-study__header4">Key test findings &amp; design responses</h4>
 
     <div class="oh-finding-card">
-      <p><strong>Finding:</strong> Users expected human support for cancellations and were confused by "24 hours" messaging</p>
-      <p><strong>Response:</strong> Removed "24 hours" from success screens, added clear confirmation that the order was cancelled</p>
+      <p><strong>Finding:</strong> Users expected human support for cancellations and were confused by "24 hours"
+        messaging</p>
+      <p><strong>Response:</strong> Removed "24 hours" from success screens, added clear confirmation that the order was
+        cancelled</p>
     </div>
 
     <div class="oh-finding-card">
       <p><strong>Finding:</strong> "Get help with this order" button was not prominent enough</p>
-      <p><strong>Response:</strong> Improved visual hierarchy, ensured "View all products" didn't compete for attention</p>
+      <p><strong>Response:</strong> Improved visual hierarchy, ensured "View all products" didn't compete for attention
+      </p>
     </div>
 
     <div class="oh-finding-card">
@@ -222,10 +1070,39 @@
       <p><strong>Response:</strong> Changed copy to "Continue to submit via email" for clarity</p>
     </div>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Documented usability test results and insights]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Usability testing — 10 users, UK, ages 40–60</p>
+      <div class="oh-viz__chips">
+        <span class="oh-viz__chip">UserTesting platform</span>
+        <span class="oh-viz__chip">HeyMarvin analysis</span>
+        <span class="oh-viz__chip">10 participants</span>
+        <span class="oh-viz__chip">Ages 40–60</span>
+        <span class="oh-viz__chip">UK market</span>
+      </div>
+      <div class="oh-viz__insights-grid">
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">FINDING 01</span>
+          <p class="oh-viz__insight-finding">Users expected human support for cancellations and were confused by "24 hours" messaging</p>
+          <p class="oh-viz__insight-response">→ Removed "24 hours" from success screens; added clear confirmation that the order was cancelled</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">FINDING 02</span>
+          <p class="oh-viz__insight-finding">"Get help with this order" button was not prominent enough to initiate the flow</p>
+          <p class="oh-viz__insight-response">→ Improved visual hierarchy; ensured "View all products" didn't compete for attention</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">FINDING 03</span>
+          <p class="oh-viz__insight-finding">"Submit as email" made users think they needed to exit the flow to their email client</p>
+          <p class="oh-viz__insight-response">→ Changed copy to "Continue to submit via email" to clarify the in-flow experience</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">FINDING 04</span>
+          <p class="oh-viz__insight-finding">Users compared Order Help favourably to Amazon and appreciated not having to call</p>
+          <p class="oh-viz__insight-response">→ Validated the channel flexibility model — confirmed direction, no design changes needed</p>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">Documented usability test results from HeyMarvin</p>
+    <p class="capttion case-study__caption">Usability test findings documented in HeyMarvin</p>
 
     <!-- Finalize -->
     <h3 class="header3 case-study__header3" id="finalize">Finalize</h3>
@@ -236,24 +1113,488 @@
       <li>Collaboration with engineering on feasibility</li>
     </ul>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Figma prototype walkthrough GIF]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Order Help V2 — Final design, three-step flow</p>
+      <div class="oh-viz__wireframes">
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--selected">1 — Select issue</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:14px;border-radius:2px;background:#d4cfc8;width:70%;margin-bottom:10px"></div>
+              <div class="oh-viz__phone-list">
+                <div style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;background:#222;border-radius:3px;margin-bottom:6px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#555;flex-shrink:0"></div>
+                  <div style="height:6px;border-radius:2px;background:#555;width:60%"></div>
+                </div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:55%"></div>
+                </div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card-alt" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#c8c2ba;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:50%"></div>
+                </div>
+                <div class="oh-viz__wf-row oh-viz__wf-row--card" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:45%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+            </div>
+          </div>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">2 — Add details</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:14px;border-radius:2px;background:#d4cfc8;width:80%;margin-bottom:8px"></div>
+              <div style="height:80px;border-radius:3px;background:#e8e3db;margin-bottom:8px;border:1px solid #d4cfc8"></div>
+              <div style="height:60px;border-radius:3px;background:#ede8df;margin-bottom:8px;display:flex;align-items:center;justify-content:center;">
+                <div style="width:28px;height:28px;border-radius:50%;background:#d4cfc8"></div>
+              </div>
+              <div class="oh-viz__wf-line" style="width:90%;margin-bottom:5px"></div>
+              <div class="oh-viz__wf-line" style="width:70%"></div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+            </div>
+          </div>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">3 — Choose channel</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:14px;border-radius:2px;background:#d4cfc8;width:65%;margin-bottom:10px"></div>
+              <div class="oh-viz__phone-list">
+                <div style="height:52px;border-radius:3px;background:#f0ece4;margin-bottom:6px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
+                  <div style="height:5px;background:#222;border-radius:2px;width:25%"></div>
+                  <div class="oh-viz__wf-line" style="width:65%"></div>
+                </div>
+                <div style="height:52px;border-radius:3px;background:#e8e3db;margin-bottom:6px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
+                  <div style="height:5px;background:#888;border-radius:2px;width:20%"></div>
+                  <div class="oh-viz__wf-line" style="width:55%"></div>
+                </div>
+                <div style="height:52px;border-radius:3px;background:#e8e3db;padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
+                  <div style="height:5px;background:#888;border-radius:2px;width:22%"></div>
+                  <div class="oh-viz__wf-line" style="width:50%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--light"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">Figma prototype of the final Order Help V2 experience</p>
+    <p class="capttion case-study__caption">Figma prototype of the Order Help V2 experience</p>
 
-    <!-- Stakeholder alignment -->
-    <h3 class="header3 case-study__header3" id="stakeholders">Stakeholder alignment</h3>
+  </section>
+
+  <!-- ── PHASE 2: EXPANSION ── -->
+  <section class="case-study__section process" id="expansion">
+
+    <span class="oh-phase-label">Phase 2 — Q1–Q2: Expanding the Platform</span>
+    <h2 class="header2 case-study__header2">From relaunch to platform</h2>
+
     <p class="body case-study__copy">
-      Throughout the project, I navigated complex stakeholder dynamics to ensure buy-in across CARE leadership, operations, product, and engineering. The hardest challenge was aligning diverse expectations while maintaining design quality.
+      After the relaunch, the product triad reviewed support case data and identified two patterns that pointed to
+      further automation opportunities. First, a large volume of contacts were simple order status enquiries — customers
+      asking where their order was, a question the system could answer directly. Second, the most frequent specialist
+      resolutions for product quality issues followed a consistent pattern: offer a reprint, refund, or store credit. If
+      the logic was that consistent, it could be automated.
     </p>
-    <p class="body case-study__copy">To address concerns, I:</p>
-    <ul class="body case-study__list">
-      <li>Presented three proposals with clear trade-offs (usability vs. feasibility vs. customer expectations) to facilitate informed decision-making</li>
-      <li>Led stakeholder presentations explaining the value proposition and business impact of each approach</li>
-      <li>Facilitated workshops with CARE leadership to understand operational constraints and validate automation feasibility</li>
-      <li>Collaborated closely with engineering to ensure design system components were technically feasible and maintainable</li>
-      <li>Co-authored PRDs with PM to align on success metrics and rollout strategy</li>
-    </ul>
+    <p class="body case-study__copy">
+      We prioritised the expansion roadmap together as a triad. Order tracking launched in Q1. Damaged products and
+      late/missing products launched in Q2. For the final two flows, I led discovery independently — the PM was not
+      available to support those projects, so I ran stakeholder interviews, analytics review, prioritisation, and
+      research coordination myself. Stakeholders accepted and moved both forward.
+    </p>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Expansion roadmap — three flows, two quarters</p>
+      <div class="oh-viz__roadmap">
+        <div class="oh-viz__quarter-col">
+          <div class="oh-viz__quarter-header oh-viz__quarter-header--q4">Q4 2024</div>
+          <div class="oh-viz__quarter-card">
+            <p class="oh-viz__quarter-sub">Phase 1 — Relaunch</p>
+            <p class="oh-viz__quarter-title">Order Help V2</p>
+            <p class="oh-viz__quarter-body">Full redesign. Non-automated flows with channel flexibility and Salesforce case creation. Eliminated the 6.5% follow-up rate from V1.</p>
+          </div>
+        </div>
+        <div class="oh-viz__quarter-col">
+          <div class="oh-viz__quarter-header oh-viz__quarter-header--q1">Q1 2025</div>
+          <div class="oh-viz__quarter-card">
+            <p class="oh-viz__quarter-sub">Phase 2 — Automation</p>
+            <p class="oh-viz__quarter-title">Order Tracking</p>
+            <p class="oh-viz__quarter-body">Live per-item tracking within Order Help. 100% task completion in testing. 67% of users resolve without creating a ticket.</p>
+          </div>
+        </div>
+        <div class="oh-viz__quarter-col">
+          <div class="oh-viz__quarter-header oh-viz__quarter-header--q2">Q2 2025</div>
+          <div class="oh-viz__quarter-card">
+            <p class="oh-viz__quarter-sub">Phase 3 — Automation</p>
+            <p class="oh-viz__quarter-title">Damaged + Late/Missing</p>
+            <p class="oh-viz__quarter-body">Automated resolution: reprint, refund, or store credit. Discovery led independently. Deflection rate at 1.5%+ and climbing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="oh-viz__roadmap-metrics">
+        <div class="oh-viz__roadmap-metric">
+          <span class="oh-viz__roadmap-metric-num">0.46%</span>
+          <span class="oh-viz__roadmap-metric-label">Original business target — deflection rate needed</span>
+        </div>
+        <div class="oh-viz__roadmap-metric">
+          <span class="oh-viz__roadmap-metric-num">1.5%+</span>
+          <span class="oh-viz__roadmap-metric-label">Actual deflection rate achieved — still climbing</span>
+        </div>
+        <div class="oh-viz__roadmap-metric">
+          <span class="oh-viz__roadmap-metric-num">3 quarters</span>
+          <span class="oh-viz__roadmap-metric-label">From rollback to full four-flow platform</span>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">How the three expansion flows were sequenced across Q1 and Q2</p>
+
+    <!-- Order Tracking -->
+    <h3 class="header3 case-study__header3" id="order-tracking">Order tracking (Q1)</h3>
+    <p class="body case-study__copy">
+      "Where is my order" was one of the highest-volume contact reasons. The tracking flow surfaces live order status
+      directly within Order Help — customers can see whether each product is in transit, out for delivery, or has had a
+      delivery attempt — and from there initiate a delivery issue report if needed. 10 users were tested on the flow,
+      all 10 completed the task successfully (100% task completion rate), and 9 out of 10 reported being very confident
+      they'd found the right information.
+    </p>
+    <p class="body case-study__copy">
+      The most significant outcome: 67% of customers who view their order status choose not to create a support ticket
+      at all. Seeing the information resolves their concern. This figure is now tracked as part of the platform's
+      ongoing deflection metrics.
+    </p>
+
+    <h4 class="header4 case-study__header4">A design constraint that required an A/B test</h4>
+    <p class="body case-study__copy">
+      The order status screen presented a genuine tension between design system constraints and contextual needs. The
+      design system team encouraged us to reuse an existing component; the PM domain lead felt the solution didn't suit
+      the experience of viewing tracking information in a support context. Rather than letting the disagreement become a
+      stalemate, I ran an A/B test to establish whether users had a preference. Both solutions performed comparably.
+      This gave the engineering team data-backed grounds to make the final call, and it removed subjectivity from what
+      had become a stakeholder conflict.
+    </p>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> Minor friction when users with multiple orders couldn't immediately identify which
+        order had a delivery issue</p>
+      <p><strong>Response:</strong> Flagged for future improvement as part of Help Center redesign — Self Service Card
+        anatomy work</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> A magnifying glass icon on product images caused confusion — users assumed it was
+        interactive</p>
+      <p><strong>Response:</strong> Recommended removing the icon to eliminate the false affordance</p>
+    </div>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Order tracking — per-item status and issue reporting</p>
+      <div class="oh-viz__wireframes" style="grid-template-columns:1fr 1fr;max-width:520px">
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--selected">Status view</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:13px;border-radius:2px;background:#d4cfc8;width:55%;margin-bottom:10px"></div>
+              <div style="background:#f0ece4;border-radius:3px;padding:10px;margin-bottom:8px;">
+                <div style="height:5px;background:#888;border-radius:2px;width:60%;margin-bottom:5px"></div>
+                <div style="height:5px;background:#d4cfc8;border-radius:2px;width:40%"></div>
+              </div>
+              <div class="oh-viz__phone-list">
+                <div style="background:#f0ece4;border-radius:3px;padding:10px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                  <div style="width:36px;height:36px;border-radius:3px;background:#e0dbd3;flex-shrink:0"></div>
+                  <div style="flex:1">
+                    <div class="oh-viz__wf-line" style="width:70%;margin-bottom:4px"></div>
+                    <div style="height:5px;background:#888;border-radius:2px;width:45%"></div>
+                  </div>
+                </div>
+                <div style="background:#e8e3db;border-radius:3px;padding:10px;display:flex;align-items:center;gap:8px;">
+                  <div style="width:36px;height:36px;border-radius:3px;background:#d4cfc8;flex-shrink:0"></div>
+                  <div style="flex:1">
+                    <div class="oh-viz__wf-line" style="width:60%;margin-bottom:4px"></div>
+                    <div style="height:5px;background:#aaa;border-radius:2px;width:35%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--light"></div>
+            </div>
+          </div>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">Issue reported</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:13px;border-radius:2px;background:#d4cfc8;width:65%;margin-bottom:10px"></div>
+              <div style="background:#222;border-radius:3px;padding:10px;margin-bottom:8px;">
+                <div style="height:5px;background:#555;border-radius:2px;width:50%;margin-bottom:5px"></div>
+                <div style="height:14px;background:#333;border-radius:2px;width:80%"></div>
+              </div>
+              <div class="oh-viz__phone-list">
+                <div style="background:#f0ece4;border-radius:3px;padding:10px;margin-bottom:6px;">
+                  <div class="oh-viz__wf-line" style="width:80%;margin-bottom:4px"></div>
+                  <div class="oh-viz__wf-line" style="width:55%"></div>
+                </div>
+                <div style="background:#e8e3db;border-radius:3px;padding:10px;">
+                  <div class="oh-viz__wf-line" style="width:70%;margin-bottom:4px"></div>
+                  <div class="oh-viz__wf-line" style="width:45%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--light"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="oh-viz__divider"></div>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">100%</span>
+          <p class="oh-viz__finding-text">Task completion rate across 10 usability test participants</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">67%</span>
+          <p class="oh-viz__finding-text">Of customers who view order status choose not to create a support ticket</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">The product status screen showing per-item tracking information</p>
+
+    <!-- Damaged Products -->
+    <h3 class="header3 case-study__header3" id="damaged-products">Damaged products (Q2)</h3>
+    <p class="body case-study__copy">
+      When a customer's product arrives damaged, the flow guides them through describing the issue, uploading a photo,
+      and selecting a resolution — reprint, refund, or store credit. This replaced a pattern where specialists were
+      manually reviewing cases and offering the same three options, often after requesting photos the customer had
+      already submitted through Order Help. Designing this flow required close collaboration with the Process and
+      Operations team to ensure the automated resolutions aligned with Vistaprint's policies and the conditions under
+      which each option was permissible.
+    </p>
+    <p class="body case-study__copy">
+      10 users tested the flow. Overall satisfaction was extremely high — several gave the experience a perfect
+      satisfaction score. The usability testing also uncovered a specific insight about issue labelling: the category
+      "Product is broken" confused users testing with an apparel scenario, as the concept of "broken" didn't map
+      intuitively onto fabric. This informed a copy refinement. The "Damaged package" label also caused ambiguity, with
+      users uncertain whether it referred to the shipping box or the product packaging. Both were addressed before
+      finalisation.
+    </p>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> "Product is broken" felt inapplicable to soft goods like T-shirts</p>
+      <p><strong>Response:</strong> Refined copy to better map to the full range of product types Vistaprint sells</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> "Damaged package" was interpreted inconsistently — some read it as the shipping box,
+        others as the product packaging</p>
+      <p><strong>Response:</strong> Clarified the label to remove ambiguity</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> Users valued being able to choose a resolution (replacement vs refund) and
+        appreciated seeing an estimated reprint delivery date, which helped them decide</p>
+      <p><strong>Response:</strong> Retained the delivery date display as a core part of the resolution selection screen
+      </p>
+    </div>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Damaged products — issue categorisation and automated resolution</p>
+      <div class="oh-viz__wireframes">
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--selected">1 — Select issue</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:13px;border-radius:2px;background:#d4cfc8;width:55%;margin-bottom:10px"></div>
+              <div class="oh-viz__phone-list">
+                <div style="background:#222;border-radius:3px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#555;flex-shrink:0"></div>
+                  <div style="height:6px;background:#555;border-radius:2px;width:55%"></div>
+                </div>
+                <div style="background:#f0ece4;border-radius:3px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:60%"></div>
+                </div>
+                <div style="background:#f0ece4;border-radius:3px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:50%"></div>
+                </div>
+                <div style="background:#f0ece4;border-radius:3px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
+                  <div class="oh-viz__wf-line" style="width:45%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+            </div>
+          </div>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">2 — Upload photo</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:13px;border-radius:2px;background:#d4cfc8;width:70%;margin-bottom:8px"></div>
+              <div style="height:100px;border-radius:3px;background:#ede8df;margin-bottom:8px;display:flex;align-items:center;justify-content:center;border:2px dashed #d4cfc8;">
+                <div style="width:28px;height:28px;border-radius:50%;background:#d4cfc8"></div>
+              </div>
+              <div style="background:#f0ece4;border-radius:3px;padding:10px;margin-bottom:6px;">
+                <div class="oh-viz__wf-line" style="width:80%;margin-bottom:4px"></div>
+                <div class="oh-viz__wf-line" style="width:55%"></div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--light"></div>
+            </div>
+          </div>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">3 — Select resolution</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:13px;border-radius:2px;background:#d4cfc8;width:60%;margin-bottom:10px"></div>
+              <div class="oh-viz__phone-list">
+                <div style="background:#222;border-radius:3px;padding:10px 12px;margin-bottom:6px;">
+                  <div style="height:5px;background:#555;border-radius:2px;width:30%;margin-bottom:6px"></div>
+                  <div style="height:14px;background:#333;border-radius:2px;width:65%"></div>
+                  <div style="height:5px;background:#555;border-radius:2px;width:50%;margin-top:5px"></div>
+                </div>
+                <div style="background:#f0ece4;border-radius:3px;padding:10px 12px;margin-bottom:6px;">
+                  <div style="height:5px;background:#aaa;border-radius:2px;width:25%;margin-bottom:6px"></div>
+                  <div class="oh-viz__wf-line" style="width:55%"></div>
+                </div>
+                <div style="background:#f0ece4;border-radius:3px;padding:10px 12px;">
+                  <div style="height:5px;background:#aaa;border-radius:2px;width:22%;margin-bottom:6px"></div>
+                  <div class="oh-viz__wf-line" style="width:50%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">The damaged products flow showing issue categorisation and resolution
+      options</p>
+
+    <!-- Late/Missing -->
+    <h3 class="header3 case-study__header3" id="late-missing">Late and missing products (Q2)</h3>
+    <p class="body case-study__copy">
+      The late and missing flow handles two emotionally distinct but related scenarios. If a product is still in transit
+      but past its promised delivery date, the customer is offered a shipping fee refund or store credit — acknowledging
+      the delay without over-committing on a resolution for a product that hasn't been lost yet. If the system shows
+      "Delivered" but the customer reports it never arrived, the full product cost is refunded. This resolution logic
+      was built in close coordination with the Process team, which proposed additional rules after the flow launched and
+      continued to evolve the automation criteria.
+    </p>
+    <p class="body case-study__copy">
+      Discovery for this flow followed a full research process: analytics review via Looker, stakeholder interviews to
+      understand operational policies, Jobs to Be Done mapping, benchmarking, brainstorming, concept evaluation, and A/B
+      testing of two late-products variants — all completed in under three weeks. Usability testing with 5 users
+      validated the core flow but surfaced a key gap: when users whose product genuinely hadn't arrived saw that their
+      only self-service options were shipping compensation, most chose to contact customer support instead. The
+      resolution options were insufficient for the emotional weight of the scenario.
+    </p>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> "Products arrived later than promised" caused momentary confusion alongside "Products
+        never arrived" — users weren't sure which to pick</p>
+      <p><strong>Response:</strong> Simplified to "Products arrived late" to reduce cognitive load at a high-frustration
+        moment</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Finding:</strong> For genuinely missing high-value items, shipping-only compensation was seen as
+        inadequate — users defaulted to contacting support</p>
+      <p><strong>Response:</strong> Recommended integrating full product refund/reprint options for the "never arrived"
+        scenario in the next iteration</p>
+    </div>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Late and missing — status-dependent resolution paths</p>
+      <div class="oh-viz__wireframes" style="grid-template-columns:1fr 1fr;max-width:520px">
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--selected">Late — In transit</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:13px;border-radius:2px;background:#d4cfc8;width:65%;margin-bottom:8px"></div>
+              <div style="background:#f0ece4;border-radius:3px;padding:10px;margin-bottom:8px;">
+                <div class="oh-viz__wf-line" style="width:80%;margin-bottom:4px"></div>
+                <div class="oh-viz__wf-line" style="width:55%"></div>
+              </div>
+              <div class="oh-viz__phone-list">
+                <div style="background:#222;border-radius:3px;padding:10px 12px;margin-bottom:6px;">
+                  <div style="height:5px;background:#555;border-radius:2px;width:35%;margin-bottom:5px"></div>
+                  <div style="height:6px;background:#333;border-radius:2px;width:70%"></div>
+                </div>
+                <div style="background:#f0ece4;border-radius:3px;padding:10px 12px;">
+                  <div style="height:5px;background:#aaa;border-radius:2px;width:30%;margin-bottom:5px"></div>
+                  <div class="oh-viz__wf-line" style="width:60%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--light"></div>
+            </div>
+          </div>
+          <p class="oh-viz__wf-tradeoff">Shipping fee refund or store credit — acknowledges delay without over-committing</p>
+        </div>
+        <div class="oh-viz__wf-col">
+          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">Missing — Marked delivered</div>
+          <div class="oh-viz__phone">
+            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
+            <div class="oh-viz__phone-body">
+              <div style="height:13px;border-radius:2px;background:#d4cfc8;width:65%;margin-bottom:8px"></div>
+              <div style="background:#f0ece4;border-radius:3px;padding:10px;margin-bottom:8px;">
+                <div class="oh-viz__wf-line" style="width:80%;margin-bottom:4px"></div>
+                <div class="oh-viz__wf-line" style="width:55%"></div>
+              </div>
+              <div class="oh-viz__phone-list">
+                <div style="background:#222;border-radius:3px;padding:10px 12px;margin-bottom:6px;">
+                  <div style="height:5px;background:#555;border-radius:2px;width:25%;margin-bottom:5px"></div>
+                  <div style="height:18px;background:#333;border-radius:2px;width:80%"></div>
+                  <div style="height:5px;background:#555;border-radius:2px;width:50%;margin-top:5px"></div>
+                </div>
+                <div style="background:#e8e3db;border-radius:3px;padding:10px 12px;">
+                  <div class="oh-viz__wf-line" style="width:60%;margin-bottom:4px"></div>
+                  <div class="oh-viz__wf-line" style="width:40%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="oh-viz__phone-cta">
+              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
+            </div>
+          </div>
+          <p class="oh-viz__wf-tradeoff">Full product cost refunded — system shows "Delivered" but customer confirms non-receipt</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">The late and missing products flow showing status-dependent resolution paths
+    </p>
 
   </section>
 
@@ -262,35 +1603,125 @@
 
     <h2 class="header2 case-study__header2">Impact</h2>
 
-    <h3 class="header3 case-study__header3" id="customer-effort">Reduced customer effort &amp; improved clarity</h3>
+    <h3 class="header3 case-study__header3" id="deflection">Growing deflection across the platform</h3>
     <p class="body case-study__copy">
-      By removing false promises of instant resolution, improving visual hierarchy, and clarifying copy throughout the flow, users reported high confidence in the updated experience. Usability testing showed most users understood cancellation processes, contact expectations, and remediation options clearly.
+      The platform grew from 0.3% deflection in May — the baseline before the relaunch — to 1.5% and still climbing as
+      all automated flows reached steady state. The original business target was 0.46%. The 6.5% follow-up case rate
+      from V1 was eliminated. The 0.76 extra contacts per order was reversed.
+    </p>
+    <p class="body case-study__copy">
+      The order tracking flow alone accounts for a meaningful share of that deflection: 67% of users who check their
+      order status do not go on to create a support ticket, meaning the tool is resolving a large volume of contacts
+      simply by surfacing information that customers previously had to call or chat to obtain.
     </p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Order Help user flow demonstration]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Deflection rate growth — Q4 2024 through Q2 2025</p>
+      <div class="oh-viz__chart-wrap">
+        <div class="oh-viz__bars">
+          <div class="oh-viz__target-line"></div>
+          <div class="oh-viz__bar-group">
+            <div class="oh-viz__bar oh-viz__bar--b1">
+              <span class="oh-viz__bar-val">0.3%</span>
+            </div>
+          </div>
+          <div class="oh-viz__bar-group">
+            <div class="oh-viz__bar oh-viz__bar--b2">
+              <span class="oh-viz__bar-val">0.5%</span>
+            </div>
+          </div>
+          <div class="oh-viz__bar-group">
+            <div class="oh-viz__bar oh-viz__bar--b3">
+              <span class="oh-viz__bar-val">0.9%</span>
+            </div>
+          </div>
+          <div class="oh-viz__bar-group">
+            <div class="oh-viz__bar oh-viz__bar--b4">
+              <span class="oh-viz__bar-val">1.5%+</span>
+            </div>
+          </div>
+        </div>
+        <div class="oh-viz__bar-labels">
+          <span class="oh-viz__bar-xlabel">V2 Relaunch<br>Q4 2024</span>
+          <span class="oh-viz__bar-xlabel">+ Tracking<br>Q1 2025</span>
+          <span class="oh-viz__bar-xlabel">+ Damaged<br>Q2 2025</span>
+          <span class="oh-viz__bar-xlabel oh-viz__bar-xlabel--last">+ Late/Missing<br>Q2 2025</span>
+        </div>
+        <div class="oh-viz__chart-legend">
+          <div class="oh-viz__chart-legend-line"></div>
+          <span class="oh-viz__chart-legend-label">Business target: 0.46% deflection</span>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">A snippet from the Figma prototype showing the updated user flow</p>
+    <p class="capttion case-study__caption">Deflection rate growth from V1 rollback through full platform launch</p>
 
-    <h3 class="header3 case-study__header3" id="business-goals">Surpassed business goals</h3>
+    <h3 class="header3 case-study__header3" id="customer-effort">Reduced customer effort</h3>
     <p class="body case-study__copy">
-      Order Help V2 achieved ~2% sustained contact deflection, significantly surpassing the 0.46% goal. The solution reduced back-and-forth emails, eliminated the 6.5% follow-up case rate, and enabled expansion with additional automated flows (order tracking, late/missing/damaged product resolution).
+      Across all four flows, usability testing consistently showed users completing tasks with high confidence, low
+      friction, and often a tone of genuine surprise at how easy the process was. Users contrasted Order Help favourably
+      with Amazon and other platforms. Several noted they were "pleased not to need to call customer service." The
+      damaged products flow received a perfect 10/10 satisfaction score from multiple participants.
     </p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Metrics dashboard showing deflection performance]</span>
-    </div>
-    <p class="capttion case-study__caption">Performance metrics showing sustained 2% contact deflection</p>
-
-    <h3 class="header3 case-study__header3" id="automation">Foundation for scalable automation</h3>
+    <h3 class="header3 case-study__header3" id="operational">Operational integrity preserved</h3>
     <p class="body case-study__copy">
-      The modular design approach enabled quick expansion post-launch. By prioritising non-automated flows first (to reduce Average Handle Time) and automation second (for deflection), we balanced quick wins with long-term strategic value. This created a foundation for adding new automated capabilities without rebuilding the entire system.
+      The Salesforce case visibility issue — which would have left specialists unable to see what automated resolutions
+      had been issued — was caught and reversed before launch. This protected both the customer experience (no
+      conflicting communications from agents unaware of prior automated actions) and the operational team's ability to
+      audit and improve the system over time.
     </p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Design system components and specifications]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Platform architecture — four modular flows, shared infrastructure</p>
+      <div class="oh-viz__flow">
+        <div class="oh-viz__step oh-viz__step--first">
+          <p class="oh-viz__step-num">SHARED ENTRY</p>
+          <p class="oh-viz__step-title">My Account → Orders</p>
+          <p class="oh-viz__step-body">Single entry point for all four flows — Order Help button on order details</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">FLOW 1 — Q4</p>
+          <p class="oh-viz__step-title">V2 Relaunch</p>
+          <p class="oh-viz__step-body">Non-automated. Channel selection + Salesforce case creation</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">FLOW 2 — Q1</p>
+          <p class="oh-viz__step-title">Order Tracking</p>
+          <p class="oh-viz__step-body">Live status per item. 67% self-resolve without a ticket</p>
+        </div>
+      </div>
+      <div style="height:8px"></div>
+      <div class="oh-viz__flow">
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">FLOW 3 — Q2</p>
+          <p class="oh-viz__step-title">Damaged Products</p>
+          <p class="oh-viz__step-body">Automated reprint, refund, or store credit</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">FLOW 4 — Q2</p>
+          <p class="oh-viz__step-title">Late / Missing</p>
+          <p class="oh-viz__step-body">Status-dependent resolution — shipping fee or full product refund</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">SHARED BACKEND</p>
+          <p class="oh-viz__step-title">Salesforce + Process Team</p>
+          <p class="oh-viz__step-body">All cases and automated resolutions logged — full specialist visibility</p>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">A snippet from the design system specifications</p>
+    <p class="capttion case-study__caption">The modular platform structure enabling continued expansion</p>
+
+    <h3 class="header3 case-study__header3" id="automation">A foundation for continued expansion</h3>
+    <p class="body case-study__copy">
+      The modular design approach — prioritising non-automated flows first to reduce Average Handle Time, then
+      automation for deflection — meant the platform could expand without rebuilding. Each new flow reused shared
+      components, shared the same entry point, and plugged into the same Salesforce and Process team infrastructure. The
+      deflection number continues to grow.
+    </p>
 
   </section>
 
@@ -299,30 +1730,122 @@
 
     <h2 class="header2 case-study__header2">Result</h2>
     <p class="body case-study__copy">
-      This project resulted in a launched self-service tool that transformed a failed product into a business success. Order Help V2 achieved ~2% sustained contact deflection, reduced customer effort through clearer expectations, and created a foundation for scalable automation. The modular design enabled post-launch expansion with order tracking and automated issue resolution flows.
+      In under a year, Order Help went from a rolled-back product that was making support worse to a multi-flow
+      self-service platform delivering measurable, growing deflection. The work required diagnosing a failed launch,
+      rebuilding trust with stakeholders, designing and testing four distinct flows, leading discovery independently
+      when PM support was unavailable, and navigating operational and design system constraints without letting them
+      compromise the quality of the customer experience.
     </p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Order Help homepage — Final design]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">The complete platform — before and after</p>
+      <div class="oh-viz__two-col">
+        <div class="oh-viz__col oh-viz__col--dark">
+          <p class="oh-viz__col-label">V1 — Rolled back</p>
+          <div class="oh-viz__metric-card oh-viz__metric-card--dark">
+            <span class="oh-viz__metric-num">0.76</span>
+            <span class="oh-viz__metric-label">extra contacts per order created</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--dark">
+            <span class="oh-viz__metric-num">6.5%</span>
+            <span class="oh-viz__metric-label">follow-up case rate</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--dark">
+            <span class="oh-viz__metric-num">1 flow</span>
+            <span class="oh-viz__metric-label">launched before rollback</span>
+          </div>
+        </div>
+        <div class="oh-viz__col oh-viz__col--light">
+          <p class="oh-viz__col-label">Platform — Live</p>
+          <div class="oh-viz__metric-card oh-viz__metric-card--light">
+            <span class="oh-viz__metric-num">1.5%+</span>
+            <span class="oh-viz__metric-label">deflection rate, still climbing</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--light">
+            <span class="oh-viz__metric-num">0%</span>
+            <span class="oh-viz__metric-label">follow-up case rate — fully eliminated</span>
+          </div>
+          <div class="oh-viz__metric-card oh-viz__metric-card--light">
+            <span class="oh-viz__metric-num">4 flows</span>
+            <span class="oh-viz__metric-label">across tracking, damaged, and late/missing</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">The final design of the Order Help entry point</p>
+    <p class="capttion case-study__caption">The complete Order Help platform</p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Contact selection screen — Final design]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Order tracking — live status with seamless issue entry</p>
+      <div class="oh-viz__chips">
+        <span class="oh-viz__chip">10/10 task completion</span>
+        <span class="oh-viz__chip">9/10 reported high confidence</span>
+        <span class="oh-viz__chip">67% self-resolve</span>
+        <span class="oh-viz__chip">A/B test to resolve design system conflict</span>
+      </div>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">67%</span>
+          <p class="oh-viz__finding-text">Of customers who view their order status resolve their concern without creating a support ticket</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">100%</span>
+          <p class="oh-viz__finding-text">Task completion rate — all 10 usability test participants successfully completed the flow</p>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">The final design of the contact channel selection</p>
+    <p class="capttion case-study__caption">Order tracking: live status with seamless issue reporting entry point</p>
 
-    <div class="oh-image-placeholder">
-      <span class="oh-image-placeholder__text">[Cancellation flow — Final design]</span>
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Damaged products — self-service reprint, refund, or store credit</p>
+      <div class="oh-viz__chips">
+        <span class="oh-viz__chip">10 users tested</span>
+        <span class="oh-viz__chip">Perfect 10/10 satisfaction from multiple participants</span>
+        <span class="oh-viz__chip">Close Process & Operations collaboration</span>
+      </div>
+      <div class="oh-viz__insights-grid">
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">COPY REFINEMENT</span>
+          <p class="oh-viz__insight-finding">"Product is broken" didn't map intuitively to soft goods like T-shirts</p>
+          <p class="oh-viz__insight-response">→ Refined copy to cover the full range of product types Vistaprint sells</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">LABEL CLARITY</span>
+          <p class="oh-viz__insight-finding">"Damaged package" was read as either the shipping box or the product packaging</p>
+          <p class="oh-viz__insight-response">→ Clarified the label to remove ambiguity before finalisation</p>
+        </div>
+      </div>
     </div>
-    <p class="capttion case-study__caption">The final design of the automated cancellation flow</p>
+    <p class="capttion case-study__caption">Damaged products: self-service reprint, refund, or store credit</p>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Late and missing — resolution paths adapted to delivery status</p>
+      <div class="oh-viz__chips">
+        <span class="oh-viz__chip">5 users tested</span>
+        <span class="oh-viz__chip">A/B test on late-products variants</span>
+        <span class="oh-viz__chip">Discovery led independently in &lt;3 weeks</span>
+      </div>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">In transit</span>
+          <p class="oh-viz__finding-text">Shipping fee refund or store credit — acknowledges the delay without over-committing on a product still on its way</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Marked delivered</span>
+          <p class="oh-viz__finding-text">Full product cost refunded — for items showing as delivered that the customer confirms never arrived</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Late/missing products: resolution paths adapted to delivery status</p>
 
     <!-- My role & What I did -->
     <div class="case-study__block">
       <div class="case-study__content case-study__content-first">
         <h3 class="header3 case-study__header3">My role</h3>
         <p class="body case-study__copy">
-          IC Designer in product triad (PM, Engineering Lead, Design) who led end-to-end UX research and design while collaborating closely with data analysts, customer support specialists, CARE leadership, and stakeholders. I drove discovery when PM bandwidth was limited and shared product thinking throughout the project.
+          IC Designer in a product triad across all phases of the project. I led end-to-end UX research and design for
+          the V2 relaunch and all three expansion flows, working across data analysts, customer support specialists,
+          CARE leadership, the Process team, engineering, and the design system team. For the damaged products and
+          late/missing flows, I led discovery independently without PM support.
         </p>
       </div>
 
@@ -331,14 +1854,17 @@
         <ul class="body case-study__list">
           <li>Support case analysis (200+ cases) and follow-up case deep dive (50 cases)</li>
           <li>Customer support specialist interviews and CARE leadership workshops</li>
-          <li>User research (usability testing with 10 users, analysed in HeyMarvin)</li>
+          <li>Usability testing with 35+ users across four flows, analysed in HeyMarvin</li>
+          <li>A/B testing to resolve design system vs. contextual component conflict</li>
+          <li>Stakeholder interviews, analytics review, and JTBD mapping for expansion flows</li>
           <li>Design principles definition and stakeholder alignment</li>
-          <li>Three solution proposals with trade-off analysis</li>
-          <li>Mid-fidelity wireframes and high-fidelity mockups</li>
+          <li>Three solution proposals for V2 with trade-off analysis</li>
+          <li>Mid-fidelity wireframes and high-fidelity mockups across all flows</li>
           <li>Interactive prototypes in Figma</li>
           <li>Design system components and specifications</li>
+          <li>Close collaboration with Process and Operations on automation eligibility rules</li>
           <li>Co-authored PRDs and defined success metrics with PM</li>
-          <li>Stakeholder presentations and cross-functional collaboration</li>
+          <li>Pushed back on a Salesforce case visibility decision that was subsequently reversed</li>
         </ul>
       </div>
     </div>
@@ -350,10 +1876,8 @@
     <ul class="footer__links">
 
       <li>
-        <a href="https://www.linkedin.com/in/iura-osadchuk"
-           class="link footer__link"
-           target="_blank"
-           aria-label="Opens in a new tab">
+        <a href="https://www.linkedin.com/in/iura-osadchuk" class="link footer__link" target="_blank"
+          aria-label="Opens in a new tab">
           My LinkedIn
           <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
         </a>
@@ -361,9 +1885,7 @@
 
       <li>
         <a href="https://docs.google.com/document/d/18r_Zml1oGOXEkrHsc8pevsyfbx61abYbQSUGcjqnl8g/edit?usp=sharing"
-           class="link footer__link"
-           target="_blank"
-           aria-label="Opens in a new tab">
+          class="link footer__link" target="_blank" aria-label="Opens in a new tab">
           My CV
           <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
         </a>
@@ -371,9 +1893,7 @@
 
       <li>
         <a href="https://music.youtube.com/playlist?list=PLC71vVTEszT9Po9P16v8e7Xg0EmEZaflq&si=Qumorw2Ni3bmFR2L"
-           class="link footer__link"
-           target="_blank"
-           aria-label="Opens in a new tab">
+          class="link footer__link" target="_blank" aria-label="Opens in a new tab">
           Playlist for work
           <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
         </a>
@@ -383,4 +1903,5 @@
   </footer>
 
 </body>
+
 </html>
