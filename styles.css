@@ -953,10 +953,16 @@ body {
     padding-inline: 0;
   }
 }
+@media (min-width: 768px) {
+  .recommendations__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
 @media (min-width: 1280px) {
   .recommendations__wrapper {
-    flex-direction: row;
-    gap: 48px;
+    gap: 32px;
   }
 }
 .recommendations__header3 {
