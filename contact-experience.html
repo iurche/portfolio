@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RG9B9LDKWE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RG9B9LDKWE');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Experience Redesign | Portfolio</title>
+  <meta name="description" content="How VistaPrint's Contact Experience was redesigned to shift customers from email to callback, targeting a seven-figure annual revenue improvement.">
+  <link rel="icon" type="image/webp" href="images/favicon.webp">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .oh-image-placeholder {
+      width: 100%;
+      background-color: #ede8df;
+      border-radius: 4px;
+      border: 1px solid #d4cfc8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      box-sizing: border-box;
+    }
+
+    @media (min-width: 768px) {
+      .oh-image-placeholder {
+        min-height: 360px;
+      }
+    }
+
+    .oh-image-placeholder__text {
+      color: #999;
+      font-size: 14px;
+      font-style: italic;
+      text-align: center;
+      padding: 20px;
+      font-family: Arsenal, Helvetica, sans-serif;
+    }
+
+    .oh-finding-card {
+      background-color: #f0ece4;
+      padding: 24px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border-left: 4px solid #222222;
+    }
+
+    .oh-finding-card p {
+      font-size: 18px;
+      line-height: 2rem;
+      margin: 0 0 12px 0;
+      color: #222222;
+      font-family: Arsenal, Helvetica, sans-serif;
+    }
+
+    .oh-finding-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .oh-phase-label {
+      display: inline-block;
+      background-color: #222222;
+      color: #f5f0e8;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .oh-metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    @media (min-width: 768px) {
+      .oh-metric-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .oh-metric-card {
+      background-color: #f0ece4;
+      border-radius: 4px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .oh-metric-card__number {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #222222;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .oh-metric-card__label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #666;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── CASE STUDY VISUALS ── */
+    .oh-viz {
+      width: 100%;
+      background-color: #f0ece4;
+      border-radius: 4px;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .oh-viz { padding: 32px; }
+    }
+
+    .oh-viz__section-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666666;
+      margin: 0 0 10px 0;
+    }
+
+    .oh-viz__title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #222222;
+      margin: 0 0 20px 0;
+      line-height: 1.3;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__title { font-size: 22px; }
+    }
+
+    .oh-viz__divider {
+      width: 100%;
+      height: 1px;
+      background-color: #d4cfc8;
+      margin: 12px 0;
+    }
+
+    /* ── Metrics compare ── */
+    .oh-viz__two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .oh-viz__col {
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .oh-viz__col--dark { background-color: #222222; }
+    .oh-viz__col--light { background-color: #ede8df; }
+    .oh-viz__col-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin: 0 0 4px 0;
+    }
+    .oh-viz__col--dark .oh-viz__col-label { color: #f5f0e8; }
+    .oh-viz__col--light .oh-viz__col-label { color: #222222; }
+    .oh-viz__metric-card {
+      border-radius: 4px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .oh-viz__metric-card--dark { background-color: #333333; }
+    .oh-viz__metric-card--light { background-color: #e0dbd3; }
+    .oh-viz__metric-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.1;
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__metric-num { font-size: 34px; }
+    }
+    .oh-viz__metric-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+      display: block;
+    }
+    .oh-viz__col--dark .oh-viz__metric-num { color: #f5f0e8; }
+    .oh-viz__col--dark .oh-viz__metric-label { color: #999999; }
+    .oh-viz__col--light .oh-viz__metric-num { color: #222222; }
+    .oh-viz__col--light .oh-viz__metric-label { color: #666666; }
+
+    /* ── Stats row ── */
+    .oh-viz__stats-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__stats-row { grid-template-columns: repeat(4, 1fr); }
+    }
+    .oh-viz__stat-card {
+      background-color: #222222;
+      border-radius: 4px;
+      padding: 14px;
+    }
+    .oh-viz__stat-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #f5f0e8;
+      display: block;
+      line-height: 1.1;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__stat-num { font-size: 26px; }
+    }
+    .oh-viz__stat-label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #999999;
+      display: block;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* ── Findings grid ── */
+    .oh-viz__findings-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__findings-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .oh-viz__finding-card {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .oh-viz__finding-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #222222;
+      line-height: 1;
+    }
+    .oh-viz__finding-text {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Flow steps ── */
+    .oh-viz__flow {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__flow { flex-direction: row; align-items: stretch; }
+    }
+    .oh-viz__step {
+      border-radius: 4px;
+      padding: 18px;
+      flex: 1;
+    }
+    .oh-viz__step--first { background-color: #222222; }
+    .oh-viz__step--rest { background-color: #ede8df; }
+    .oh-viz__step-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #999999;
+      margin: 0 0 6px 0;
+    }
+    .oh-viz__step-title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      line-height: 1.3;
+    }
+    .oh-viz__step--first .oh-viz__step-title { color: #f5f0e8; }
+    .oh-viz__step--rest .oh-viz__step-title { color: #222222; }
+    .oh-viz__step-body {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .oh-viz__step--first .oh-viz__step-body { color: #aaaaaa; }
+    .oh-viz__step--rest .oh-viz__step-body { color: #666666; }
+    .oh-viz__flow-arrow {
+      display: none;
+      align-self: center;
+      color: #999999;
+      font-size: 16px;
+      padding: 0 2px;
+      flex-shrink: 0;
+    }
+    @media (min-width: 768px) { .oh-viz__flow-arrow { display: block; } }
+
+    /* ── Wireframes ── */
+    .oh-viz__wireframes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__wireframes { grid-template-columns: repeat(4, 1fr); }
+    }
+    .oh-viz__wf-col { display: flex; flex-direction: column; gap: 10px; }
+    .oh-viz__wf-chip {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+    .oh-viz__wf-chip--selected { background-color: #222222; color: #f5f0e8; }
+    .oh-viz__wf-chip--alt { background-color: #d4cfc8; color: #444444; }
+    .oh-viz__wf-tradeoff {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Direction card (text-based, no phone wireframe) ── */
+    .oh-viz__direction-card {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .oh-viz__direction-card--selected { background-color: #222222; }
+    .oh-viz__direction-card--selected .oh-viz__direction-title { color: #f5f0e8; }
+    .oh-viz__direction-card--selected .oh-viz__direction-body { color: #aaaaaa; }
+    .oh-viz__direction-card--selected .oh-viz__direction-eval { color: #888888; }
+    .oh-viz__direction-title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #222222;
+      margin: 0;
+      line-height: 1.3;
+    }
+    .oh-viz__direction-body {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .oh-viz__direction-eval {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 12px;
+      color: #666666;
+      line-height: 1.5;
+      margin: 0;
+      font-style: italic;
+    }
+
+    /* ── Chips ── */
+    .oh-viz__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+    .oh-viz__chip {
+      background-color: #ede8df;
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+    }
+
+    /* ── Insight cards ── */
+    .oh-viz__insights-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__insights-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .oh-viz__insight-card {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .oh-viz__insight-num {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #999999;
+    }
+    .oh-viz__insight-finding {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #222222;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .oh-viz__insight-response {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Roadmap ── */
+    .oh-viz__roadmap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    @media (min-width: 768px) {
+      .oh-viz__roadmap { grid-template-columns: repeat(3, 1fr); }
+    }
+    .oh-viz__quarter-col { display: flex; flex-direction: column; gap: 0; }
+    .oh-viz__quarter-header {
+      display: inline-flex;
+      padding: 5px 12px;
+      border-radius: 3px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #f5f0e8;
+      width: fit-content;
+      margin-bottom: 6px;
+    }
+    .oh-viz__quarter-header--q4 { background-color: #222222; }
+    .oh-viz__quarter-header--q1 { background-color: #444444; }
+    .oh-viz__quarter-header--q2 { background-color: #666666; }
+    .oh-viz__quarter-card {
+      background-color: #ede8df;
+      border-radius: 4px;
+      padding: 14px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .oh-viz__quarter-title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #222222;
+      margin: 0;
+    }
+    .oh-viz__quarter-sub {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #999999;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .oh-viz__quarter-body {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body class="case-study">
+
+  <div class="case-study__close-container">
+    <a href="index.html" class="case-study__close-link" aria-label="Return to main page">
+      <img class="case-study__close-icon" src="images/close_icon.svg" alt="Close the case study">
+    </a>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section class="case-study__section intro" id="intro">
+
+    <h1 class="header1 case-study__header1">
+      Contact Experience Redesign: From Email-First to Channel-First
+    </h1>
+
+    <p class="body case-study__copy">
+      VistaPrint's Contact Us experience had not been meaningfully redesigned in several years. Customers were defaulting
+      to email — the slowest and lowest-value channel — not because they preferred it, but because the interface made it
+      the path of least resistance. This project redesigned the contact channel surface from the ground up: from a
+      problem hypothesis backed by analytics and qualitative research, through competitive benchmarking of 15 companies,
+      to a validated channel-first design shipped as P0 in March 2026 — with an A/B/C test specified to measure channel
+      mix impact at scale.
+    </p>
+
+    <p class="body case-study__copy">
+      I led end-to-end UX across all phases: analytics review, transcript analysis of 30 support interactions,
+      structured evaluation of 4 solution directions, high-fidelity design for desktop and mobile, unmoderated usability
+      testing with 10 participants, and a full A/B/C test specification. The business target was a seven-figure annual
+      revenue improvement tied to a meaningful shift in channel mix toward higher-value interactions.
+    </p>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Project at a glance</p>
+      <div class="oh-viz__stats-row">
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">15 companies</span>
+          <span class="oh-viz__stat-label">Benchmarked across e-commerce, SaaS, and consumer services</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">30 transcripts</span>
+          <span class="oh-viz__stat-label">Customer support interactions analysed for pain patterns</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">4 directions</span>
+          <span class="oh-viz__stat-label">Solution directions evaluated against 5 criteria</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">10 users</span>
+          <span class="oh-viz__stat-label">Usability testing participants</span>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Research scope and scale across the Contact Experience Redesign</p>
+
+  </section>
+
+  <!-- ── CHALLENGE ── -->
+  <section class="case-study__section challenge" id="challenge">
+
+    <h2 class="header2 case-study__header2">Challenge</h2>
+
+    <h3 class="header3 case-study__header3">Business problem</h3>
+
+    <p class="body case-study__copy">
+      Email contacts carry significantly lower VGP than callback (C2C) or chat interactions. Despite this, email was the
+      dominant contact channel — overindexed relative to customer preference data. Three interconnected problems drove
+      this:
+    </p>
+
+    <div class="oh-finding-card">
+      <p><strong>Customers defaulting to email:</strong> Email dominated despite being slower and lower-VGP. Analytics
+        showed email contacts significantly overindexed relative to stated customer preference.</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Confusing contact surface:</strong> The existing Contact Us page lacked clear hierarchy. Customers
+        couldn't quickly identify the right channel for their situation.</p>
+    </div>
+
+    <div class="oh-finding-card">
+      <p><strong>Uncertainty and low confidence:</strong> Transcript analysis of 30 support interactions revealed a
+        recurring pattern of customers expressing uncertainty about order status, product specs, and checkout.</p>
+    </div>
+
+    <h3 class="header3 case-study__header3">Why now</h3>
+    <p class="body case-study__copy">
+      Several forces converged in FY26 Q3 to make this the right moment: continued email volume growth, a functional
+      Vista Assistant needing a redesigned entry point to drive adoption, and leadership alignment on a seven-figure
+      annual revenue key result tied specifically to contact channel mix improvement.
+    </p>
+
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="case-study__section process" id="process">
+
+    <h2 class="header2 case-study__header2">Process</h2>
+
+    <!-- Research -->
+    <h3 class="header3 case-study__header3" id="research">Research</h3>
+    <ul class="body case-study__list">
+      <li>Analytics review: baseline channel mix, contact volume by type, drop-off rates on existing contact page</li>
+      <li>Transcript analysis: deep-read of 30 customer support transcripts to identify recurring pain patterns and
+        unmet needs</li>
+      <li>Competitive benchmarking: analysis of 15 companies across e-commerce, SaaS, and consumer services (including
+        Shopify, Atlassian, Apple, Amazon, IKEA, Zendesk, Intercom, HubSpot, Dropbox)</li>
+    </ul>
+
+    <h4 class="header4 case-study__header4">Transcript analysis — 5 patterns identified</h4>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Transcript analysis — 30 customer support interactions</p>
+      <div class="oh-viz__chips">
+        <span class="oh-viz__chip">30 transcripts reviewed</span>
+        <span class="oh-viz__chip">5 recurring patterns</span>
+        <span class="oh-viz__chip">Qualitative analysis</span>
+      </div>
+      <div class="oh-viz__insights-grid">
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">PATTERN 01 — SYMPTOM VS. ROOT CAUSE</span>
+          <p class="oh-viz__insight-finding">Customers consistently described symptoms ("my order looks wrong") rather
+            than root causes. Agents spent significant time in diagnostic back-and-forth before arriving at the actual
+            issue.</p>
+          <p class="oh-viz__insight-response">→ The contact form needs to help customers surface better context upfront
+            — product type, order number, and intent — to enable faster triage.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">PATTERN 02 — MISSING IDENTIFIERS</span>
+          <p class="oh-viz__insight-finding">A high proportion of transcripts showed agents asking for order numbers or
+            account details that customers didn't have readily available, extending contact time and frustration.</p>
+          <p class="oh-viz__insight-response">→ Pre-populate known identifiers for logged-in users. This reduces burden
+            on both customers and specialists.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">PATTERN 03 — USER UNCERTAINTY &amp; LOW CONFIDENCE</span>
+          <p class="oh-viz__insight-finding">Many customers expressed uncertainty about whether their order had been
+            received, processed, or resolved — generating "reassurance contacts" where the primary goal was status
+            confirmation, not problem-solving.</p>
+          <p class="oh-viz__insight-response">→ The experience should set clear expectations about resolution timelines
+            and confirm next steps explicitly.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">PATTERN 04 — CHECKOUT FRICTION</span>
+          <p class="oh-viz__insight-finding">Several transcripts originated from customers who encountered friction
+            during checkout: unclear pricing, coupon confusion, unexpected shipping costs.</p>
+          <p class="oh-viz__insight-response">→ Out of scope for this project, but proactive deflection at checkout is
+            a high-value future opportunity.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">PATTERN 05 — WRONG CHANNEL SELECTION</span>
+          <p class="oh-viz__insight-finding">Customers frequently contacted via email for issues better suited to
+            callback, and vice versa — indicating the existing channel surface was not helping customers make informed
+            channel choices.</p>
+          <p class="oh-viz__insight-response">→ The interface needs to actively guide customers toward the right channel
+            for their situation, not present all channels as equivalent.</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Recurring patterns identified across 30 customer support transcripts</p>
+
+    <h4 class="header4 case-study__header4">Competitive benchmarking — 4 patterns identified</h4>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Competitive benchmarking — 15 companies across e-commerce, SaaS, and consumer
+        services</p>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Proactive Triage</span>
+          <p class="oh-viz__finding-text">Lead with "What do you need help with?" before surfacing channels — reduces
+            wrong-channel selection. Examples: Shopify, Atlassian, Zendesk.</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Self-Service Prioritisation</span>
+          <p class="oh-viz__finding-text">Open with self-service options; surface human contact only after self-service
+            is attempted. Examples: Apple, Amazon, Dropbox.</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Multi-Channel Transparency</span>
+          <p class="oh-viz__finding-text">Surface all channels with clear differentiation, response times, availability,
+            and best-fit use cases. Examples: IKEA, Intercom, HubSpot.</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Gated Contact</span>
+          <p class="oh-viz__finding-text">Human contact made deliberately less accessible; significant self-service
+            gates before reaching an agent. Common in large-scale e-commerce.</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Four patterns identified across 15 competitive benchmarks</p>
+
+    <p class="body case-study__copy">
+      The best-performing contact experiences combine self-service prioritisation with multi-channel transparency — easy
+      to self-serve, but immediately clear what your human options are. VistaPrint's opportunity was to adopt Proactive
+      Triage and Multi-Channel Transparency in combination: leading with Vista Assistant while making callback and email
+      clearly differentiated rather than equivalent.
+    </p>
+
+    <!-- Define -->
+    <h3 class="header3 case-study__header3" id="define">Define</h3>
+
+    <h4 class="header4 case-study__header4">Problem Statement</h4>
+
+    <div class="oh-finding-card">
+      <p><em>VistaPrint customers who need support face a contact experience that doesn't help them quickly find the
+          right channel, creates uncertainty, and systematically steers them toward slower, lower-quality
+          interactions.</em></p>
+    </div>
+
+    <h4 class="header4 case-study__header4">5 Core User Needs</h4>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Core user needs — synthesised from research</p>
+      <div class="oh-viz__insights-grid">
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">NEED 01</span>
+          <p class="oh-viz__insight-finding">I need to know immediately whether I'm in the right place for my problem.
+          </p>
+          <p class="oh-viz__insight-response">→ Channel-first two-card layout with distinct card copy mapping to
+            customer intent.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">NEED 02</span>
+          <p class="oh-viz__insight-finding">I need to feel confident that my issue will actually be resolved.</p>
+          <p class="oh-viz__insight-response">→ Explicit "We'll call you back in 2 minutes" commitment; success state
+            with clear next steps.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">NEED 03</span>
+          <p class="oh-viz__insight-finding">I don't want to repeat myself or provide information I've already given.
+          </p>
+          <p class="oh-viz__insight-response">→ Pre-populated name, email, and recent orders; intent-based category
+            selection.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">NEED 04</span>
+          <p class="oh-viz__insight-finding">I need to understand how long this will take before I commit to a channel.
+          </p>
+          <p class="oh-viz__insight-response">→ Each channel card includes explicit availability and response time;
+            out-of-hours states show next available time.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">NEED 05</span>
+          <p class="oh-viz__insight-finding">I want to be able to choose how I interact without being forced into a
+            channel.</p>
+          <p class="oh-viz__insight-response">→ Email preserved as always-accessible fallback, displayed as secondary
+            link-style element.</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Five core user needs synthesised from transcript analysis, benchmarking,
+      and usability testing</p>
+
+    <h4 class="header4 case-study__header4">Jobs to Be Done</h4>
+    <ul class="body case-study__list">
+      <li>When I'm worried about an order, I want to quickly confirm its status so I can stop worrying.</li>
+      <li>When something has gone wrong with my order, I want to reach a real person quickly so I can get it sorted
+        before my deadline.</li>
+      <li>When I have a product question, I want an instant answer so I can make my decision and move on.</li>
+      <li>When I need to make a change to my order, I want to do it myself so I don't have to wait for someone to do it
+        for me.</li>
+      <li>When I'm contacting support, I want to know upfront how long it will take so I can decide whether to start now
+        or come back later.</li>
+    </ul>
+
+    <!-- Ideate -->
+    <h3 class="header3 case-study__header3" id="ideate">Ideate</h3>
+    <ul class="body case-study__list">
+      <li>Four solution directions explored across different trade-offs</li>
+      <li>Structured evaluation against 5 criteria: deflection power, user friction, assurance, technical complexity,
+        P0 feasibility</li>
+      <li>Direction 4 selected for P0; Direction 3 documented as long-term product vision</li>
+    </ul>
+
+    <h4 class="header4 case-study__header4">Four solution directions evaluated</h4>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Four solution directions — trade-off evaluation</p>
+      <div class="oh-viz__wireframes" style="grid-template-columns: 1fr;">
+        <div style="display:grid;grid-template-columns:1fr;gap:12px;">
+
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">D1 — AI-First</div>
+            <div class="oh-viz__direction-card">
+              <p class="oh-viz__direction-title">Led entirely with Vista Assistant</p>
+              <p class="oh-viz__direction-body">Human channels surfaced only after AI interaction or explicit bypass.</p>
+              <p class="oh-viz__direction-eval">High deflection power. Low assurance for complex issues. Risk of
+                frustrating customers who know they need a human. Not selected for P0.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">D2 — Issue Description-First</div>
+            <div class="oh-viz__direction-card">
+              <p class="oh-viz__direction-title">Customer describes issue; AI identifies intent</p>
+              <p class="oh-viz__direction-body">If successful, only contact details and additional context are
+                requested. If not, customer selects intent manually before proceeding.</p>
+              <p class="oh-viz__direction-eval">High assurance potential. High user friction — blank-slate problem
+                description is cognitively demanding. Not selected for P0.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">D3 — Form-First + Automated Routing (Long-term vision)
+            </div>
+            <div class="oh-viz__direction-card">
+              <p class="oh-viz__direction-title">Structured triage form categorises the issue, routes to optimal
+                resolution path</p>
+              <p class="oh-viz__direction-body">Routes to self-service, agent, or AI based on categorised intent. The
+                most sophisticated and highest-potential direction.</p>
+              <p class="oh-viz__direction-eval">Highest deflection power and assurance. High technical complexity — not
+                feasible for Q3 timeframe. Documented as the long-term product vision. Not selected for P0.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="oh-viz__wf-chip oh-viz__wf-chip--selected">D4 — Channel-First ✓ Selected</div>
+            <div class="oh-viz__direction-card oh-viz__direction-card--selected">
+              <p class="oh-viz__direction-title">Two clearly differentiated cards: Vista Assistant + Request Help</p>
+              <p class="oh-viz__direction-body">Clear hierarchy, immediate visual choice, no triage required. Email
+                de-emphasised to a link-style treatment.</p>
+              <p class="oh-viz__direction-eval">Best balance of deliverability and impact for P0. Benchmarking and user
+                research both supported multi-channel transparency. Creates the surface into which intelligent triage
+                routing (D3) can be layered in P1/P2.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="oh-viz__divider"></div>
+      <p class="oh-viz__section-label">Evaluation matrix</p>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Deflection Power</span>
+          <p class="oh-viz__finding-text">D1: High &nbsp;·&nbsp; D2: Medium &nbsp;·&nbsp; D3: Highest &nbsp;·&nbsp;
+            <strong>D4: High</strong></p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">User Friction</span>
+          <p class="oh-viz__finding-text">D1: Low &nbsp;·&nbsp; D2: High &nbsp;·&nbsp; D3: Medium &nbsp;·&nbsp;
+            <strong>D4: Low</strong></p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Assurance &amp; Advice</span>
+          <p class="oh-viz__finding-text">D1: Low &nbsp;·&nbsp; D2: High &nbsp;·&nbsp; D3: High &nbsp;·&nbsp;
+            <strong>D4: High</strong></p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Technical Complexity</span>
+          <p class="oh-viz__finding-text">D1: Medium &nbsp;·&nbsp; D2: Medium &nbsp;·&nbsp; D3: High &nbsp;·&nbsp;
+            <strong>D4: Low</strong></p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">P0 Feasibility</span>
+          <p class="oh-viz__finding-text">D1: High &nbsp;·&nbsp; D2: Medium &nbsp;·&nbsp; D3: Low &nbsp;·&nbsp;
+            <strong>D4: High</strong></p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Four solution directions evaluated against five business and experience
+      criteria</p>
+
+    <!-- Test -->
+    <h3 class="header3 case-study__header3" id="test">Test</h3>
+    <p class="body case-study__copy">
+      After the solution was designed, an unmoderated remote usability test was conducted with 10 participants (mix of
+      mobile and desktop) using UserTesting. Participants completed the full contact flow: channel selection, form
+      completion, and the success state.
+    </p>
+
+    <div class="oh-metric-row">
+      <div class="oh-metric-card">
+        <span class="oh-metric-card__number">10 users</span>
+        <span class="oh-metric-card__label">Tested across desktop and mobile</span>
+      </div>
+      <div class="oh-metric-card">
+        <span class="oh-metric-card__number">Unmoderated</span>
+        <span class="oh-metric-card__label">Remote testing via UserTesting</span>
+      </div>
+      <div class="oh-metric-card">
+        <span class="oh-metric-card__number">3 variants</span>
+        <span class="oh-metric-card__label">A/B/C test specified for in-production measurement</span>
+      </div>
+    </div>
+
+    <h4 class="header4 case-study__header4">What worked well</h4>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Usability testing — validated patterns</p>
+      <div class="oh-viz__chips">
+        <span class="oh-viz__chip">10 participants</span>
+        <span class="oh-viz__chip">Desktop + mobile</span>
+        <span class="oh-viz__chip">UserTesting platform</span>
+        <span class="oh-viz__chip">Full flow tested</span>
+      </div>
+      <div class="oh-viz__insights-grid">
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">VALIDATED — MULTI-STEP FORM STRUCTURE</span>
+          <p class="oh-viz__insight-finding">Participants understood and appreciated progressive disclosure — one
+            decision at a time reduced cognitive load and increased completion confidence.</p>
+          <p class="oh-viz__insight-response">Validated — no changes needed.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">VALIDATED — CONTEXTUAL ORDER SUGGESTIONS</span>
+          <p class="oh-viz__insight-finding">Pre-populated order details in the callback form were consistently praised.
+            Several participants noted they "didn't have to go look it up."</p>
+          <p class="oh-viz__insight-response">Validated — retained as core pattern.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">VALIDATED — 2-MINUTE CALLBACK PROMISE</span>
+          <p class="oh-viz__insight-finding">The explicit "We'll call you back in 2 minutes" copy generated strong
+            positive response, described as specific and trustworthy.</p>
+          <p class="oh-viz__insight-response">Validated — retained. Visual prominence of the timer increased.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">VALIDATED — RANGE OF CONTACT OPTIONS</span>
+          <p class="oh-viz__insight-finding">Having both immediate (callback) and async (email) options gave
+            participants a sense of agency, even when they defaulted to callback.</p>
+          <p class="oh-viz__insight-response">Validated — channel flexibility model confirmed.</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Usability test patterns confirmed before launch</p>
+
+    <h4 class="header4 case-study__header4">What needed improvement</h4>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Usability testing — findings and responses</p>
+      <div class="oh-viz__insights-grid">
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">FINDING 01 — "SEND A MESSAGE" VISUAL WEIGHT</span>
+          <p class="oh-viz__insight-finding">The email option was perceived as an equal alternative to callback by some
+            participants, undermining the channel hierarchy intent.</p>
+          <p class="oh-viz__insight-response">→ Email treatment refined — further de-emphasised to a text link, not a
+            button. Visual contrast between callback (primary) and email (secondary) increased.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">FINDING 02 — CALLBACK TIME PROMINENCE</span>
+          <p class="oh-viz__insight-finding">Some participants expressed concern about whether the callback would
+            actually happen within 2 minutes. The timer/confirmation needed more visual emphasis.</p>
+          <p class="oh-viz__insight-response">→ Callback confirmation copy and timer made more visually prominent on
+            the success state.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">FINDING 03 — MISSING LIVE CHAT</span>
+          <p class="oh-viz__insight-finding">A subset of participants expected a live chat option and expressed mild
+            disappointment at its absence.</p>
+          <p class="oh-viz__insight-response">→ Documented as a future consideration. Out of scope for P0 given current
+            tooling constraints.</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Usability test findings driving design refinements before launch</p>
+
+    <!-- Finalize -->
+    <h3 class="header3 case-study__header3" id="finalize">Finalize — The Solution: What Was Built</h3>
+    <p class="body case-study__copy">
+      The P0 solution is a redesigned contact experience spanning four key states: the Help Center entry point, channel
+      selection, the callback form (two steps), and success/out-of-hours states.
+    </p>
+
+    <h4 class="header4 case-study__header4">Entry Point — Banner Integration</h4>
+    <p class="body case-study__copy">
+      A contextual banner added to the Help Center page surfaces the Contact Us flow without requiring customers to
+      navigate to a separate page. The banner includes a prominent CTA below the search bar, supporting copy explaining
+      available channels, conditional display logic (shown only when no contact session is active), and responsive
+      design that collapses gracefully on mobile.
+    </p>
+
+    <h4 class="header4 case-study__header4">Channel Selection — Two-Card Layout</h4>
+    <p class="body case-study__copy">
+      The primary contact screen presents Vista Assistant and Request Help as two clearly differentiated cards.
+    </p>
+    <ul class="body case-study__list">
+      <li><strong>Card parity:</strong> Both cards visually equivalent in size and weight — no pre-selection or
+        over-emphasis</li>
+      <li><strong>Email de-emphasis:</strong> "Send a message" styled as a text link, not a button — communicates
+        fallback role without hiding it</li>
+      <li><strong>Working hours on card:</strong> Customers see availability before clicking through — reduces
+        out-of-hours frustration</li>
+      <li><strong>Mobile:</strong> Cards stack vertically, Vista Assistant above Request Help, preserving hierarchy on
+        smaller screens</li>
+    </ul>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Contact experience — four key states</p>
+      <div class="oh-viz__flow">
+        <div class="oh-viz__step oh-viz__step--first">
+          <p class="oh-viz__step-num">ENTRY</p>
+          <p class="oh-viz__step-title">Help Center Banner</p>
+          <p class="oh-viz__step-body">Contextual CTA below search bar — surfaces contact flow without a page change</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">CHOOSE</p>
+          <p class="oh-viz__step-title">Channel Selection</p>
+          <p class="oh-viz__step-body">Vista Assistant or Request Help — email as fallback text link</p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">DETAIL</p>
+          <p class="oh-viz__step-title">Callback Form (2 steps)</p>
+          <p class="oh-viz__step-body">Contact details + intent (Step 1), order selection + issue description (Step 2)
+          </p>
+        </div>
+        <div class="oh-viz__flow-arrow">→</div>
+        <div class="oh-viz__step oh-viz__step--rest">
+          <p class="oh-viz__step-num">CONFIRM</p>
+          <p class="oh-viz__step-title">Success State</p>
+          <p class="oh-viz__step-body">"We're calling you now" or "We have received your email" with clear next steps
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">The four-state contact experience flow</p>
+
+    <h4 class="header4 case-study__header4">Step 1 — Contact Details &amp; Intent</h4>
+    <p class="body case-study__copy">
+      Personalised greeting: "Hi [First Name], let's make sure we have the right details." Pre-filled name and email
+      from account data. Intent dropdown with 9 categories. Phone number field required for callback. Consent checkbox.
+      Progress indicator (Step 1 of 3) in sidebar with working hours reference.
+    </p>
+
+    <h4 class="header4 case-study__header4">Step 2 — Issue Details</h4>
+    <p class="body case-study__copy">
+      Up to 3 most recent orders displayed as selectable cards with thumbnail, name, and order number. Text field for
+      issue description. File upload component. CTA: "Request callback" — final submission trigger.
+    </p>
+
+    <h4 class="header4 case-study__header4">Success States</h4>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Success states — in-hours and out-of-hours</p>
+      <div class="oh-viz__two-col">
+        <div class="oh-viz__col oh-viz__col--dark">
+          <p class="oh-viz__col-label">Callback Confirmed</p>
+          <div class="oh-viz__metric-card oh-viz__metric-card--dark">
+            <span class="oh-viz__metric-num">"We're calling you now"</span>
+            <span class="oh-viz__metric-label">Callback requested during working hours — timer confirms expected wait
+              time</span>
+          </div>
+        </div>
+        <div class="oh-viz__col oh-viz__col--light">
+          <p class="oh-viz__col-label">Email Confirmed</p>
+          <div class="oh-viz__metric-card oh-viz__metric-card--light">
+            <span class="oh-viz__metric-num">"We have received your email"</span>
+            <span class="oh-viz__metric-label">Email submitted or callback requested out of hours — clear next steps
+              shown</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Success states for in-hours callback and email/out-of-hours submission</p>
+
+    <!-- A/B/C Testing -->
+    <h3 class="header3 case-study__header3" id="testing">A/B/C Testing Strategy</h3>
+    <p class="body case-study__copy">
+      The P0 solution is validated in production via an A/B/C test designed to measure the impact of channel hierarchy
+      changes on contact channel mix and downstream VGP.
+    </p>
+
+    <div class="oh-finding-card">
+      <p><strong>Hypothesis:</strong> De-emphasising email in favour of callback (Variant B) will shift contact channel
+        mix toward C2C, increasing VGP per contact without meaningfully reducing contact completion rate or customer
+        satisfaction. Variant C will show additional channel mix shift but may reduce overall completion rate among
+        customers with a genuine email preference — identifying whether the hierarchy change is additive or
+        substitutive.</p>
+    </div>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">A/B/C test — three variants</p>
+      <div class="oh-viz__insights-grid">
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">VARIANT A — CONTROL</span>
+          <p class="oh-viz__insight-finding">Current contact experience. No changes to channel presentation, hierarchy,
+            or email treatment.</p>
+          <p class="oh-viz__insight-response">Baseline for all comparisons.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">VARIANT B — EMAIL AS LINK (ALWAYS AVAILABLE)</span>
+          <p class="oh-viz__insight-finding">Redesigned channel-first experience. Email styled as a text link —
+            accessible at all times but visually de-emphasised relative to callback.</p>
+          <p class="oh-viz__insight-response">Primary P0 design.</p>
+        </div>
+        <div class="oh-viz__insight-card">
+          <span class="oh-viz__insight-num">VARIANT C — EMAIL FALLBACK ONLY (OUT-OF-HOURS)</span>
+          <p class="oh-viz__insight-finding">More aggressive hierarchy. Email surfaced only when callback and chat are
+            unavailable.</p>
+          <p class="oh-viz__insight-response">Tests the maximum email suppression scenario.</p>
+        </div>
+      </div>
+      <div class="oh-viz__divider"></div>
+      <p class="oh-viz__section-label">Primary metrics</p>
+      <div class="oh-viz__findings-grid">
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">C2C contact rate</span>
+          <p class="oh-viz__finding-text">Hypothesis: B &gt; A; C &gt; B<br>Measurement: C2C contacts / total contacts
+            (basis points)</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Email contact rate</span>
+          <p class="oh-viz__finding-text">Hypothesis: B &lt; A; C &lt; B<br>Measurement: Email contacts / total
+            contacts (basis points)</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">Contact completion rate</span>
+          <p class="oh-viz__finding-text">Hypothesis: B ≈ A; C possibly &lt; A<br>Measurement: Contacts completed /
+            contact page sessions</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">VGP per contact</span>
+          <p class="oh-viz__finding-text">Hypothesis: B &gt; A; C ≥ B<br>Measurement: VGP attributed to contact
+            interaction</p>
+        </div>
+        <div class="oh-viz__finding-card">
+          <span class="oh-viz__finding-num">CSAT (post-contact)</span>
+          <p class="oh-viz__finding-text">Hypothesis: B ≥ A; C ≥ A<br>Measurement: Customer satisfaction score,
+            post-interaction survey</p>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">A/B/C test structure with three variants and five primary metrics</p>
+
+    <h4 class="header4 case-study__header4">Decision framework</h4>
+    <ul class="body case-study__list">
+      <li>If B shows significant C2C uplift with stable CSAT → roll out B to 100%</li>
+      <li>If C shows C2C uplift without contact completion regression → evaluate C for phase 2 rollout</li>
+      <li>If B or C shows CSAT decline &gt;5% → pause and investigate before proceeding</li>
+    </ul>
+
+  </section>
+
+  <!-- ── IMPACT ── -->
+  <section class="case-study__section impact" id="impact">
+
+    <h2 class="header2 case-study__header2">Impact</h2>
+
+    <p class="body case-study__copy">
+      This project is in P0 launch as of March 2026. The A/B/C test is the instrument for measuring in-production
+      impact. The design was built to drive a meaningful shift in channel mix toward higher-value interactions and a
+      measurable reduction in low-value email contact volume — changes that, if achieved, translate to a seven-figure
+      annual revenue improvement for VistaPrint.
+    </p>
+
+    <h3 class="header3 case-study__header3">What the research validated</h3>
+    <p class="body case-study__copy">
+      Usability testing confirmed the core design decisions before launch. The channel-first two-card layout was
+      understood immediately. Pre-filled account data was praised. The callback promise copy ("We'll call you back in 2
+      minutes") was described as specific and trustworthy. The multi-step form structure reduced cognitive load —
+      participants completed the flow with high confidence and low friction.
+    </p>
+
+    <div class="oh-viz">
+      <p class="oh-viz__section-label">Research-validated outcomes</p>
+      <div class="oh-viz__stats-row">
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">7-figure</span>
+          <span class="oh-viz__stat-label">Annual revenue improvement target if channel mix shifts as designed</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">Channel mix</span>
+          <span class="oh-viz__stat-label">Meaningful shift toward higher-value interactions — validated by usability testing</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">10/10</span>
+          <span class="oh-viz__stat-label">Task completion in usability test — all participants completed the flow</span>
+        </div>
+        <div class="oh-viz__stat-card">
+          <span class="oh-viz__stat-num">P0</span>
+          <span class="oh-viz__stat-label">Shipped March 2026 — A/B/C test live</span>
+        </div>
+      </div>
+    </div>
+    <p class="capttion case-study__caption">Research validation and business targets at launch</p>
+
+    <h3 class="header3 case-study__header3">A direction documented for the roadmap</h3>
+    <p class="body case-study__copy">
+      Direction 3 — Form-First + Automated Routing — was the most sophisticated option evaluated and the
+      highest-potential long-term architecture. It was explicitly documented as the product vision for P1/P2, with
+      Direction 4 as the fastest viable step toward it. This means the P0 design creates the surface into which
+      intelligent triage routing can be layered as the technical foundation matures — rather than requiring a rebuild.
+    </p>
+
+  </section>
+
+  <!-- ── RESULT / MY ROLE ── -->
+  <section class="case-study__section result" id="result">
+
+    <div class="case-study__block">
+      <div class="case-study__content case-study__content-first">
+        <h3 class="header3 case-study__header3">My role</h3>
+        <p class="body case-study__copy">
+          IC Designer in a product triad. I led end-to-end UX research and design for the full redesign: analytics
+          review, transcript analysis, competitive benchmarking, problem framing, solution direction evaluation,
+          high-fidelity design (desktop and mobile), usability testing, and A/B/C test specification.
+        </p>
+      </div>
+
+      <div class="case-study__content case-study__content-second">
+        <h3 class="header3 case-study__header3">What I did</h3>
+        <ul class="body case-study__list">
+          <li>Analytics review: baseline channel mix, contact volume, and drop-off rates on the existing contact page
+          </li>
+          <li>Transcript analysis: deep-read of 30 customer support interactions to identify recurring pain patterns
+          </li>
+          <li>Competitive benchmarking: 15 companies across e-commerce, SaaS, and consumer services</li>
+          <li>Problem framing: Jobs to Be Done mapping and synthesis of 5 core user needs</li>
+          <li>Solution direction evaluation: structured scoring of 4 directions against 5 business and experience
+            criteria</li>
+          <li>High-fidelity Figma designs for desktop and mobile across all key states</li>
+          <li>Unmoderated usability testing with 10 participants via UserTesting</li>
+          <li>A/B/C test specification: 3 variants, 5 primary metrics, decision framework</li>
+          <li>Stakeholder alignment on direction selection and P0 scope</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <ul class="footer__links">
+
+      <li>
+        <a href="https://www.linkedin.com/in/iura-osadchuk" class="link footer__link" target="_blank"
+          aria-label="Opens in a new tab">
+          My LinkedIn
+          <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
+        </a>
+      </li>
+
+      <li>
+        <a href="https://docs.google.com/document/d/18r_Zml1oGOXEkrHsc8pevsyfbx61abYbQSUGcjqnl8g/edit?usp=sharing"
+          class="link footer__link" target="_blank" aria-label="Opens in a new tab">
+          My CV
+          <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
+        </a>
+      </li>
+
+      <li>
+        <a href="https://music.youtube.com/playlist?list=PLC71vVTEszT9Po9P16v8e7Xg0EmEZaflq&si=Qumorw2Ni3bmFR2L"
+          class="link footer__link" target="_blank" aria-label="Opens in a new tab">
+          Playlist for work
+          <img src="images/new_window_icon_beige.svg" alt="Open in new window icon">
+        </a>
+      </li>
+
+    </ul>
+  </footer>
+
+</body>
+
+</html>
