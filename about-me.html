@@ -34,16 +34,14 @@
     </header>
     <main>
       <section class="hero">
-        <!-- <img class="hero__img"
-             src="images/About me.png"
-             alt="Iurii sitting on a bench"/> -->
+        <div class="parallax-container">
+          <img
+              class="about__img parallax-img"
+              src="images/About me.png"
+              alt="Iurii sitting on a bench">
+        </div>
 
-          <div class="hero__video">
-           <iframe class ="hero__video-content" src="https://www.youtube.com/embed/uQDuNPUeyKA?cc_load_policy=1&hl=en&cc_lang_pref=en"
-                   title="YouTube video player"
-                   frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-           </iframe>
-          </div>
+        <h1 class="header1 hero__title">About me</h1>
 
         <div class="hero__intro">
 
@@ -215,5 +213,20 @@
       </li>
       </ul>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to('.parallax-img', {
+        yPercent: 15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.parallax-container',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    </script>
   </body>
 </html>

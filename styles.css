@@ -353,9 +353,20 @@ body {
 .about__description {
   margin: 0;
 }
+.parallax-container {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
 .about__img {
   width: 100%;
   margin: 0;
+  will-change: transform;
+}
+.parallax-img {
+  transform: scale(1.15);
+  transform-origin: center top;
 }
 .about__button {
   margin-top: 16px;
@@ -862,6 +873,24 @@ body {
   position: relative;
   aspect-ratio: 16/9;
   width: 100%;
+}
+.hero__title {
+  padding-inline: 1.25rem;
+  margin-inline: auto;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .hero__title {
+    padding-inline: 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__title {
+    padding-inline: 0;
+    min-width: 1020px;
+  }
 }
 .hero__intro {
   margin-top: 40px;
