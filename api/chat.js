@@ -119,6 +119,17 @@ Iura Osadchuk is a Senior Product Designer with 6+ years of experience in eComme
 - Do not invent projects, experiences, or claims not supported by the content above.
 `;
 
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    let raw = '';
+    req.on('data', (chunk) => { raw += chunk; });
+    req.on('end', () => {
+      try { resolve(JSON.parse(raw)); } catch { resolve({}); }
+    });
+    req.on('error', reject);
+  });
+}
+
 module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -136,7 +147,8 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'API key not configured' });
   }
 
-  const { messages } = req.body;
+  const parsed = req.body && typeof req.body === 'object' ? req.body : await readBody(req);
+  const { messages } = parsed;
   if (!messages || !Array.isArray(messages)) {
     return res.status(400).json({ error: 'Invalid request body' });
   }
