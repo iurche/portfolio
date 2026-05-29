@@ -1,3 +1,5 @@
+const https = require('https');
+
 const SYSTEM_PROMPT = `You are an AI assistant embedded in Iura Osadchuk's portfolio website. Your role is to help potential employers and recruiters learn about Iura and his work.
 
 ## About Iura
@@ -140,29 +142,49 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
+    const data = await new Promise((resolve, reject) => {
+      const body = JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 1024,
         system: SYSTEM_PROMPT,
         messages,
-      }),
+      });
+
+      const options = {
+        hostname: 'api.anthropic.com',
+        path: '/v1/messages',
+        method: 'POST',
+        headers: {
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'content-type': 'application/json',
+          'content-length': Buffer.byteLength(body),
+        },
+      };
+
+      const req = https.request(options, (resp) => {
+        let raw = '';
+        resp.on('data', (chunk) => { raw += chunk; });
+        resp.on('end', () => {
+          try {
+            resolve({ status: resp.statusCode, body: JSON.parse(raw) });
+          } catch {
+            reject(new Error('Invalid JSON from Anthropic'));
+          }
+        });
+      });
+
+      req.on('error', reject);
+      req.write(body);
+      req.end();
     });
 
-    if (!response.ok) {
-      const error = await response.text();
-      console.error('Anthropic API error:', error);
+    if (data.status !== 200) {
+      console.error('Anthropic API error:', data.body);
       return res.status(502).json({ error: 'AI service error' });
     }
 
-    const data = await response.json();
-    const text = data.content?.[0]?.text || '';
+    const text = data.body.content?.[0]?.text || '';
     return res.status(200).json({ reply: text });
   } catch (err) {
     console.error('Chat handler error:', err);
