@@ -68,7 +68,7 @@
       isOpen = !isOpen;
       drawer.classList.toggle('chat-drawer--open', isOpen);
       bubble.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) inputEl.focus();
+      if (isOpen) inputEl.focus({ preventScroll: true });
     }
 
     bubble.addEventListener('click', toggleDrawer);

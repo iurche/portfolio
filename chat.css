@@ -182,7 +182,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.15s;
-  align-self: flex-end;
+  align-self: stretch;
   white-space: nowrap;
 }
 
