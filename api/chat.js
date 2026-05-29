@@ -1,5 +1,3 @@
-const https = require('https');
-
 const SYSTEM_PROMPT = `You are an AI assistant embedded in Iura Osadchuk's portfolio website. Your role is to help potential employers and recruiters learn about Iura and his work.
 
 ## About Iura
@@ -119,6 +117,12 @@ Iura Osadchuk is a Senior Product Designer with 6+ years of experience in eComme
 - Do not invent projects, experiences, or claims not supported by the content above.
 `;
 
+function send(res, status, body) {
+  const json = JSON.stringify(body);
+  res.writeHead(status, { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(json) });
+  res.end(json);
+}
+
 function readBody(req) {
   return new Promise((resolve, reject) => {
     let raw = '';
@@ -132,74 +136,63 @@ function readBody(req) {
 
 module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    return res.status(200).end();
+    res.writeHead(200, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    });
+    res.end();
+    return;
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return send(res, 405, { error: 'Method not allowed' });
   }
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'API key not configured' });
+    return send(res, 500, { error: 'API key not configured' });
   }
 
-  const parsed = req.body && typeof req.body === 'object' ? req.body : await readBody(req);
+  let parsed;
+  try {
+    parsed = req.body && typeof req.body === 'object' ? req.body : await readBody(req);
+  } catch (e) {
+    return send(res, 400, { error: 'Could not read request body' });
+  }
+
   const { messages } = parsed;
   if (!messages || !Array.isArray(messages)) {
-    return res.status(400).json({ error: 'Invalid request body' });
+    return send(res, 400, { error: 'Invalid request body' });
   }
 
   try {
-    const data = await new Promise((resolve, reject) => {
-      const body = JSON.stringify({
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 1024,
         system: SYSTEM_PROMPT,
         messages,
-      });
-
-      const options = {
-        hostname: 'api.anthropic.com',
-        path: '/v1/messages',
-        method: 'POST',
-        headers: {
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'content-type': 'application/json',
-          'content-length': Buffer.byteLength(body),
-        },
-      };
-
-      const req = https.request(options, (resp) => {
-        let raw = '';
-        resp.on('data', (chunk) => { raw += chunk; });
-        resp.on('end', () => {
-          try {
-            resolve({ status: resp.statusCode, body: JSON.parse(raw) });
-          } catch {
-            reject(new Error('Invalid JSON from Anthropic'));
-          }
-        });
-      });
-
-      req.on('error', reject);
-      req.write(body);
-      req.end();
+      }),
     });
 
-    if (data.status !== 200) {
-      console.error('Anthropic API error:', data.body);
-      return res.status(502).json({ error: 'AI service error' });
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Anthropic API error:', JSON.stringify(data));
+      return send(res, 502, { error: 'AI service error' });
     }
 
-    const text = data.body.content?.[0]?.text || '';
-    return res.status(200).json({ reply: text });
+    const text = data.content?.[0]?.text || '';
+    return send(res, 200, { reply: text });
   } catch (err) {
-    console.error('Chat handler error:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error('Chat handler error:', err.message, err.stack);
+    return send(res, 500, { error: 'Internal server error' });
   }
 };
