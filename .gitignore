@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+.agent/
+.agents/
+.kiro/
+skills-lock.json
+save-sage-image.mjs
