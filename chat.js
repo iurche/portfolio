@@ -18,11 +18,6 @@
   }
 
   function createWidget() {
-    const style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = '/chat.css';
-    document.head.appendChild(style);
-
     const bubble = document.createElement('button');
     bubble.className = 'chat-bubble';
     bubble.setAttribute('aria-label', 'Ask about Iura');
@@ -95,8 +90,10 @@
 
     const path = window.location.pathname;
     const isHome = path === '/' || path.endsWith('/index.html');
-    const wasOpen = sessionStorage.getItem(STORAGE_OPEN) === '1';
-    if (isHome || wasOpen) toggleDrawer(true);
+    const storedState = sessionStorage.getItem(STORAGE_OPEN);
+    const wasOpen = storedState === '1';
+    const explicitlyClosed = storedState === '0';
+    if (wasOpen || (isHome && !explicitlyClosed)) toggleDrawer(true);
 
     inputEl.addEventListener('input', () => {
       sendBtn.disabled = inputEl.value.trim() === '' || loading;
