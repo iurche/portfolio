@@ -6,6 +6,17 @@
     "What tools does Iura work with?",
   ];
 
+  const STORAGE_OPEN = 'chatOpen';
+  const STORAGE_HISTORY = 'chatHistory';
+
+  function saveHistory(history) {
+    sessionStorage.setItem(STORAGE_HISTORY, JSON.stringify(history));
+  }
+
+  function loadHistory() {
+    try { return JSON.parse(sessionStorage.getItem(STORAGE_HISTORY)) || []; } catch { return []; }
+  }
+
   function createWidget() {
     const style = document.createElement('link');
     style.rel = 'stylesheet';
@@ -49,9 +60,16 @@
     const startersEl = drawer.querySelector('#chat-starters');
     const closeBtn = drawer.querySelector('.chat-drawer__close');
 
-    const history = [];
+    const history = loadHistory();
     let isOpen = false;
     let loading = false;
+
+    // Restore previous conversation
+    if (history.length > 0) {
+      startersEl.style.display = 'none';
+      history.forEach(({ role, content }) => appendMessage(content, role, false));
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
 
     STARTERS.forEach(text => {
       const btn = document.createElement('button');
@@ -69,7 +87,7 @@
       drawer.classList.toggle('chat-drawer--open', isOpen);
       bubble.setAttribute('aria-expanded', String(isOpen));
       if (isOpen && !suppressFocus) inputEl.focus({ preventScroll: true });
-      sessionStorage.setItem('chatOpen', isOpen ? '1' : '0');
+      sessionStorage.setItem(STORAGE_OPEN, isOpen ? '1' : '0');
     }
 
     bubble.addEventListener('click', toggleDrawer);
@@ -77,7 +95,7 @@
 
     const path = window.location.pathname;
     const isHome = path === '/' || path.endsWith('/index.html');
-    const wasOpen = sessionStorage.getItem('chatOpen') === '1';
+    const wasOpen = sessionStorage.getItem(STORAGE_OPEN) === '1';
     if (isHome || wasOpen) toggleDrawer(true);
 
     inputEl.addEventListener('input', () => {
@@ -103,18 +121,19 @@
       sendMessage(text);
     });
 
-    function appendMessage(text, role) {
+    function appendMessage(text, role, scroll = true) {
       const el = document.createElement('div');
       el.className = `chat-msg chat-msg--${role}`;
       el.textContent = text;
       messagesEl.appendChild(el);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
+      if (scroll) messagesEl.scrollTop = messagesEl.scrollHeight;
       return el;
     }
 
     async function sendMessage(text) {
       appendMessage(text, 'user');
       history.push({ role: 'user', content: text });
+      saveHistory(history);
 
       loading = true;
       sendBtn.disabled = true;
@@ -133,6 +152,7 @@
         if (data.reply) {
           appendMessage(data.reply, 'assistant');
           history.push({ role: 'assistant', content: data.reply });
+          saveHistory(history);
         } else {
           appendMessage('Sorry, something went wrong. Please try again.', 'assistant');
         }
