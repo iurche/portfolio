@@ -128,6 +128,7 @@
     }
 
     async function sendMessage(text) {
+      if (typeof gtag === 'function') gtag('event', 'chat_question', { question: text });
       appendMessage(text, 'user');
       history.push({ role: 'user', content: text });
       saveHistory(history);
