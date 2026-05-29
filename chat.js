@@ -64,11 +64,12 @@
       startersEl.appendChild(btn);
     });
 
-    function toggleDrawer() {
+    function toggleDrawer(suppressFocus) {
       isOpen = !isOpen;
       drawer.classList.toggle('chat-drawer--open', isOpen);
       bubble.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) inputEl.focus({ preventScroll: true });
+      if (isOpen && !suppressFocus) inputEl.focus({ preventScroll: true });
+      sessionStorage.setItem('chatOpen', isOpen ? '1' : '0');
     }
 
     bubble.addEventListener('click', toggleDrawer);
@@ -76,7 +77,8 @@
 
     const path = window.location.pathname;
     const isHome = path === '/' || path.endsWith('/index.html');
-    if (isHome) toggleDrawer();
+    const wasOpen = sessionStorage.getItem('chatOpen') === '1';
+    if (isHome || wasOpen) toggleDrawer(true);
 
     inputEl.addEventListener('input', () => {
       sendBtn.disabled = inputEl.value.trim() === '' || loading;
