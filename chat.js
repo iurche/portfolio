@@ -74,6 +74,10 @@
     bubble.addEventListener('click', toggleDrawer);
     closeBtn.addEventListener('click', toggleDrawer);
 
+    const path = window.location.pathname;
+    const isHome = path === '/' || path.endsWith('/index.html');
+    if (isHome) toggleDrawer();
+
     inputEl.addEventListener('input', () => {
       sendBtn.disabled = inputEl.value.trim() === '' || loading;
       inputEl.style.height = 'auto';

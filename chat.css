@@ -31,9 +31,10 @@
   position: fixed;
   bottom: 92px;
   right: 28px;
-  width: 360px;
+  width: 400px;
   max-width: calc(100vw - 32px);
-  max-height: 520px;
+  height: 670px;
+  max-height: calc(100vh - 120px);
   background-color: #f5f0e8;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
