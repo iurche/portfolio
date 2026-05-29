@@ -193,6 +193,6 @@ module.exports = async function handler(req, res) {
     return send(res, 200, { reply: text });
   } catch (err) {
     console.error('Chat handler error:', err.message, err.stack);
-    return send(res, 500, { error: 'Internal server error' });
+    return send(res, 500, { error: err.message + ' | ' + (err.stack || '') });
   }
 };
