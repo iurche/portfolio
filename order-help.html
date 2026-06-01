@@ -645,6 +645,38 @@
       font-size: 11px;
       color: #888888;
     }
+
+    /* ── COVER IMAGE ── */
+    .oh-cover {
+      width: 100%;
+      overflow: hidden;
+    }
+    .oh-cover__img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 480px;
+      padding-bottom: 32px;
+    }
+
+    /* ── FINAL DESIGN SCREENS ── */
+    .oh-final-screens {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .oh-final-screen {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .oh-final-screen__img {
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #d4cfc8;
+      display: block;
+    }
   </style>
 </head>
 
@@ -656,12 +688,15 @@
     </a>
   </div>
 
+  <!-- ── COVER IMAGE ── -->
   <!-- ── INTRO ── -->
   <section class="case-study__section intro" id="intro">
 
     <h1 class="header1 case-study__header1">
       Order Help: From a Significant Contact Volume Problem to a Self-Service Platform
     </h1>
+
+    <img class="oh-cover__img" src="images/in-process-template2-5.png" alt="Order Help V2 — issue type selection screen showing six support options" />
 
     <p class="body case-study__copy">
       What started as a crisis became a platform. After VistaPrint's first Order Help launch created a significant increase in unnecessary contact volume instead of reducing it, I led the end-to-end redesign and expansion of the tool — turning a failed
@@ -1112,86 +1147,35 @@
     </ul>
 
     <div class="oh-viz">
-      <p class="oh-viz__section-label">Order Help V2 — Final design, three-step flow</p>
-      <div class="oh-viz__wireframes">
-        <div class="oh-viz__wf-col">
-          <div class="oh-viz__wf-chip oh-viz__wf-chip--selected">1 — Select issue</div>
-          <div class="oh-viz__phone">
-            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
-            <div class="oh-viz__phone-body">
-              <div style="height:14px;border-radius:2px;background:#d4cfc8;width:70%;margin-bottom:10px"></div>
-              <div class="oh-viz__phone-list">
-                <div style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;background:#222;border-radius:3px;margin-bottom:6px;">
-                  <div style="width:14px;height:14px;border-radius:50%;background:#555;flex-shrink:0"></div>
-                  <div style="height:6px;border-radius:2px;background:#555;width:60%"></div>
-                </div>
-                <div class="oh-viz__wf-row oh-viz__wf-row--card" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
-                  <div class="oh-viz__wf-line" style="width:55%"></div>
-                </div>
-                <div class="oh-viz__wf-row oh-viz__wf-row--card-alt" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                  <div style="width:14px;height:14px;border-radius:50%;background:#c8c2ba;flex-shrink:0"></div>
-                  <div class="oh-viz__wf-line" style="width:50%"></div>
-                </div>
-                <div class="oh-viz__wf-row oh-viz__wf-row--card" style="height:44px;padding:10px;display:flex;align-items:center;gap:8px;">
-                  <div style="width:14px;height:14px;border-radius:50%;background:#d4cfc8;flex-shrink:0"></div>
-                  <div class="oh-viz__wf-line" style="width:45%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="oh-viz__phone-cta">
-              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
-            </div>
-          </div>
+      <p class="oh-viz__section-label">Order Help V2 — Final UI, report product issue flow</p>
+      <div class="oh-final-screens">
+        <div class="oh-final-screen">
+          <span class="oh-viz__wf-chip oh-viz__wf-chip--selected">1 — Select issue type</span>
+          <img class="oh-final-screen__img" src="images/in-process-template2-5.png" alt="Order Help V2 — issue type selection showing six support options: track order, report delivery issue, report product issue, download invoice, resend confirmation, and cancel order" />
         </div>
-        <div class="oh-viz__wf-col">
-          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">2 — Add details</div>
-          <div class="oh-viz__phone">
-            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
-            <div class="oh-viz__phone-body">
-              <div style="height:14px;border-radius:2px;background:#d4cfc8;width:80%;margin-bottom:8px"></div>
-              <div style="height:80px;border-radius:3px;background:#e8e3db;margin-bottom:8px;border:1px solid #d4cfc8"></div>
-              <div style="height:60px;border-radius:3px;background:#ede8df;margin-bottom:8px;display:flex;align-items:center;justify-content:center;">
-                <div style="width:28px;height:28px;border-radius:50%;background:#d4cfc8"></div>
-              </div>
-              <div class="oh-viz__wf-line" style="width:90%;margin-bottom:5px"></div>
-              <div class="oh-viz__wf-line" style="width:70%"></div>
-            </div>
-            <div class="oh-viz__phone-cta">
-              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
-            </div>
-          </div>
+        <div class="oh-final-screen">
+          <span class="oh-viz__wf-chip oh-viz__wf-chip--alt">2 — Select affected products</span>
+          <img class="oh-final-screen__img" src="images/in-process-template2-4.png" alt="Product selection screen with progress bar showing two order items — an organic cotton t-shirt and a vinyl banner — with checkboxes to identify affected products" />
         </div>
-        <div class="oh-viz__wf-col">
-          <div class="oh-viz__wf-chip oh-viz__wf-chip--alt">3 — Choose channel</div>
-          <div class="oh-viz__phone">
-            <div class="oh-viz__phone-nav oh-viz__phone-nav--dark"></div>
-            <div class="oh-viz__phone-body">
-              <div style="height:14px;border-radius:2px;background:#d4cfc8;width:65%;margin-bottom:10px"></div>
-              <div class="oh-viz__phone-list">
-                <div style="height:52px;border-radius:3px;background:#f0ece4;margin-bottom:6px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
-                  <div style="height:5px;background:#222;border-radius:2px;width:25%"></div>
-                  <div class="oh-viz__wf-line" style="width:65%"></div>
-                </div>
-                <div style="height:52px;border-radius:3px;background:#e8e3db;margin-bottom:6px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
-                  <div style="height:5px;background:#888;border-radius:2px;width:20%"></div>
-                  <div class="oh-viz__wf-line" style="width:55%"></div>
-                </div>
-                <div style="height:52px;border-radius:3px;background:#e8e3db;padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
-                  <div style="height:5px;background:#888;border-radius:2px;width:22%"></div>
-                  <div class="oh-viz__wf-line" style="width:50%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="oh-viz__phone-cta">
-              <div class="oh-viz__cta-btn oh-viz__cta-btn--dark"></div>
-              <div class="oh-viz__cta-btn oh-viz__cta-btn--light"></div>
-            </div>
-          </div>
+        <div class="oh-final-screen">
+          <span class="oh-viz__wf-chip oh-viz__wf-chip--alt">3 — Choose resolution</span>
+          <img class="oh-final-screen__img" src="images/in-process-template2-3.png" alt="Resolution options screen showing the affected product alongside four choices: Replacement, Vista store credit, Refund, and Contact Customer Support, each with pricing and timing details" />
+        </div>
+        <div class="oh-final-screen">
+          <span class="oh-viz__wf-chip oh-viz__wf-chip--alt">4 — Review request</span>
+          <img class="oh-final-screen__img" src="images/in-process-template2-2.png" alt="Request review screen summarising the selected product, problem type, reason, description, and requested resolution before submission" />
+        </div>
+        <div class="oh-final-screen">
+          <span class="oh-viz__wf-chip oh-viz__wf-chip--alt">5 — Choose contact channel</span>
+          <img class="oh-final-screen__img" src="images/in-process-template2.png" alt="Contact channel selection showing three options: Callback (labelled Fastest), Live chat with green availability indicator, and Email with 24-hour response time" />
+        </div>
+        <div class="oh-final-screen">
+          <span class="oh-viz__wf-chip oh-viz__wf-chip--alt">6 — Confirmation</span>
+          <img class="oh-final-screen__img" src="images/in-process-template2-1.png" alt="Callback confirmation screen — we're calling you now — with a request summary panel showing status, date, problem description, and selected products" />
         </div>
       </div>
     </div>
-    <p class="capttion case-study__caption">Figma prototype of the Order Help V2 experience</p>
+    <p class="capttion case-study__caption">Final UI — the live report product issue flow, showing automated resolution and channel flexibility</p>
 
   </section>
 
