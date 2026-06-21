@@ -481,10 +481,20 @@ module.exports = async function handler(req, res) {
     return send(res, 400, { error: 'Could not read request body' });
   }
 
-  const { messages } = parsed;
+  const { messages, page } = parsed;
   if (!messages || !Array.isArray(messages)) {
     return send(res, 400, { error: 'Invalid request body' });
   }
+
+  const PAGE_FOCUS = {
+    'order-help': 'The user is currently viewing the Order Help case study page. Focus your answers on Case Study 1 (Order Help) unless the user explicitly asks about something else.',
+    'contact-experience': 'The user is currently viewing the Contact Experience Redesign case study page. Focus your answers on Case Study 2 (Contact Experience Redesign) unless the user explicitly asks about something else.',
+    'user-profile': 'The user is currently viewing the User Profile Redesign case study page. Focus your answers on Case Study 3 (User Profile Redesign) unless the user explicitly asks about something else.',
+  };
+
+  const systemPrompt = page && PAGE_FOCUS[page]
+    ? `${SYSTEM_PROMPT}\n\n---\n\n${PAGE_FOCUS[page]}`
+    : SYSTEM_PROMPT;
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -497,7 +507,7 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 1024,
-        system: SYSTEM_PROMPT,
+        system: systemPrompt,
         messages,
       }),
     });

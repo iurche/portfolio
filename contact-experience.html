@@ -603,7 +603,7 @@
           const res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ messages: history }),
+            body: JSON.stringify({ messages: history, page: 'contact-experience' }),
           });
           const data = await res.json();
           if (data.reply) {
