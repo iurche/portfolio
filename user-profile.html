@@ -169,6 +169,69 @@
       }
     }
 
+    /* ── Thanks for reading ── */
+    .cs2-next {
+      padding-top: 64px;
+    }
+
+    .cs2-next__heading {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #222;
+      margin: 0 0 24px 0;
+      padding-top: 56px;
+      overflow: visible;
+    }
+
+    @media (min-width: 768px) {
+      .cs2-next__heading { font-size: 2.625rem; }
+    }
+
+    @keyframes balloon-float {
+      0%, 100% { transform: translateY(0px)   rotate(-1.5deg); }
+      50%      { transform: translateY(-5.5px)  rotate(1.25deg); }
+    }
+
+    .cs2-next__heart {
+      display: inline-block;
+      margin-left: 8px;
+      vertical-align: middle;
+      animation: balloon-float 2.4s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .cs2-next__cards {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+    }
+
+    .cs2-next__card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cs2-next__img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+    }
+
+    .cs2-next__title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1.35;
+      flex: 1;
+    }
+
     .cs2-image-stack {
       display: flex;
       flex-direction: column;
@@ -456,6 +519,24 @@
           </figure>
 
         </div>
+
+        <!-- Thanks for reading -->
+        <div class="cs2-next">
+          <h2 class="cs2-next__heading">Thanks for reading <span class="cs2-next__heart">🖤</span></h2>
+          <div class="cs2-next__cards">
+            <div class="cs2-next__card">
+              <img src="images/order-help.webp" alt="Order Help case study" class="cs2-next__img">
+              <span class="cs2-next__title">Order Help: From a Significant Contact Volume Problem to a Self-Service Platform</span>
+              <a href="order-help.html" class="primary projects__button">Read case study</a>
+            </div>
+            <div class="cs2-next__card">
+              <img src="images/contact-experience.webp" alt="Contact Experience Redesign case study" class="cs2-next__img">
+              <span class="cs2-next__title">Contact Experience Redesign: From Email-First to Channel-First</span>
+              <a href="contact-experience.html" class="primary projects__button">Read case study</a>
+            </div>
+          </div>
+        </div>
+
       </div>
       <!-- /cs2-images -->
 
