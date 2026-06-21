@@ -136,6 +136,10 @@
         background-color: #f7efe5;
       }
 
+      .cs2-rail:has(.cs2-qa-list--active) .cs2-qa-input-wrap {
+        border-top: none;
+      }
+
       .cs2-qa-input-wrap .chat-drawer__input-row {
         border-top: none !important;
       }
@@ -155,6 +159,10 @@
         padding-top: 10px;
         background-color: #f7efe5;
         padding-inline: 20px;
+      }
+
+      .cs2-rail:has(.cs2-qa-list--active) .cs2-qa-input-wrap {
+        border-top: none;
       }
 
       .cs2-qa-input-wrap .chat-drawer__input-row {
@@ -295,6 +303,12 @@
       margin-bottom: 16px;
     }
 
+    .cs2-qa-list--active {
+      border-top: 1px solid #d6cfc6;
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
     .cs2-qa-input-wrap {
       position: sticky;
       bottom: 0;
@@ -303,30 +317,51 @@
     }
 
     .cs2-qa-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
       margin-bottom: 24px;
     }
 
     .cs2-qa-item__q {
       font-family: Arsenal, Helvetica, sans-serif;
       font-size: 15px;
-      font-weight: 700;
-      color: #222;
-      margin: 0 0 4px 0;
+      line-height: 1.55;
+      font-weight: 400;
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: #222222;
+      color: #f5f0e8;
+      align-self: flex-end;
+      margin: 0;
     }
 
     .cs2-qa-item__a {
       font-family: Arsenal, Helvetica, sans-serif;
       font-size: 15px;
+      line-height: 1.55;
       font-weight: 400;
-      color: #444;
-      line-height: 1.6;
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: #e8e3db;
+      color: #222222;
+      align-self: flex-start;
       margin: 0;
     }
 
     .cs2-qa-item__loading {
       font-family: Arsenal, Helvetica, sans-serif;
       font-size: 15px;
-      color: #999;
+      line-height: 1.55;
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: #e8e3db;
+      color: #888;
+      align-self: flex-start;
+      font-style: italic;
       margin: 0;
     }
   </style>
@@ -603,6 +638,8 @@
         input.value = '';
         input.style.height = 'auto';
 
+        list.classList.add('cs2-qa-list--active');
+
         const item = document.createElement('div');
         item.className = 'cs2-qa-item';
         const q = document.createElement('p');
@@ -610,7 +647,7 @@
         q.textContent = text;
         const a = document.createElement('p');
         a.className = 'cs2-qa-item__loading';
-        a.textContent = '…';
+        a.textContent = 'Thinking…';
         item.appendChild(q);
         item.appendChild(a);
         list.appendChild(item);
