@@ -1,507 +1,690 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
+
+<head>
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RG9B9LDKWE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-RG9B9LDKWE');
   </script>
-  
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User profile redesign | Portfolio</title>
-    <link rel="icon" type="image/webp" href="images/favicon.webp">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="/chat.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Redesign | Portfolio</title>
+  <meta name="description" content="How Lynk & Co's post-purchase user profile was redesigned into a modular self-service platform covering document management, damage reporting, reservation flows, and service requests.">
+  <link rel="icon" type="image/webp" href="images/favicon.webp">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/chat.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ── CS2 TEMPLATE STYLES ── */
+
+    .case-study__close-link {
+      z-index: 1000;
+    }
+
+    .case-study__section {
+      padding-inline: 10% !important;
+      max-width: 100% !important;
+      min-width: unset !important;
+    }
+
+    body {
+      padding-bottom: 56px;
+    }
+
+
+    .cs2-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .cs2-images { order: 1; }
+
+    /* ── Mobile: rail as slide-in overlay ── */
+    .cs2-rail {
+      order: 2;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: #f7efe5;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.28s ease;
+      overflow: hidden;
+    }
+
+    .cs2-rail.cs2-rail--open {
+      transform: translateX(0);
+    }
+
+    .cs2-mobile-rail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #222;
+      color: #f5f0e8;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .cs2-mobile-rail-close {
+      background: none;
+      border: none;
+      color: #f5f0e8;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      padding: 0;
+    }
+    .cs2-mobile-rail-close:hover { opacity: 1; }
+
+    body.cs2-rail-open .case-study__close-link { display: none; }
+
+    @media (min-width: 1280px) {
+      .cs2-layout {
+        grid-template-columns: 8fr 4fr;
+        column-gap: 40px;
+        align-items: start;
+      }
+
+      .cs2-images { order: unset; }
+
+      .cs2-rail {
+        order: unset;
+        position: sticky;
+        top: 24px;
+        align-self: start;
+        height: calc(100vh - 48px);
+        transform: none;
+        transition: none;
+        overflow: hidden;
+      }
+
+      .cs2-mobile-rail-header {
+        display: none;
+      }
+
+      .chat-bubble {
+        display: none !important;
+      }
+
+      .cs2-rail-scroll {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+      }
+
+      .cs2-qa-input-wrap {
+        flex-shrink: 0;
+        border-top: 1px solid #e0dbd3;
+        padding-top: 10px;
+        background-color: #f7efe5;
+      }
+
+      .cs2-qa-input-wrap .chat-drawer__input-row {
+        border-top: none !important;
+      }
+    }
+
+    @media (max-width: 1279px) {
+      .cs2-rail-scroll {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        min-height: 0;
+      }
+
+      .cs2-qa-input-wrap {
+        flex-shrink: 0;
+        border-top: 1px solid #e0dbd3;
+        padding-top: 10px;
+        background-color: #f7efe5;
+        padding-inline: 20px;
+      }
+
+      .cs2-qa-input-wrap .chat-drawer__input-row {
+        border-top: none !important;
+      }
+    }
+
+    .cs2-image-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .cs2-image-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cs2-image-item img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      border: 1px solid #d4cfc8;
+      object-fit: cover;
+    }
+
+    .cs2-block {
+      margin-bottom: 32px;
+    }
+
+    .cs2-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .cs2-label {
+      display: inline-block;
+      background-color: #222222;
+      color: #f5f0e8;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .cs2-block p {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222222;
+      margin: 0 0 8px 0;
+    }
+
+    .cs2-block p:last-child { margin-bottom: 0; }
+
+    .cs2-block ul {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222222;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .cs2-block ul li { margin-bottom: 4px; }
+    .cs2-block ul li:last-child { margin-bottom: 0; }
+    .cs2-block strong { font-weight: 700; }
+
+    .cs2-metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .cs2-metric-card {
+      background-color: #f0ece4;
+      border-radius: 4px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .cs2-metric-card__number {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #222222;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .cs2-metric-card__label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    .cs2-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .cs2-chip {
+      background-color: #ede8df;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+    }
+
+    .cs2-cover-img {
+      width: 100%;
+      display: block;
+      margin-bottom: 32px;
+      border-radius: 4px;
+    }
+
+    .cs2-qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .cs2-qa-input-wrap {
+      position: sticky;
+      bottom: 0;
+      background-color: #f7efe5;
+      padding-top: 8px;
+    }
+
+    .cs2-qa-item {
+      margin-bottom: 24px;
+    }
+
+    .cs2-qa-item__q {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #222;
+      margin: 0 0 4px 0;
+    }
+
+    .cs2-qa-item__a {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .cs2-qa-item__loading {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      color: #999;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body class="case-study">
+
+  <div class="case-study__close-container">
+    <a href="index.html" class="case-study__close-link" aria-label="Return to main page">
+      <img class="case-study__close-icon" src="images/close_icon.svg" alt="Close the case study">
+    </a>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section class="case-study__section intro" id="intro">
+
+    <h1 class="header1 case-study__header1">
+      User Profile Redesign: From Call-Only to Self-Service
+    </h1>
+
+    <img
+      class="cs2-cover-img"
+      src="images/User-profile-solution.gif"
+      alt="Figma prototype snippet showing the redesigned Lynk & Co user profile navigation and self-service flows"
     />
-  </head>
 
-  <body class="case-study">
-    <div class="case-study__close-container">
-      <a href="index.html" class="case-study__close-link" aria-label="Return to main page">
-        <img class="case-study__close-icon" src="images/close_icon.svg" alt="Close the case study" />
-      </a>
+  </section>
+
+  <!-- ── TWO-COLUMN BODY ── -->
+  <section class="case-study__section" id="body">
+    <div class="cs2-layout">
+
+      <!-- ── LEFT: IMAGE COLUMN ── -->
+      <div class="cs2-images">
+        <div class="cs2-image-stack">
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/User-profile-Before-After.webp"
+              alt="Before and after comparison of the user profile first view"
+            />
+            <figcaption class="capttion case-study__caption">Before and after — user profile first view redesigned</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/User-research.webp"
+              alt="Card sorting results showing how users grouped menu items"
+            />
+            <figcaption class="capttion case-study__caption">Card sorting results — reduced navigation from 8 to 3 first-level items</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/Information-architecture.webp"
+              alt="Information architecture diagram for the redesigned user profile"
+            />
+            <figcaption class="capttion case-study__caption">Information architecture diagram</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/Lo-wi.webp"
+              alt="Low-fidelity wireframes for the user profile redesign"
+            />
+            <figcaption class="capttion case-study__caption">Low-fidelity wireframes — concept validation before hi-fi</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/Test-results.webp"
+              alt="Documented A/B test results comparing old and new navigation"
+            />
+            <figcaption class="capttion case-study__caption">A/B test results — new navigation and IA validated</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/Results-screen-1.webp"
+              alt="New design of the user profile first view"
+            />
+            <figcaption class="capttion case-study__caption">Final design — user profile first view</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/Results-screen-2.webp"
+              alt="New design of the Your account section"
+            />
+            <figcaption class="capttion case-study__caption">Final design — Your account section</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/UI-components.webp"
+              alt="Component specifications from the new design system"
+            />
+            <figcaption class="capttion case-study__caption">Design system components — built for modular CMS assembly</figcaption>
+          </figure>
+
+        </div>
+      </div>
+      <!-- /cs2-images -->
+
+      <!-- ── RIGHT: TEXT RAIL ── -->
+      <div class="cs2-rail" id="cs2-rail">
+        <div class="cs2-mobile-rail-header">
+          <span>About this project</span>
+          <button class="cs2-mobile-rail-close" id="cs2-rail-close" aria-label="Close">✕</button>
+        </div>
+        <div class="cs2-rail-scroll">
+
+          <!-- 1. SITUATION -->
+          <div class="cs2-block" id="situation">
+            <span class="cs2-label">Situation</span>
+            <p>
+              As Lynk &amp; Co matured and its customer base grew, nearly every post-purchase action — document updates, damage reporting, reservation management, service requests — required a call to Customer Support. This created a broken experience for users and a growing burden on the business: an ever-expanding support team with high turnover, driven by never-ending call volume.
+            </p>
+          </div>
+
+          <!-- 2. TASK -->
+          <div class="cs2-block" id="task">
+            <span class="cs2-label">Task</span>
+            <p>
+              Redesign the post-purchase user profile into a modular self-service platform. The platform needed to reduce call volume, enable users to self-serve across 4 key workflows, and be architected so site editors could maintain and extend it in the CMS without developer involvement. Deliver signed-off high-fidelity mock-ups, an updated IA, and a dev-ready component library.
+            </p>
+          </div>
+
+          <!-- 3. ACTION -->
+          <div class="cs2-block" id="action">
+            <span class="cs2-label">Action</span>
+            <ul>
+              <li>Card sorting to uncover users' mental model of navigation — reduced menu from 8 to 3 first-level items (Miller's Law)</li>
+              <li>Heuristic evaluation of the current version to identify structural issues</li>
+              <li>Stakeholder interviews to align on scope, feasibility, and phasing</li>
+              <li>Mapped JTBD for different user roles and updated Information Architecture</li>
+              <li>Low-fidelity wireframes for early concept validation with the design team and stakeholders</li>
+              <li>A/B test of high-fidelity prototypes to validate new navigation and IA against the old version</li>
+              <li>Built HTML &amp; CSS prototype to illustrate responsive navigation behaviour across devices</li>
+              <li>Negotiated phased delivery with stakeholders: 4 launches, starting with B2C and a like-for-like modular transition before adding new features</li>
+            </ul>
+          </div>
+
+          <!-- 4. RESULT -->
+          <div class="cs2-block" id="result">
+            <span class="cs2-label">Result</span>
+            <div class="cs2-metric-row">
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">4 flows</span>
+                <span class="cs2-metric-card__label">Document updates, damage reporting, reservations, service requests</span>
+              </div>
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">8 → 3</span>
+                <span class="cs2-metric-card__label">First-level navigation items — reduced via card sorting</span>
+              </div>
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">Signed off</span>
+                <span class="cs2-metric-card__label">Hi-fi mock-ups approved by stakeholders and ready for development</span>
+              </div>
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">Modular</span>
+                <span class="cs2-metric-card__label">CMS-editable component architecture — no developer needed for updates</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. DELIVERS -->
+          <div class="cs2-block" id="delivers">
+            <span class="cs2-label">Delivers</span>
+            <ul>
+              <li>Signed-off high-fidelity Figma mock-ups — all 4 self-service flows</li>
+              <li>Updated Information Architecture — 8 to 3 primary navigation items</li>
+              <li>HTML &amp; CSS prototype — responsive navigation behaviour demonstration</li>
+              <li>Design system component library — ready for development handoff</li>
+              <li>A/B test results — new navigation and IA validated against existing version</li>
+              <li>4-launch phasing plan — B2C first, progressive feature expansion</li>
+            </ul>
+          </div>
+
+          <!-- 6. STAKEHOLDERS MANAGED -->
+          <div class="cs2-block" id="stakeholders">
+            <span class="cs2-label">Stakeholders managed</span>
+            <ul>
+              <li><strong>Product Manager &amp; Business Analyst</strong> — scope definition, phasing, and sign-off</li>
+              <li><strong>Development team</strong> — regular check-ins to ensure design system approach was feasible and manageable</li>
+              <li><strong>Customer Service &amp; Sales</strong> — service owners brought in to validate business need for proposed features</li>
+              <li><strong>UI Designer</strong> — collaborated on hi-fi mock-ups and component library</li>
+            </ul>
+          </div>
+
+          <!-- 7. DOCUMENTATION PREPARED -->
+          <div class="cs2-block" id="documentation">
+            <span class="cs2-label">Documentation prepared</span>
+            <ul>
+              <li>Card sorting analysis — findings and navigation restructure rationale</li>
+              <li>Information Architecture diagram — updated IA with rationale</li>
+              <li>A/B test plan and results — navigation and IA validation</li>
+              <li>Component specifications — design system library for developer handoff</li>
+              <li>4-launch phasing plan — scope, feature sequence, and CMS transition strategy</li>
+            </ul>
+          </div>
+
+          <!-- 8. DESIGN SYSTEM USED -->
+          <div class="cs2-block" id="design-system">
+            <span class="cs2-label">Design system used</span>
+            <div class="cs2-chips">
+              <span class="cs2-chip">Lynk &amp; Co Design System</span>
+              <span class="cs2-chip">Navigation</span>
+              <span class="cs2-chip">Card</span>
+              <span class="cs2-chip">Form / Input</span>
+              <span class="cs2-chip">Custom modular components</span>
+            </div>
+          </div>
+
+          <!-- Q&A answer list -->
+          <div class="cs2-qa-list" id="cs2-qa-list"></div>
+
+        </div>
+        <!-- /cs2-rail-scroll -->
+
+        <!-- Input pinned at bottom -->
+        <div class="cs2-qa-input-wrap">
+          <div class="chat-drawer__input-row" style="border-top: none; padding-inline: 0;">
+            <textarea
+              class="chat-drawer__input"
+              id="cs2-input"
+              placeholder="Ask anything about this project…"
+              rows="1"
+              aria-label="Ask about this case study"
+            ></textarea>
+            <button class="chat-drawer__send" id="cs2-send" disabled aria-label="Send question">Send</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- /cs2-rail -->
+
     </div>
-
-    <section class="case-study__section intro"  id="overview">
-      <h1 class="header1 case-study__header1">User profile redesign</h1>
-
-      <p class="body case-study__content user-profile__copy">
-          This project resulted in signed-off high-fidelity mock-ups for a modular self-service platform that could be
-          assembled using a set of proposed components.
-        </p>
-
-        <p class="body case-study__content user-profile__copy">
-          Within this project, we updated the Information Architecture, and redesigned the navigation. For better
-          concept communication, we created prototypes in Figma and HTML & CSS and developed a set of components ready
-          to be shipped for development.
-        </p>
-
-           <a href="#lightbox-content-9">
-        <img
-          class="case-study__image"
-          src="images/User-profile-solution.gif"
-          alt="The screenshots of the before and after the redesign of user profile"
-        />
-      </a>
-
-       <a href="#overview" class="lightbox-close">
-        <div id="lightbox-content-9" class="lightbox">
-         <img src="images/User-profile-solution.gif" alt="Full-size Image">
-          <a href="#overview" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      
-      <p class="capttion case-study__caption case-study__caption-extra">A snippet from the Figma prototype of the final proposal</p>
-    </section>
-
-    <section class="case-study__section user-profile__challenge" id="challenge">
-      <h2 class="header2 case-study__header2">Challenge</h2>
-      <div class="case-study__content user-profile__content">
-       
-        <p class="body case-study__copy user-profile__copy">
-          As Lynk & Co was maturing and its number of customers was growing, there was a problem with supporting users after the purchase. For nearly every procedure such as document updates, damage reporting, reservation management, service requests, etc., users would have to call Customer support. This created a broken experience for users and an extra burden on the business.
-        </p>
-
-
-      <h3 class="header3 case-study__header3 user-profile__header3">User problem</h3>
-      <p class="body case-study__copy user-profile__copy">
-        Calling the customer service, long waiting time on the line, and difficulties explaining the issues over the phone, created a lot of discontent among the users.
-      </p>
-
-       <h3 class="header3 case-study__header3 user-profile__header3">Business problem</h3>
-       <p class="body case-study__copy user-profile__copy">
-        On top of the repudiation damage from not delivering on the “hassle-free mobility” promise, the company was losing money on the ever-growing Customer support department. Never-ending calls generated a significant workload on the Customer support specialist. This led to more Customer specialist hires and higher turnover.
-      </p>
-
-      <p class="body case-study__copy user-profile__copy">
-        To address both problems, we needed to transition to a modular platform that would enable creating an automatic self-service tool. This tool would need to be easy to maintain and scale, and  meet the users' rexpectations.
-      </p>
-      </div>
-
-      <a href="#lightbox-content">
-        <img
-          class="case-study__image"
-          src="images/User-profile-Before-After.webp"
-          alt="The screenshots of the before and after the redesign of user profile"
-        />
-      </a>
-
-      <a href="#challenge" class="lightbox-close">
-      <div id="lightbox-content" class="lightbox">
-        <img src="images/User-profile-Before-After.webp" alt="Full-size Image">
-      <a href="#challenge" class="lightbox-close-text">Close</a>
-      </a>
-      </div>
-      
-      <p class="capttion case-study__caption">The designs of User profile first view before and after the project</p>
-    </section>
-
-    <section class="case-study__section process">
-      <h2 class="header2 case-study__header2">Process</h2>
-
-      <!-- RESEARCH -->
-      <div class="case-study__content user-profile__content" id="research">
-          <h3 class="header3 case-study__header3 user-profile__header3">Research</h3>
-          <ul class="body case-study__list user-profile__list">
-            <li>Cards sorting to improve navigation</li>
-            <li>Heuristic evaluation of the current version</li>
-            <li>Stakeholders interview</li>
-          </ul>
-
-          <h4 class="header4 case-study__header4 user-profile__header">Findings</h4>
-          <ul class="body case-study__list user-profile__list">
-            <li>
-             Based on the card-sorting results, we reduced the number of sections in the main menu from 8 to 3 (Miller's law).
-            </li>
-            <li>
-              The elements that users weren't sure about remained as first-level menu section; grouped elements became combined in the same section.
-            </li>
-            <li>
-              The first section Account Overview caused confusions, so we decided to split this section into two: Overview and Account. 
-            </li>
-          </ul>
-        </div>
-
-     <a href="#lightbox-content-1">
-      <img
-         class="case-study__image"
-         src="images/User-research.webp"
-         alt="The screenshots of Card sorting results"
-          />
-                </a>
-      <p class="capttion case-study__caption">Card sorting results</p>
-
-
-      <a href="#research" class="lightbox-close">
-        <div id="lightbox-content-1" class="lightbox">
-          <img src="images/User-research.webp" alt="Full-size Image">
-         <a href="#research" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      </div>
-
-      <!-- DEFINE -->
-      <div class="case-study__content user-profile__block" id="define">
-          <h3 class="header3 case-study__header3 user-profile__header3">Define</h3>
-          <ul class="body case-study__list user-profile__list">
-            <li>Defining the scope of the project</li>
-            <li>Mapping JBTD for different user roles</li>
-            <li>Mapping Information Architecture</li>
-          </ul>
-
-          <h4 class="header4 case-study__header4 user-profile__header">Scope</h4>
-
-          <p class="body case-study__copy user-profile__copy">
-            The business needed a self-service platform that would reduce the waiting time for the users trying to
-            receive support. Also, this would lift off the workload of the Customer service specialists.
-          </p>
-
-          <p class="body case-study__copy user-profile__copy">
-            Making the platform that could be built with blocks (instead of hard-coding it) would enable the dev team to
-            focus on larger projects in the long run, leaving the maintenance and update tasks to site editors.
-          </p>
-        </div>
-
-      <a href="#lightbox-content-2">
-       <img
-          class="case-study__image"
-          src="images/Information-architecture.webp"
-          alt="The screenshots of the diagram of information architecture"
-          />
-       </a>
-
-        <a href="#define" class="lightbox-close">
-      <div id="lightbox-content-2" class="lightbox">
-        <img src="images/Information-architecture.webp" alt="Full-size Image">
-         <a href="#define" class="lightbox-close-text">Close</a>
-       </div>
-      </a>
-      <p class="capttion case-study__caption">Information Architecture diagram</p>
-
-      <!-- IDEATE -->
-      <div class="case-study__content user-profile__block" id="ideate">
-          <h3 class="header3 case-study__header3 user-profile__header3">Ideate</h3>
-          <ul class="body case-study__list user-profile__list">
-            <li>
-              Low-fidelity wireframes to better gather feedback from the design team and align with the stakeholders.
-            </li>
-          </ul>
-      </div>
-
-       <a href="#lightbox-content-3">
-      <img 
-         class="case-study__image" 
-         src="images/Lo-wi.webp" 
-         alt="The screenshots of Low fidelity diagrams" />
-      </a>
-
-      <a href="#ideate" class="lightbox-close">
-        <div id="lightbox-content-3" class="lightbox">
-         <img src="images/Lo-wi.webp" alt="Full-size Image">
-          <a href="#ideate" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      <p class="capttion case-study__caption">A snippet of Low fidelity diagrams</p>
-  
-
-      <!-- TEST -->
-      <div class="case-study__content user-profile__block" id="test">
-          <h3 class="header3 case-study__header3 user-profile__header3">Test</h3>
-          <ul class="body case-study__list user-profile__list">
-            <li>A/B test of high-fidelity prototypes to test how the new navigation and IA performed</li>
-            <li>Updating the designs after gathering the feedback and discussing it with the PM and dev team</li>
-          </ul>
-      </div>
-       
-      <a href="#lightbox-content-4">
-        <img
-          class="case-study__image"
-          src="images/Test-results.webp"
-          alt="The screenshots of documented test results"
-        />
-      </a>
-
-       <a href="#test" class="lightbox-close">
-        <div id="lightbox-content-4" class="lightbox">
-         <img src="images/Test-results.webp" alt="Full-size Image">
-          <a href="#test" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      <p class="capttion case-study__caption">Documented A/B test results</p>
-
-
-      <!-- FINALIZE UI -->
-      <div class="case-study__content user-profile__block" id="finalize">
-          <h3 class="header3 case-study__header3 user-profile__header3">HTML&CSS prototype</h3>
-          <ul class="body case-study__list user-profile__list">
-            <li>Design system</li>
-            <li>Figma prototypes</li>
-            <li>HTML prototype of the menu (to illustrate the behaviour on different devices)</li>
-            <li>Side-by-side comparison of the old and the new views</li>
-          </ul>
-      </div>
-
-      <a href="#lightbox-content-5">
-        <img 
-          class="case-study__image" 
-          src="images/HTML-prototype.gif" 
-          alt="The screenshots of HTML prototype" />
-      </a>
-
-       <a href="#finalize" class="lightbox-close">
-        <div id="lightbox-content-5" class="lightbox">
-         <img src="images/HTML-prototype.gif" alt="Full-size Image">
-         <a href="#finalize" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      <p class="capttion case-study__caption">HTML prototype</p>
-
-
-       <!-- STAKEHOLDERS -->
-      <div class="case-study__content user-profile__block"">
-          <h3 class="header3 case-study__header3 user-profile__header3">Arm wrestle with the stakeholders </h3>
-           <p class="body case-study__copy user-profile__copy">
-            We had an ongoing back and forth with the stakeholders during this process. One of the main concerns they had was the constant fear of the lack of capacity. On our side, we didn’t want to sacrifice the UX features. We tried to resolve this stand-off with planning.
-          </p>
-
-          <p class="body case-study__copy user-profile__copy">
-            To address their concerns, we did the following: 
-          </p>
-
-          <ul class="body case-study__list user-profile__list">
-            <li>Broke the project down, focusing only on B2C customers first.</li>
-            <li>Planned gradual transition with 4 launches, where the 1st launch would be a transition from the current version to the modular one with the same features; the 4th launch would have 4 more new features:  Appointments, Notifications, Support, Products & services.</li>
-            <li>Had regular check-ins with developers to make sure our approach to the design system was feasible and manageable.</li>
-            <li>Brought service owners into the conversation to better explain the business need for the features we had offered. </li>
-          </ul>
-
-      </div>
-    </section>
-
-    <section class="case-study__section decisions">
-      <h2 class="header2 case-study__header2">Impact</h2>
-
-      <!-- IMPROVED NAVIGATION -->
-      <div class="case-study__content user-profile__content" id="navigation">
-        <h3 class="header3 case-study__header3 user-profile__header3">Improved navigation</h3>
-        <p class="body case-study__copy user-profile__copy">
-          To reduce task completion task, we redesigned the navigation based on the users expectations that were
-          revealed during card sorting task. This way, we had only 3 (instead of 8) first level menu items and moved the
-          rest of the menu items onto the second level. This way, users are met with only few options at a time.
-        </p>
-      </div>
-
-      <a href="#lightbox-content-6">
-        <img
-          class="case-study__image"
-          src="images/Navigation-demo.gif"
-          alt="A gif image from the Figma prototype with new navigation"
-        />
-      </a>
-
-       <a href="#navigation" class="lightbox-close">
-        <div id="lightbox-content-6" class="lightbox">
-         <img src="images/Navigation-demo.gif" alt="Full-size Image">
-         <a href="#navigation" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      <p class="capttion case-study__caption">A snippet from the Figma prototype with new navigation</p>
-
-      <!-- UI UPDATE -->
-      <div class="case-study__content user-profile__content" id="ui-update">
-        <h3 class="header3 case-study__header3 user-profile__header3">UI update</h3>
-        <p class="body case-study__copy user-profile__copy">
-          To reduce the cognitive load, we also update the user interface design of the user profile. Mainly, we toned
-          down the visual noise. Also, we used the same color scheme as on the brand side of the company's website.
-        </p>
-      </div>
-
-      <a href="#lightbox-content-7">
-        <img
-          class="case-study__image"
-          src="images/UI-design-decisions.webp"
-          alt="A screensht of Your account screen to illustrate some updates in the UI of the user profile"
-        />
-      </a>
-
-       <a href="#ui-update" class="lightbox-close">
-        <div id="lightbox-content-7" class="lightbox">
-         <img src="images/UI-design-decisions.webp" alt="Full-size Image">
-          <a href="#ui-update" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      <p class="capttion case-study__caption">
-        "Your account" screen to illustrate some updates in the UI of the user profile
-      </p>
-
-      <!-- DESIGN SYSTEM -->
-      <div class="case-study__content user-profile__content" id="system">
-        <h3 class="header3 case-study__header3 user-profile__header3">Design system for modular approach</h3>
-        <p class="body case-study__copy user-profile__copy">
-          Since making a platform that could be built with blocks was one of the goals of this project, we have created
-          a set of components for developers to build. Once built, these components would be used by site editors to
-          build pages and make small updates to existing pages faster.
-        </p>
-      </div>
-
-    <a href="#lightbox-content-8">
-      <img
-        class="case-study__image"
-        src="images/UI-components.webp"
-        alt="A screensht of the specifications from the new set of components "
-      />
-     </a>
-
-       <a href="#system" class="lightbox-close">
-        <div id="lightbox-content-8" class="lightbox">
-         <img src="images/UI-components.webp" alt="Full-size Image">
-          <a href="#system" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-      <p class="capttion case-study__caption">
-        A snippet from the file with the specifications from the new set of components
-      </p>
-    </section>
-
-    <section class="case-study__section result" id="result">
-      <h2 class="header2 case-study__header2">Result</h2>
-
-        <p class="body case-study__copy user-profile__copy">
-          Alongside the set of components, this project resulted in hi-fi mock-ups that were tested and signed off by
-          the stakeholders. This is the first step of updating the platform. The next steps would include adding more
-          features, the frontend part for which would be easily created by site editors in the CMS.
-        </p>
-
-     <a href="#lightbox-content-10">
-      <img
-        class="case-study__image"
-        id="first-view"
-        src="images/Results-screen-1.webp"
-        alt="The screenshots of the new design of the first view"
-      />
-     </a>
-
-      <a href="#first-view" class="lightbox-close">
-        <div id="lightbox-content-10" class="lightbox">
-         <img src="images/Results-screen-1.webp" alt="Full-size Image">
-       <a href="#first-view" class="lightbox-close-text">Close</a>
-        </div>
-      </a>
-
-      <p class="capttion case-study__caption case-study__caption-extra">The new design of the first view</p>
-
-      <a href="#lightbox-content-11">
-        <img
-          class="case-study__image"
-          id="account"
-          src="images/Results-screen-2.webp"
-          alt="The screenshots of the new design of the Your account section"
-        />
-      </a>
-
-      <a href="#account" class="lightbox-close">
-      <div id="lightbox-content-11" class="lightbox">
-         <img src="images/Results-screen-2.webp" alt="Full-size Image">
-         <a href="#account" class="lightbox-close-text">Close</a>
-      </div>
-    </a>
-
-    
-      <p class="capttion case-study__caption case-study__caption-extra">The new design of the "Your account" section</p>
-
-      <a href="#lightbox-content-12">
-        <img
-          class="case-study__image"
-          id="payments"
-          src="images/Results-screen-3.webp"
-          alt="The screenshots of the before and after the redesign of user profile"
-        />
-      </a>
-
-      <a href="#payments" class="lightbox-close">
-      <div id="lightbox-content-12" class="lightbox">
-         <img src="images/Results-screen-3.webp" alt="Full-size Image">
-         <a href="#payments" class="lightbox-close-text">Close</a>
-      </div>
-    </a>
-      <p class="capttion case-study__caption">The new design of the "Your payments" section</p>
-    </section>
-
-      <section class="case-study__section my-role">
-
-      <div class="case-study__block user-profile__block">
-        <div class="case-study__content case-study__content-first user-profile__content">
-          <h3 class="header3 case-study__header3 user-profile__header3">My role</h3>
-          <p class="body case-study__copy user-profile__copy">
-            UX Designer who ensured the cooperation with UI designer, Product manager, Business analyst, development
-            team and stakeholders from Customer service and Sales teams. All while simultaneously working on other
-            projects.
-          </p>
-        </div>
-
-        <div class="case-study__content case-study__content-second user-profile__content">
-          <h3 class="header3 case-study__header3 user-profile__header3">What I did</h3>
-          <ul class="body case-study__list user-profile__list">
-            <li>Requirements gathering and stakeholder management</li>
-            <li>User research (card sorting, usability A/B tests)</li>
-            <li>Information Architecture</li>
-            <li>Mid-Fi Wireframes</li>
-            <li>Hi-Fi mock-ups (together with UI designer)</li>
-            <li>Components for Design System (together with UI designer)</li>
-            <li>Prototype in Figma and HTML & CSS.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <ul class="footer__links">
-        <li>
-          <a
-            href="https://www.linkedin.com/in/iura-osadchuk"
-            class="link footer__link"
-            target="_blank"
-            aria-label="Opens in a new tab"
-          >
-            My LinkedIn
-            <img src="images/new_window_icon_beige.svg" alt="Open in new window icon" />
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="https://docs.google.com/document/d/18r_Zml1oGOXEkrHsc8pevsyfbx61abYbQSUGcjqnl8g/edit?usp=sharing"
-            class="link footer__link"
-            target="_blank"
-            aria-label="Opens in a new tab"
-          >
-            My CV
-            <img src="images/new_window_icon_beige.svg" alt="Open in new window icon" />
-          </a>
-        </li>
-
-        <li>
-          <a 
-            href="https://music.youtube.com/playlist?list=PLC71vVTEszT9Po9P16v8e7Xg0EmEZaflq&si=Qumorw2Ni3bmFR2L" 
-            class="link footer__link"
-            target="_blank"
-            aria-label="Opens in a new tab">
-            Playlist for work
-            <img src="images/new_window_icon_beige.svg" alt="Open in new window icon" />
-          </a>
-        </li>
-      </ul>
-    </footer>
-  <script src="/chat.js"></script>
+  </section>
+
+  <button class="chat-bubble" id="cs2-bubble" aria-label="Ask about Iura" aria-expanded="false">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.477 2 2 6.253 2 11.5c0 2.32.87 4.444 2.295 6.07L3 21l3.82-1.17A10.1 10.1 0 0 0 12 21c5.523 0 10-4.253 10-9.5S17.523 2 12 2Z"></path>
+    </svg>
+  </button>
+
+  <script>
+    (function () {
+      const bubble = document.getElementById('cs2-bubble');
+      const rail = document.getElementById('cs2-rail');
+      const closeBtn = document.getElementById('cs2-rail-close');
+
+      if (bubble && rail) {
+        bubble.addEventListener('click', () => {
+          rail.classList.add('cs2-rail--open');
+          document.body.classList.add('cs2-rail-open');
+          bubble.setAttribute('aria-expanded', 'true');
+        });
+      }
+      if (closeBtn && rail) {
+        closeBtn.addEventListener('click', () => {
+          rail.classList.remove('cs2-rail--open');
+          document.body.classList.remove('cs2-rail-open');
+          if (bubble) bubble.setAttribute('aria-expanded', 'false');
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const list = document.getElementById('cs2-qa-list');
+      const railScroll = document.querySelector('.cs2-rail-scroll');
+      const input = document.getElementById('cs2-input');
+      const sendBtn = document.getElementById('cs2-send');
+      const history = [];
+      let loading = false;
+
+      input.addEventListener('input', () => {
+        sendBtn.disabled = input.value.trim() === '' || loading;
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          if (!sendBtn.disabled) submit(input.value.trim());
+        }
+      });
+
+      sendBtn.addEventListener('click', () => {
+        if (!sendBtn.disabled) submit(input.value.trim());
+      });
+
+      async function submit(text) {
+        if (!text || loading) return;
+        loading = true;
+        sendBtn.disabled = true;
+        input.value = '';
+        input.style.height = 'auto';
+
+        const item = document.createElement('div');
+        item.className = 'cs2-qa-item';
+        const q = document.createElement('p');
+        q.className = 'cs2-qa-item__q';
+        q.textContent = text;
+        const a = document.createElement('p');
+        a.className = 'cs2-qa-item__loading';
+        a.textContent = '…';
+        item.appendChild(q);
+        item.appendChild(a);
+        list.appendChild(item);
+        setTimeout(() => { if (railScroll) railScroll.scrollTop = railScroll.scrollHeight; }, 50);
+
+        history.push({ role: 'user', content: text });
+
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages: history }),
+          });
+          const data = await res.json();
+          if (data.reply) {
+            a.className = 'cs2-qa-item__a';
+            a.textContent = data.reply;
+            history.push({ role: 'assistant', content: data.reply });
+          } else {
+            a.className = 'cs2-qa-item__a';
+            a.textContent = 'Something went wrong — try again.';
+          }
+          setTimeout(() => { if (railScroll) railScroll.scrollTop = railScroll.scrollHeight; }, 50);
+        } catch {
+          a.className = 'cs2-qa-item__a';
+          a.textContent = 'Something went wrong — try again.';
+          setTimeout(() => { if (railScroll) railScroll.scrollTop = railScroll.scrollHeight; }, 50);
+        }
+
+        loading = false;
+        sendBtn.disabled = input.value.trim() === '';
+      }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const bodySection = document.getElementById('body');
+      if (!bodySection) return;
+      let prevY = window.scrollY;
+      let scrollingDown = false;
+      let timer;
+      window.addEventListener('scroll', () => {
+        scrollingDown = window.scrollY > prevY;
+        prevY = window.scrollY;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const top = bodySection.getBoundingClientRect().top;
+          if (scrollingDown && top > 0 && top < window.innerHeight) {
+            bodySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 120);
+      }, { passive: true });
+    })();
+  </script>
 </body>
+
 </html>

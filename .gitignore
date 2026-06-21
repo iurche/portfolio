@@ -5,3 +5,4 @@ node_modules/
 .kiro/
 skills-lock.json
 save-sage-image.mjs
+.env
