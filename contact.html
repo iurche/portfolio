@@ -60,7 +60,9 @@
             placeholder="you@example.com"
             required
             autocomplete="email"
+            aria-describedby="email-error"
           >
+          <span id="email-error" class="field-error" aria-live="polite"></span>
         </div>
 
         <div class="form-group">
@@ -123,5 +125,26 @@
   </footer>
 
   <script src="/chat.js"></script>
+  <script>
+    (function () {
+      var input = document.getElementById('email');
+      var error = document.getElementById('email-error');
+      var dirty = false;
+
+      function validate() {
+        if (!dirty) return;
+        if (input.validity.valid) {
+          input.classList.remove('is-invalid');
+          error.textContent = '';
+        } else {
+          input.classList.add('is-invalid');
+          error.textContent = 'Please enter a valid email address.';
+        }
+      }
+
+      input.addEventListener('blur', function () { dirty = true; validate(); });
+      input.addEventListener('input', validate);
+    })();
+  </script>
   </body>
 </html>
