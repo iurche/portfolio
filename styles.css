@@ -1368,6 +1368,7 @@ body {
   padding: 32px 1.25rem 24px;
   max-width: 1000px;
 }
+@media (max-width: 767px) { .page-header { padding-right: 0; } }
 @media (min-width: 768px) { .page-header { padding: 48px 0 32px; } }
 @media (min-width: 1280px) { .page-header { padding: 64px 0 40px; margin-inline: auto; min-width: 1020px; } }
 
