@@ -13,8 +13,8 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile Redesign | Portfolio</title>
-  <meta name="description" content="How Lynk & Co's post-purchase user profile was redesigned into a modular self-service platform covering document management, damage reporting, reservation flows, and service requests.">
+  <title>Tuza — AI Medication Companion | Portfolio</title>
+  <meta name="description" content="How Tuza, an AI medication companion for autoimmune patients, was researched and designed to address the emotional root causes behind intentional non-adherence — validated through primary research with 127 patients.">
   <link rel="icon" type="image/webp" href="images/favicon.webp">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="/chat.css" />
@@ -30,6 +30,7 @@
       z-index: 1000;
     }
 
+    /* 80% page width — 10% margin on each side */
     .case-study__section {
       padding-inline: 10% !important;
       max-width: 100% !important;
@@ -41,6 +42,7 @@
     }
 
 
+    /* ── Two-column layout shell ── */
     .cs2-layout {
       display: grid;
       grid-template-columns: 1fr;
@@ -213,6 +215,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      text-decoration: none;
     }
 
     .cs2-next__img {
@@ -239,6 +242,7 @@
       flex: 1;
     }
 
+    /* ── Image column ── */
     .cs2-image-stack {
       display: flex;
       flex-direction: column;
@@ -249,6 +253,14 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      background-color: #2B2B2F;
+      padding: 24px 0;
+      border-radius: 4px;
+    }
+
+    .cs2-image-item figcaption {
+      color: #FFFFFF;
+      padding: 0 24px;
     }
 
     .cs2-image-item img {
@@ -259,6 +271,7 @@
       object-fit: cover;
     }
 
+    /* ── Rail blocks ── */
     .cs2-block {
       margin-bottom: 32px;
     }
@@ -304,6 +317,7 @@
     .cs2-block ul li:last-child { margin-bottom: 0; }
     .cs2-block strong { font-weight: 700; }
 
+    /* ── Metric cards ── */
     .cs2-metric-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -336,6 +350,7 @@
       line-height: 1.4;
     }
 
+    /* ── Design system chips ── */
     .cs2-chips {
       display: flex;
       flex-wrap: wrap;
@@ -352,6 +367,7 @@
       color: #444444;
     }
 
+    /* ── Cover image ── */
     .cs2-cover-img {
       width: 100%;
       display: block;
@@ -359,6 +375,7 @@
       border-radius: 4px;
     }
 
+    /* ── Inline Q&A ── */
     .cs2-qa-list {
       display: flex;
       flex-direction: column;
@@ -442,14 +459,8 @@
   <section class="case-study__section intro" id="intro">
 
     <h1 class="header1 case-study__header1">
-      User Profile Redesign: From Call-Only to Self-Service
+      Tuza: From Reminder Fatigue to an AI Companion That Asks Why
     </h1>
-
-    <img
-      class="cs2-cover-img"
-      src="images/User-profile-solution.gif"
-      alt="Figma prototype snippet showing the redesigned Lynk & Co user profile navigation and self-service flows"
-    />
 
   </section>
 
@@ -463,66 +474,47 @@
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/User-profile-Before-After.webp"
-              alt="Before and after comparison of the user profile first view"
+              src="images/tuza-onboarding-condition.png"
+              alt="Onboarding screen — What brings you here — condition selection with Lupus, Rheumatoid arthritis, Multiple Sclerosis, Inflammatory Bowel Disease, and Other"
+              style="max-width: 380px; margin-left: auto; margin-right: auto; border: none;"
             />
-            <figcaption class="capttion case-study__caption">Before and after — user profile first view redesigned</figcaption>
+            <figcaption class="capttion case-study__caption">Onboarding — condition selection personalises the companion from step one</figcaption>
           </figure>
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/User-research.webp"
-              alt="Card sorting results showing how users grouped menu items"
+              src="images/tuza-home-checkin.png"
+              alt="Home screen daily check-in card — Taken, Not yet, Skipped buttons, weekly streak row, and a Talk to your companion card"
+              style="max-width: 380px; margin-left: auto; margin-right: auto; border: none;"
             />
-            <figcaption class="capttion case-study__caption">Card sorting results — reduced navigation from 8 to 3 first-level items</figcaption>
+            <figcaption class="capttion case-study__caption">Daily check-in — a single-tap log with no punitive framing on any outcome</figcaption>
           </figure>
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/Information-architecture.webp"
-              alt="Information architecture diagram for the redesigned user profile"
+              src="images/tuza-skip-reason.png"
+              alt="Skip reason picker — What's going on today, with six emotional reason chips including side effects, overwhelm, routine disruption, and identity resistance"
+              style="max-width: 380px; margin-left: auto; margin-right: auto; border: none;"
             />
-            <figcaption class="capttion case-study__caption">Information architecture diagram</figcaption>
+            <figcaption class="capttion case-study__caption">Skip-reason picker — each chip maps directly to one of five root-cause clusters from primary research</figcaption>
           </figure>
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/Lo-wi.webp"
-              alt="Low-fidelity wireframes for the user profile redesign"
+              src="images/tuza-chat-response.png"
+              alt="AI companion chat responding to a skipped dose about side effects with a doctor-attributed, non-judgmental explanation and a follow-up question"
+              style="max-width: 380px; margin-left: auto; margin-right: auto; border: none;"
             />
-            <figcaption class="capttion case-study__caption">Low-fidelity wireframes — concept validation before hi-fi</figcaption>
+            <figcaption class="capttion case-study__caption">AI companion response — doctor-attributed reassurance, never the AI's own clinical judgment</figcaption>
           </figure>
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/Test-results.webp"
-              alt="Documented A/B test results comparing old and new navigation"
+              src="images/tuza-progress.png"
+              alt="Progress screen with a 7-day streak ring, weekly strip, and a 30-day heatmap labelled Taken, Not logged, and Upcoming"
+              style="max-width: 380px; margin-left: auto; margin-right: auto; border: none;"
             />
-            <figcaption class="capttion case-study__caption">A/B test results — new navigation and IA validated</figcaption>
-          </figure>
-
-          <figure class="cs2-image-item" style="margin:0">
-            <img
-              src="images/Results-screen-1.webp"
-              alt="New design of the user profile first view"
-            />
-            <figcaption class="capttion case-study__caption">Final design — user profile first view</figcaption>
-          </figure>
-
-          <figure class="cs2-image-item" style="margin:0">
-            <img
-              src="images/Results-screen-2.webp"
-              alt="New design of the Your account section"
-            />
-            <figcaption class="capttion case-study__caption">Final design — Your account section</figcaption>
-          </figure>
-
-          <figure class="cs2-image-item" style="margin:0">
-            <img
-              src="images/UI-components.webp"
-              alt="Component specifications from the new design system"
-            />
-            <figcaption class="capttion case-study__caption">Design system components — built for modular CMS assembly</figcaption>
+            <figcaption class="capttion case-study__caption">Progress view — "Tomorrow is a fresh start," even after a skipped day</figcaption>
           </figure>
 
         </div>
@@ -538,9 +530,9 @@
               <a href="order-help.html" class="primary projects__button">Read case study</a>
             </div>
             <div class="cs2-next__card">
-              <img src="images/tuza-cover.svg" alt="Tuza AI medication companion case study" class="cs2-next__img">
-              <span class="cs2-next__title">Tuza: From Reminder Fatigue to an AI Companion That Asks Why</span>
-              <a href="tuza.html" class="primary projects__button">Read case study</a>
+              <img src="images/contact-experience.webp" alt="Contact Experience Redesign case study" class="cs2-next__img">
+              <span class="cs2-next__title">Contact Experience Redesign: From Email-First to Channel-First</span>
+              <a href="contact-experience.html" class="primary projects__button">Read case study</a>
             </div>
           </div>
         </div>
@@ -560,7 +552,7 @@
           <div class="cs2-block" id="situation">
             <span class="cs2-label">Situation</span>
             <p>
-              As Lynk &amp; Co matured and its customer base grew, nearly every post-purchase action — document updates, damage reporting, reservation management, service requests — required a call to Customer Support. This created a broken experience for users and a growing burden on the business: an ever-expanding support team with high turnover, driven by never-ending call volume.
+              Roughly 50% of patients with chronic conditions don't take medication as prescribed (WHO). Existing tools — Medisafe, MyTherapy — treat this as a scheduling problem and get abandoned: 21% of survey respondents reported abandoning a reminder app. Primary research I ran (quantitative survey, n=127, distributed via patient community networks, plus 6 semi-structured interviews) found the real driver: 44% of respondents skip intentionally, not accidentally. Inductive coding of the interview transcripts surfaced five emotional root causes — fear of side effects, identity resistance ("taking it every day reminds me I am sick"), routine disruption, institutional mistrust, and a perceived-necessity gap ("when I feel fine, it doesn't feel like I need it"). No reminder app addresses any of them.
             </p>
           </div>
 
@@ -568,7 +560,7 @@
           <div class="cs2-block" id="task">
             <span class="cs2-label">Task</span>
             <p>
-              Redesign the post-purchase user profile into a modular self-service platform. The platform needed to reduce call volume, enable users to self-serve across 4 key workflows, and be architected so site editors could maintain and extend it in the CMS without developer involvement. Deliver signed-off high-fidelity mock-ups, an updated IA, and a dev-ready component library.
+              Co-founded Tuza as a two-person MSc capstone team (Barcelona Technology School, Digital Product Management). I owned product and design end-to-end — discovery, primary research design and synthesis, problem framing, solution architecture, UX/UI design system, and the interactive prototype build. My co-founder, Ronald Ndatinya, owns community growth and patient acquisition — a separate track from the design work described here.
             </p>
           </div>
 
@@ -576,14 +568,14 @@
           <div class="cs2-block" id="action">
             <span class="cs2-label">Action</span>
             <ul>
-              <li>Card sorting to uncover users' mental model of navigation — reduced menu from 8 to 3 first-level items (Miller's Law)</li>
-              <li>Heuristic evaluation of the current version to identify structural issues</li>
-              <li>Stakeholder interviews to align on scope, feasibility, and phasing</li>
-              <li>Mapped JTBD for different user roles and updated Information Architecture</li>
-              <li>Low-fidelity wireframes for early concept validation with the design team and stakeholders</li>
-              <li>A/B test of high-fidelity prototypes to validate new navigation and IA against the old version</li>
-              <li>Built HTML &amp; CSS prototype to illustrate responsive navigation behaviour across devices</li>
-              <li>Negotiated phased delivery with stakeholders: 4 launches, starting with B2C and a like-for-like modular transition before adding new features</li>
+              <li>Designed and ran a two-phase primary research study — quantitative survey (n=127) plus 6 semi-structured interviews — and inductively coded transcripts into 5 root-cause clusters</li>
+              <li>Synthesised findings into a Jobs to Be Done framework and a problem statement anchored on "Alex," a persona representing the 44% intentional-non-adherer segment</li>
+              <li>Architected the product as 4 sequential, hypothesis-driven pillars (AI Companion, Well-being PDF, Predictive Shield, Habit Studio) — each with an explicit if/then hypothesis, a validation threshold, and a pre-defined failure definition with a pivot path, rather than a single feature list</li>
+              <li>Designed and built a 25-route Next.js/TypeScript/Tailwind prototype covering onboarding, daily check-in, the skip-reason flow, the AI companion chat, and 7-day/30-day progress views</li>
+              <li>Designed the skip-reason taxonomy as the core interaction primitive — each of the 5 emotional clusters routes to one of three AI response modes (Encouragement, Education, Empathy)</li>
+              <li>Wrote and iterated the AI companion's system prompt, including a 3-tier severity-triage safety layer (Emergency / Serious / Routine) and a doctor-attributed medication framing rule so the AI never substitutes its own clinical judgment for the prescriber's</li>
+              <li>Authored and enforced a design system (DESIGN-SYSTEM.md) — tokens, CTA and footer patterns, sticky-layout skeleton — applied consistently across all 25 routes</li>
+              <li>Modelled Year 1 unit economics and defined go/no-go validation gates (retention, NPS, export-rate thresholds) for each solution pillar</li>
             </ul>
           </div>
 
@@ -592,20 +584,20 @@
             <span class="cs2-label">Result</span>
             <div class="cs2-metric-row">
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">4 flows</span>
-                <span class="cs2-metric-card__label">Document updates, damage reporting, reservations, service requests</span>
+                <span class="cs2-metric-card__number">44%</span>
+                <span class="cs2-metric-card__label">Patients who skip intentionally — primary research finding (survey, n=127)</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">8 → 3</span>
-                <span class="cs2-metric-card__label">First-level navigation items — reduced via card sorting</span>
+                <span class="cs2-metric-card__number">5 clusters</span>
+                <span class="cs2-metric-card__label">Emotional root causes identified via qualitative coding (6 interviews)</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">Signed off</span>
-                <span class="cs2-metric-card__label">Hi-fi mock-ups approved by stakeholders and ready for development</span>
+                <span class="cs2-metric-card__number">6.3x</span>
+                <span class="cs2-metric-card__label">Projected Y1 LTV:CAC (€125 LTV ÷ €20 blended CAC) — modelled, not yet observed</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">Modular</span>
-                <span class="cs2-metric-card__label">CMS-editable component architecture — no developer needed for updates</span>
+                <span class="cs2-metric-card__number">3.2 months</span>
+                <span class="cs2-metric-card__label">Projected Y1 CAC payback period — modelled, not yet observed</span>
               </div>
             </div>
           </div>
@@ -614,12 +606,11 @@
           <div class="cs2-block" id="delivers">
             <span class="cs2-label">Delivers</span>
             <ul>
-              <li>Signed-off high-fidelity Figma mock-ups — all 4 self-service flows</li>
-              <li>Updated Information Architecture — 8 to 3 primary navigation items</li>
-              <li>HTML &amp; CSS prototype — responsive navigation behaviour demonstration</li>
-              <li>Design system component library — ready for development handoff</li>
-              <li>A/B test results — new navigation and IA validated against existing version</li>
-              <li>4-launch phasing plan — B2C first, progressive feature expansion</li>
+              <li>Primary research package — survey (n=127) and interview (n=6) methodology, root-cause cluster analysis, JTBD framework, problem statement, and persona</li>
+              <li>Four-pillar solution architecture with testable if/then hypotheses, validation criteria, and failure-definition pivot paths</li>
+              <li>25-route Next.js/TypeScript/Tailwind interactive prototype with a working AI companion (Gemini-backed)</li>
+              <li>Tuza design system documentation — tokens, components, sticky-layout rules</li>
+              <li>Year 1 financial model — unit economics, TAM/SAM/SOM market sizing, and channel-level revenue projections</li>
             </ul>
           </div>
 
@@ -627,10 +618,9 @@
           <div class="cs2-block" id="stakeholders">
             <span class="cs2-label">Stakeholders managed</span>
             <ul>
-              <li><strong>Product Manager &amp; Business Analyst</strong> — scope definition, phasing, and sign-off</li>
-              <li><strong>Development team</strong> — regular check-ins to ensure design system approach was feasible and manageable</li>
-              <li><strong>Customer Service &amp; Sales</strong> — service owners brought in to validate business need for proposed features</li>
-              <li><strong>UI Designer</strong> — collaborated on hi-fi mock-ups and component library</li>
+              <li><strong>Co-founder (Ronald Ndatinya)</strong> — scope division between product/design and growth/community acquisition</li>
+              <li><strong>Academic supervisors, Barcelona Technology School</strong> — capstone deliverable sign-off and defence</li>
+              <li><strong>Primary research participants</strong> — 127 survey respondents and 6 interviewees recruited via patient community networks</li>
             </ul>
           </div>
 
@@ -638,11 +628,20 @@
           <div class="cs2-block" id="documentation">
             <span class="cs2-label">Documentation prepared</span>
             <ul>
-              <li>Card sorting analysis — findings and navigation restructure rationale</li>
-              <li>Information Architecture diagram — updated IA with rationale</li>
-              <li>A/B test plan and results — navigation and IA validation</li>
-              <li>Component specifications — design system library for developer handoff</li>
-              <li>4-launch phasing plan — scope, feature sequence, and CMS transition strategy</li>
+              <li>Primary research report — methodology, findings, and root-cause cluster analysis</li>
+              <li>Problem statement and Jobs to Be Done framework</li>
+              <li>Four-pillar solution architecture with hypotheses, validation criteria, and failure definitions</li>
+              <li>DESIGN-SYSTEM.md and HANDOFF.md — full design system and product/technical handoff documentation</li>
+              <li>Financial model — unit economics, TAM/SAM/SOM, Year 1 revenue projections</li>
+            </ul>
+          </div>
+
+          <!-- 7b. DELIVERABLES -->
+          <div class="cs2-block" id="prototype">
+            <span class="cs2-label">Deliverables</span>
+            <ul>
+              <li><a href="https://tuza-app.vercel.app/home" target="_blank" rel="noopener" style="color: #2A4C2F;">Live interactive prototype — tuza-app.vercel.app</a></li>
+              <li><a href="https://docs.google.com/document/d/1XeYVm1YrgZFkdu53piLSHmydwD8MKWB_RJNX4HUNAw4/edit?usp=sharing" target="_blank" rel="noopener" style="color: #2A4C2F;">Product strategy document</a></li>
             </ul>
           </div>
 
@@ -650,11 +649,10 @@
           <div class="cs2-block" id="design-system">
             <span class="cs2-label">Design system used</span>
             <div class="cs2-chips">
-              <span class="cs2-chip">Lynk &amp; Co Design System</span>
-              <span class="cs2-chip">Navigation</span>
-              <span class="cs2-chip">Card</span>
-              <span class="cs2-chip">Form / Input</span>
-              <span class="cs2-chip">Custom modular components</span>
+              <span class="cs2-chip">Tuza design system</span>
+              <span class="cs2-chip">Next.js 14</span>
+              <span class="cs2-chip">Tailwind CSS</span>
+              <span class="cs2-chip">Framer Motion</span>
             </div>
           </div>
 
@@ -767,7 +765,7 @@
           const res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ messages: history, page: 'user-profile' }),
+            body: JSON.stringify({ messages: history, page: 'tuza' }),
           });
           const data = await res.json();
           if (data.reply) {
