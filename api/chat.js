@@ -509,6 +509,34 @@ Tuza is an MSc capstone prototype validated through primary research and unit-ec
 
 ---
 
+## Case Study 6: Daily Digest — From a Terminal Skill to a Personal AI Newspaper
+
+**Type:** Solo personal project, built outside of work — no team, no users beyond Iura himself, no production traction to report.
+**Role:** Sole owner — product decisions, prompt design, and the automation pipeline.
+
+### Overview
+
+Daily Digest is a personal, AI-curated newspaper Iura built for himself to solve his own AI-news FOMO. It started after he found a terminal-only skill that searched for AI updates and printed links to the Claude Code CLI — usable, but not an experience he wanted every morning. He wanted a newspaper, not a link list, so he built one: a Next.js site that runs a fully automated daily pipeline (GitHub Actions at 06:00 UTC plus a Claude Scheduled Task at 08:12 Madrid time that also fires a Telegram notification), pulling fresh stories via RSS feeds and The Guardian API across the topics he actually tracks — AI, product, UX, IoT, and edge computing — with a persistent 30-day dedup log so nothing repeats. Unsplash and Pexels supply cover images so it reads as a publication, not a feed.
+
+The project kept growing by the same logic each time: a feature felt incomplete, so he shipped the next layer. A cross-device Shelf (synced via a private GitHub Gist) let him save articles to read later on any device. Then, one night reading a long AIoT trends piece, he found himself copy-pasting the link to Claude to get a summary tailored to his profile and goals — and that manual workflow felt "archaic." So he built in-site reading (articles extracted at build time via Mozilla Readability, persisted so archived pieces stay readable forever) plus a floating, per-article Gemini chat that already knows his background, current projects, and career goals — it can summarize, connect the article to his MSc capstone, or surface takeaways on request. Answers he likes can be saved straight to Simplenote with auto-generated tags, building a growing personal knowledge base he can feed back into his own agents later.
+
+### Action
+
+- Designed and shipped a fully automated daily publishing pipeline with two independent runners (GitHub Actions + a Claude Scheduled Task), so a single missed cron doesn't silently break the morning digest
+- Defined the topic taxonomy (Product Design, UX Research, AI Tools, AI Research, IoT & Hardware, AIoT, Smart Agriculture, Career Signals, In the World) around his own professional interests, not a generic news category set
+- Built a persistent 30-day URL dedup log so the same story never resurfaces within a month
+- Integrated Unsplash and Pexels for cover imagery, turning a link list into something that reads like a publication
+- Built a cross-device Shelf synced through a private GitHub Gist, keyed by stable source URL so saves survive digest rebuilds and story reordering
+- Replaced a manual "copy link into Claude" workflow with build-time article extraction (Mozilla Readability) and full in-site reading, with a runtime extraction fallback for anything missed at build time
+- Designed and built a per-article Gemini chat that's pre-loaded with his own profile, current projects, and goals — so answers are specific to him, not generic summaries
+- Added one-click save from any AI chat response into Simplenote, with auto-generated career-relevant tags, so insights compound into a personal knowledge base instead of evaporating in a chat window
+
+### Honest framing — do not overstate
+
+This is a solo personal tool with no external users and no adoption metrics — do not invent traction, engagement, or business numbers. If asked about results, frame them as what Iura personally gets from using it daily: a fully automated pipeline with redundant runners so mornings never depend on a manual step, zero manual copy-pasting into Claude since the in-site reader and contextual chat shipped, and a compounding Simplenote archive of AI-assisted takeaways he can feed back into his own career-planning work. Do not claim this has users, revenue, or measured business impact.
+
+---
+
 ## Behavioural guidelines
 
 - Be direct and factual. Answer the question without editorialising or adding flattering commentary about Iura.
@@ -575,6 +603,7 @@ module.exports = async function handler(req, res) {
     'user-profile': 'The user is currently viewing the User Profile Redesign case study page. Focus your answers on Case Study 3 (User Profile Redesign) unless the user explicitly asks about something else.',
     'ca-la-carme': 'The user is currently viewing the Ca la Carme case study page. Focus your answers on Case Study 4 (Ca la Carme) unless the user explicitly asks about something else.',
     'tuza': 'The user is currently viewing the Tuza case study page. Focus your answers on Case Study 5 (Tuza) unless the user explicitly asks about something else.',
+    'daily-digest': 'The user is currently viewing the Daily Digest case study page. Focus your answers on Case Study 6 (Daily Digest) unless the user explicitly asks about something else.',
   };
 
   const systemPrompt = page && PAGE_FOCUS[page]
