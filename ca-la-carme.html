@@ -600,8 +600,8 @@
                 <span class="cs2-metric-card__label">Actual shutoff temperature reached after fixing a hysteresis bug that cut cooling short</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">17h outage</span>
-                <span class="cs2-metric-card__label">Full HA crash recovered via a purpose-built helper-restore script</span>
+                <span class="cs2-metric-card__number">€8.65/mo</span>
+                <span class="cs2-metric-card__label">Estimated cost avoided by shifting AC runtime onto solar surplus — tracked and reported by the system itself, nightly, without being asked (estimated from modelled draw; neither AC has a power meter)</span>
               </div>
             </div>
           </div>
@@ -623,8 +623,6 @@
             <span class="cs2-label">Constraints managed</span>
             <ul>
               <li><strong>Zigbee mesh reliability</strong> — a sleepy battery end device (SONOFF SNZB-04P) can drop an IAS Zone status notification entirely; anything that hard-blocks on its state needs independent staleness detection, not just a clean happy path</li>
-              <li><strong>Docker rebuild vs. restart</strong> — the bot's code is baked into its image (<code>COPY bot.py /</code>), so every behaviour change needs a full add-on rebuild, not a restart; this shaped the entire deploy workflow</li>
-              <li><strong>No Python at the HAOS shell level</strong> — automations that need it (PVPC sync, restart diagnostics) can't run as native <code>shell_command</code>s until an add-on like AppDaemon provides a runtime; worked around with a Mac-side launchd job in the meantime</li>
               <li><strong>Unreliable upstream APIs</strong> — the native <code>pvpc_hourly_pricing</code> integration and the REE API behind it broke outright and had to be removed rather than patched, in favour of a self-hosted sync with a hardcoded fallback price</li>
             </ul>
           </div>

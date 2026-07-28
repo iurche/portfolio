@@ -228,6 +228,17 @@ The contact form uses a placeholder endpoint:
 - ~~Experience dates~~ — confirmed and corrected 2026-07-22: VistaPrint 2024–present, Lynk & Co 2022–2024, Freelance 2021–2022. "Years experience" stat updated from 6+ to 5+ to match.
 - **Lab project counts** — update when Tuza or the accessibility framework ships. (`lab.html` is not currently tracked in git / not linked from live nav — see Recent Changes below.)
 
+### 3. Homepage cover images are ~39MB total (noted 2026-07-28)
+The three personal-project covers are all SVG-wrapped full-size JPEGs, loaded on `index.html`:
+
+| File | Size |
+|---|---|
+| `images/tuza-cover.svg` | ~15MB |
+| `images/daily-digest-cover.svg` | ~12MB |
+| `images/ca-la-carme-cover.svg` | ~12MB |
+
+That's the single biggest performance problem on the site — the homepage pulls all three. Converting them to WebP (or plain compressed JPEG) at a sane resolution would cut this by well over 90%. Not a regression from any one case study; the pattern was inherited from the Tuza deploy and repeated since.
+
 ---
 
 ## Recent Changes
@@ -244,7 +255,14 @@ The contact form uses a placeholder endpoint:
   - `api/chat.js`'s existing Case Study 4 section and `'ca-la-carme'` `PAGE_FOCUS` entry were checked against the final page content — accurate as-is, no changes needed.
 - **`chat.css` — explored, then deliberately left unchanged.** The global chat widget's greeting bubble sits at the top of the drawer with a large empty gap between it and the starter-question buttons (`.chat-drawer` is a fixed `height: 670px`; `.chat-drawer__messages { flex: 1 }` fills the leftover space, top-aligned). Two changes were tried and both reverted: `height: auto` (shrink-wrapped the drawer — changed its size, not wanted) and bottom-aligning the messages via `margin-top: auto` on the first child (kept the height but moved the greeting down to sit above the input). Neither was the desired look; **current prod behaviour is intentional — leave it alone.** Noted here so a future session doesn't "fix" it again.
   - If it's ever revisited: `justify-content: flex-end` is the obvious reach and is wrong — it clips the top of the list once messages overflow, making the earliest ones unreachable by scrolling. `margin-top: auto` on the first child avoids that.
-- Not committed this session (pre-existing untracked files, unrelated to this work): `work.html`, `process.html`, `lab.html`, `case-study-template.html`.
+- **Post-commit content edits to `ca-la-carme.html` (not yet committed at time of writing):**
+  - Result block — replaced the "17h outage / full HA crash recovered" metric card with **€8.65/mo estimated cost avoided** by shifting AC runtime onto solar surplus. The outage card described an incident rather than an outcome, which is weak as a result. **Framing matters here:** the HA project's own `HANDOFF.md` is explicit that this figure is *not* a measurement — neither AC has a power meter, so draw is inferred from a modelled wattage-per-fan-speed table, and the number sits against ~€19/mo of AC spend over the same period. The card label says so. The genuinely interesting signal is that the system was instrumented to track and report on itself nightly, not the (small) absolute figure. Do not let this get restated as a metered or audited saving.
+  - Constraints managed — dropped the "Docker rebuild vs. restart" and "No Python at the HAOS shell level" bullets, leaving Zigbee mesh reliability and unreliable upstream APIs. Both removed items were implementation detail rather than a managed constraint.
+  - `api/chat.js` Case Study 4 key facts updated to match, with an explicit instruction not to present the savings figure as metered — otherwise the rail chat would contradict the page.
+- **Committed and pushed as `8062e0f`** (12 files) → auto-deployed to `iurche.vercel.app`. The deploy itself was not verified from this session — confirm the live build renders before assuming it's good.
+- **Deliberately excluded from that commit:** `images/ca la carme images/` and `images/ca la carme cover.svg` — the raw source folder the screenshots were supplied in. It still contains the **uncropped** Telegram screenshot showing unrelated private chats and unread counts; only the cropped `ca-la-carme-telegram-chat.png` is public. Both are still sitting untracked in `images/` locally. Don't blanket-`git add` this directory.
+- Also not committed (pre-existing untracked files, unrelated to this work): `work.html`, `process.html`, `lab.html`, `case-study-template.html`, `.claude/`, assorted stray images.
+- Re-confirmed still broken: the local `.env` `ANTHROPIC_API_KEY` is stale (server log: `authentication_error: invalid x-api-key`), so the CS2 rail chat can't be tested end-to-end on `localhost:3001` — it renders its "Something went wrong" fallback correctly, but no real reply. Request wiring was verified as correct (POSTs to `/api/chat` with `page: 'ca-la-carme'`). Production's Vercel key is unaffected.
 
 ### 2026-07-22
 - **Added `tuza.html`** — 4th CS2 case study, covering the Tuza MSc capstone project (AI medication companion for autoimmune patients). Built from real screenshots captured against the live Tuza Next.js prototype (desktop `PhoneFrame` view, not raw mobile viewport — headless Chrome silently freezes the app's `.fade-up` CSS entrance animation at `opacity: 0`, so screenshot scripts must force it to its resolved end state or the capture looks washed out).

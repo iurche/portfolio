@@ -446,6 +446,7 @@ A second, larger-scale incident — a 17-hour full Home Assistant outage (May 4�
 
 **Key facts:**
 - 12 production automations covering 2 independently-monitored AC zones, a dehumidifier, and system health
+- ~€8.65/month estimated cost avoided by shifting AC runtime onto solar surplus, self-tracked and reported nightly by the system. IMPORTANT: this is an estimate, not a measurement — neither AC has a power meter, so consumption is inferred from a modelled wattage-per-fan-speed table. Never present it as a metered or audited figure. The point of interest is that Iura instrumented the system to measure and report on itself, not the size of the number (which is small, and sits against roughly €19/month of AC spend over the same period).
 - 12.5h → under 3h: time to detect a stuck sensor, before vs. after the watchdog automation
 - Fixed a hysteresis bug that shut cooling off at 24°C before it ever reached its 22°C target
 - Fixed a bug where the Study AC's fan speed was silently controlled by the Living Room's fan variable
