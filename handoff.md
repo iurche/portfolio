@@ -1,6 +1,6 @@
 # Portfolio Handoff
 
-**Last updated:** 2026-06-21  
+**Last updated:** 2026-07-28  
 **Status:** Deployed to production at https://iurche.vercel.app
 
 ---
@@ -9,22 +9,23 @@
 
 A full 7-page portfolio site rebuilt from a single-page layout. New information architecture matches the structural reference (carmen-elena.space) but with a professional, metric-led tone — outcome-first content throughout.
 
-Three case study pages (`order-help.html`, `contact-experience.html`, `user-profile.html`) have a rich two-column CS2 template with a sticky right rail, AI chat, and mobile drawer.
+Six case study pages (`order-help.html`, `contact-experience.html`, `user-profile.html`, `tuza.html`, `daily-digest.html`, `ca-la-carme.html`) have a rich two-column CS2 template with a sticky right rail, AI chat, and mobile drawer.
 
 ### Pages
 
 | File | Page | Status |
 |---|---|---|
 | `index.html` | Home | Live |
-| `work.html` | My Work | Live |
-| `process.html` | My Process | Live |
 | `about-me.html` | About | Live |
 | `experience.html` | Experience | Live |
-| `lab.html` | The Lab | Live |
 | `contact.html` | Contact | Live |
 | `order-help.html` | Case Study — Order Help | Live |
 | `contact-experience.html` | Case Study — Contact Experience | Live |
 | `user-profile.html` | Case Study — User Profile | Live |
+| `tuza.html` | Case Study — Tuza (AI medication companion) | Live |
+| `daily-digest.html` | Case Study — Daily Digest (personal AI newspaper) | Live |
+| `ca-la-carme.html` | Case Study — Ca la Carme (home automation & AI assistant) | Live |
+| `work.html`, `process.html`, `lab.html` | My Work / My Process / The Lab | Untracked in git, not linked from the live nav or any page — orphaned, not currently part of the site |
 
 ---
 
@@ -46,8 +47,10 @@ Three case study pages (`order-help.html`, `contact-experience.html`, `user-prof
 All pages share a `.site-nav` component:
 
 ```
-Iura Osadchuk  |  Work · Process · About · Experience · Lab · Contact  |  [CV] [LinkedIn]
+Iura Osadchuk  |  About · Experience · Contact  |  [CV] [LinkedIn]
 ```
+
+(Work/Process/Lab were dropped from the live nav at some point — those three pages still exist as orphaned, untracked files; see Pages table above.)
 
 Active page gets `class="current"` on its nav link (renders as border-bottom underline).
 
@@ -77,7 +80,7 @@ Contains:
 
 ### AI Chat (Q&A)
 - **Endpoint:** POST `/api/chat` — handled by `api/chat.js`
-- **Request body:** `{ messages, page }` where `page` is `'order-help'` | `'contact-experience'` | `'user-profile'`
+- **Request body:** `{ messages, page }` where `page` is `'order-help'` | `'contact-experience'` | `'user-profile'` | `'tuza'`
 - **Page context:** The API appends a page-specific focus instruction to the system prompt based on the `page` field, so the AI knows which case study the user is viewing
 - **Model:** Claude via Anthropic API (streaming not used — full response returned)
 - **Tone rules in system prompt:** No sycophantic openers ("great question", etc.). Concise, direct.
@@ -113,6 +116,9 @@ Full context for all three case studies is embedded in the system prompt. Page-s
 | `'order-help'` | Focus on Case Study 1 (Order Help) |
 | `'contact-experience'` | Focus on Case Study 2 (Contact Experience) |
 | `'user-profile'` | Focus on Case Study 3 (User Profile) |
+| `'ca-la-carme'` | Focus on Case Study 4 (Ca la Carme) |
+| `'tuza'` | Focus on Case Study 5 (Tuza) |
+| `'daily-digest'` | Focus on Case Study 6 (Daily Digest) |
 
 ---
 
@@ -190,6 +196,9 @@ Each CS2 page has an inline `<style>` block. Key classes:
 ├── order-help.html          ← CS2 case study
 ├── contact-experience.html  ← CS2 case study
 ├── user-profile.html        ← CS2 case study
+├── tuza.html                ← CS2 case study
+├── daily-digest.html        ← CS2 case study
+├── ca-la-carme.html         ← CS2 case study
 ├── styles.css               ← shared styles
 ├── chat.css / chat.js       ← global chat widget
 ├── server.js                ← local dev server (node server.js on :3001)
@@ -216,5 +225,37 @@ The contact form uses a placeholder endpoint:
 3. Replace `xpwzgkpv` in `contact.html`
 
 ### 2. Content to review
-- **Experience dates** — VistaPrint 2022, Lynk & Co 2020–2022, Freelance 2019–2020. Confirm accuracy.
-- **Lab project counts** — update when Tuza or the accessibility framework ships.
+- ~~Experience dates~~ — confirmed and corrected 2026-07-22: VistaPrint 2024–present, Lynk & Co 2022–2024, Freelance 2021–2022. "Years experience" stat updated from 6+ to 5+ to match.
+- **Lab project counts** — update when Tuza or the accessibility framework ships. (`lab.html` is not currently tracked in git / not linked from live nav — see Recent Changes below.)
+
+---
+
+## Recent Changes
+
+### 2026-07-28
+- **Backfilled a documentation gap from the prior session (2026-07-22):** `daily-digest.html` (5th CS2 case study, personal AI-curated newspaper) had already shipped and been committed (`a9146ed`) but was never written up here — this entry closes that gap. It's registered in `api/chat.js` as Case Study 6, cross-linked from `order-help.html`, `contact-experience.html`, `tuza.html`, and `user-profile.html`, and has a project card on `index.html`.
+- **Corrected stale info found during the same pass:** the Navigation section above still described a 6-link nav (Work/Process/About/Experience/Lab/Contact); the live `.site-nav` only has About/Experience/Contact. `work.html`, `process.html`, and `lab.html` are untracked in git and unlinked from anywhere in the live site — orphaned, not part of production.
+- **Shipped `ca-la-carme.html`** — 6th (per `api/chat.js` numbering, Case Study 4) CS2 case study, covering the Ca la Carme home-automation + AI-assistant project (Home Assistant on a Raspberry Pi, 12 production automations, a Claude-powered Telegram bot). The page markup and `api/chat.js` system-prompt section already existed as an untracked draft from an earlier session; this session resolved its one blocker (6 referenced images that didn't exist) and wired it into the live site:
+  - Image stack rebuilt around 6 real screenshots the user supplied: 5 from the live Home Assistant dashboard/automation editor (`ca-la-carme-overview.png`, `ca-la-carme-thermometer-history.png`, `ca-la-carme-savings-history.png`, `ca-la-carme-automation-logic.png`, `ca-la-carme-automations-list.png`) and 1 from Telegram (`ca-la-carme-telegram-chat.png`) — the original draft had assumed different (Telegram-heavier) screenshots that were never captured, so captions/alt text were rewritten to match what was actually provided rather than forcing a mismatch.
+  - The Telegram screenshot was cropped (via PIL, offset crop — `sips` can't do arbitrary-offset crops) to remove the left sidebar, which exposed the user's other private Telegram chats/channels (contact list, unread counts) — not something to publish on a public page.
+  - `images/ca-la-carme-cover.svg` (user-provided iPad mockup, SVG-wrapped JPEG, ~12MB — same pattern as the existing `tuza-cover.svg`/`daily-digest-cover.svg`, not a regression specific to this page) is used for the homepage project card. The in-page `.cs2-cover-img` (the raw dashboard screenshot) is hidden via `style="display:none"` — same pattern as `order-help.html`/`contact-experience.html` — with the first image-stack figure serving as the effective visual lead-in instead.
+  - Cross-links: `order-help.html` and `contact-experience.html` each swapped their Daily Digest "Thanks for reading" card for Ca la Carme (their other original card kept); `ca-la-carme.html`'s own two cards link back to `order-help.html` and `contact-experience.html`.
+  - `index.html` — added a Ca la Carme project card (grouped with Tuza/Daily Digest, before the work-history case studies).
+  - `api/chat.js`'s existing Case Study 4 section and `'ca-la-carme'` `PAGE_FOCUS` entry were checked against the final page content — accurate as-is, no changes needed.
+- **`chat.css` — explored, then deliberately left unchanged.** The global chat widget's greeting bubble sits at the top of the drawer with a large empty gap between it and the starter-question buttons (`.chat-drawer` is a fixed `height: 670px`; `.chat-drawer__messages { flex: 1 }` fills the leftover space, top-aligned). Two changes were tried and both reverted: `height: auto` (shrink-wrapped the drawer — changed its size, not wanted) and bottom-aligning the messages via `margin-top: auto` on the first child (kept the height but moved the greeting down to sit above the input). Neither was the desired look; **current prod behaviour is intentional — leave it alone.** Noted here so a future session doesn't "fix" it again.
+  - If it's ever revisited: `justify-content: flex-end` is the obvious reach and is wrong — it clips the top of the list once messages overflow, making the earliest ones unreachable by scrolling. `margin-top: auto` on the first child avoids that.
+- Not committed this session (pre-existing untracked files, unrelated to this work): `work.html`, `process.html`, `lab.html`, `case-study-template.html`.
+
+### 2026-07-22
+- **Added `tuza.html`** — 4th CS2 case study, covering the Tuza MSc capstone project (AI medication companion for autoimmune patients). Built from real screenshots captured against the live Tuza Next.js prototype (desktop `PhoneFrame` view, not raw mobile viewport — headless Chrome silently freezes the app's `.fade-up` CSS entrance animation at `opacity: 0`, so screenshot scripts must force it to its resolved end state or the capture looks washed out).
+  - Result-block metrics are explicitly labelled as primary-research findings or Year-1 projections, never phrased as achieved outcomes — the project has no production traction yet.
+  - Rail includes a "Deliverables" block (renamed from an initial "Prototype" block) linking the live prototype (`tuza-app.vercel.app`) and the product strategy doc.
+  - Image stack uses page-scoped overrides (not shared `.cs2-*` classes) since Tuza's screenshots are tall phone-portrait shots rather than the wide desktop screenshots the other 3 case studies use: `.cs2-image-item` background `#2B2B2F` with `24px 0` padding, each `<img>` capped at `max-width: 380px` + `margin: 0 auto`, `border: none`, white figcaption text.
+  - Cover image for Tuza uses `images/tuza-cover.svg` (wide 4-phone hero mockup) at natural `.cs2-cover-img` sizing (no cap) — unlike the tall single-phone screenshots in the stack.
+  - `order-help.html` and `contact-experience.html` cover images (`.cs2-cover-img`) hidden via `style="display:none"` — markup kept in place, not deleted.
+- **`api/chat.js`** — added "Case Study 5: Tuza" section to the system prompt (with an explicit "Honest framing — do not overstate" instruction) and a `'tuza'` entry to `PAGE_FOCUS`. Also fixed a stale "6+ years" reference that was missed in an earlier session's 6→5 years sweep (that sweep only grepped `*.html`, not `.js`).
+- **Cross-links** — `order-help.html`, `contact-experience.html`, `user-profile.html` each swapped one "Thanks for reading" card for Tuza (kept one of the original two case studies in each, no page recommends itself).
+- **`index.html`** — added Tuza project card (later promoted to first position in the project list); subheader changed from "I turn ambiguous problems into measurable outcomes" to "...into AI-powered products".
+- **`chat.css`** — `.chat-drawer__input` `min-height` reduced from 38px to 24px (shared class, affects both the global chat widget and all CS2 rail inputs).
+- Scope note: `.env` `ANTHROPIC_API_KEY` locally is stale (auth error against the Anthropic API) — chat is untestable end-to-end on `localhost:3001` until it's refreshed. Production's key (Vercel env var) is unaffected.
+- Not committed this session (pre-existing untracked files, unrelated to this work): `work.html`, `process.html`, `lab.html`, `ca-la-carme.html`, `case-study-template.html`, a handful of stray images. These existed before this session started; see git status for current state before assuming they're live.

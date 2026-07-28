@@ -13,8 +13,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Experience Redesign | Portfolio</title>
-  <meta name="description" content="How VistaPrint's Contact Experience was redesigned to shift customers from email to callback, targeting a seven-figure annual revenue improvement.">
+  <title>Ca la Carme | Portfolio</title>
   <link rel="icon" type="image/webp" href="images/favicon.webp">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="/chat.css" />
@@ -30,6 +29,7 @@
       z-index: 1000;
     }
 
+    /* 80% page width — 10% margin on each side */
     .case-study__section {
       padding-inline: 10% !important;
       max-width: 100% !important;
@@ -41,6 +41,7 @@
     }
 
 
+    /* ── Two-column layout shell ── */
     .cs2-layout {
       display: grid;
       grid-template-columns: 1fr;
@@ -213,6 +214,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      text-decoration: none;
     }
 
     .cs2-next__img {
@@ -239,6 +241,7 @@
       flex: 1;
     }
 
+    /* ── Image column ── */
     .cs2-image-stack {
       display: flex;
       flex-direction: column;
@@ -259,6 +262,7 @@
       object-fit: cover;
     }
 
+    /* ── Rail blocks ── */
     .cs2-block {
       margin-bottom: 32px;
     }
@@ -304,6 +308,7 @@
     .cs2-block ul li:last-child { margin-bottom: 0; }
     .cs2-block strong { font-weight: 700; }
 
+    /* ── Metric cards ── */
     .cs2-metric-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -336,6 +341,7 @@
       line-height: 1.4;
     }
 
+    /* ── Design system chips ── */
     .cs2-chips {
       display: flex;
       flex-wrap: wrap;
@@ -352,6 +358,7 @@
       color: #444444;
     }
 
+    /* ── Cover image ── */
     .cs2-cover-img {
       width: 100%;
       display: block;
@@ -359,6 +366,7 @@
       border-radius: 4px;
     }
 
+    /* ── Inline Q&A ── */
     .cs2-qa-list {
       display: flex;
       flex-direction: column;
@@ -442,13 +450,13 @@
   <section class="case-study__section intro" id="intro">
 
     <h1 class="header1 case-study__header1">
-      Contact Experience Redesign: From Email-First to Channel-First
+      Ca la Carme: From Manual Climate Control to a Self-Healing, Conversational Home System
     </h1>
 
     <img
       class="cs2-cover-img"
-      src="images/contact-landing.png"
-      alt="VistaPrint Contact Us landing page — channel selection surface with Vista Assistant and Request Help options"
+      src="images/ca-la-carme-overview.png"
+      alt="Home Assistant overview dashboard showing every zone's climate, window, and savings state at a glance"
       style="display: none;"
     />
 
@@ -464,34 +472,50 @@
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/contact-landing.png"
-              alt="Contact Us landing page showing two-card channel selection: Vista Assistant and Request Help"
+              src="images/ca-la-carme-overview.png"
+              alt="Home Assistant overview dashboard showing both AC zones off, window states, dehumidifier status, and accrued savings in one view"
             />
-            <figcaption class="capttion case-study__caption">Channel-first landing — two clearly differentiated cards, email de-emphasised to a text link</figcaption>
+            <figcaption class="capttion case-study__caption">Home overview — every zone's climate, window, and savings state in one glance, no per-device digging required</figcaption>
           </figure>
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/contact-captive-step1.png"
-              alt="Step 1 of callback form — personalised greeting with pre-filled contact details, intent dropdown, and consent checkbox"
+              src="images/ca-la-carme-telegram-chat.png"
+              alt="Telegram conversation with the Ca la Carme bot: a natural-language 'What's the situation?' query answered with full home state, a request to run both ACs met with a clarifying question, and automated daily energy reports"
             />
-            <figcaption class="capttion case-study__caption">Step 1 — contact details and intent, pre-filled from account data</figcaption>
+            <figcaption class="capttion case-study__caption">Natural-language control — the bot answers state queries directly, asks a clarifying question before acting on an ambiguous request, and posts a daily savings/spend report unprompted</figcaption>
           </figure>
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/contact-captive-step2.png"
-              alt="Step 2 of callback form — order selection cards with thumbnails, issue description, and file upload"
+              src="images/ca-la-carme-thermometer-history.png"
+              alt="History graph of the Living Room thermometer's temperature over the previous 24 hours"
             />
-            <figcaption class="capttion case-study__caption">Step 2 — order selection, issue description, and file upload</figcaption>
+            <figcaption class="capttion case-study__caption">Per-room thermometer history — Living Room and Study each reason from their own sensor, not a shared reading</figcaption>
           </figure>
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/contact-captive-success.png"
-              alt="Success screen — We're calling you now — confirming callback request with expected wait time and next steps"
+              src="images/ca-la-carme-savings-history.png"
+              alt="History graph of estimated AC savings accumulating over the month, reaching €8.65"
             />
-            <figcaption class="capttion case-study__caption">Success state — callback confirmed with clear next steps and wait time</figcaption>
+            <figcaption class="capttion case-study__caption">AC savings tracked over time — accrued estimate from running the AC during solar surplus instead of paying grid price</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/ca-la-carme-automation-logic.png"
+              alt="Home Assistant automation editor showing the Smart AC Temperature Control automation's branching choose-between-options logic"
+            />
+            <figcaption class="capttion case-study__caption">Inside Smart AC Temperature Control — the season/tier branching logic that drives heat, cool, and fan-speed decisions</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/ca-la-carme-automations-list.png"
+              alt="Home Assistant automations list showing 19 automations covering climate, security, maintenance, and reporting"
+            />
+            <figcaption class="capttion case-study__caption">19 automations running on this instance — climate, security, maintenance, and reporting, all deployed and monitored independently</figcaption>
           </figure>
 
         </div>
@@ -502,14 +526,14 @@
           <p class="cs2-next__sub">There's more to explore — here are two other projects worth your time.</p>
           <div class="cs2-next__cards">
             <div class="cs2-next__card">
-              <img src="images/User-profile-2.webp" alt="User Profile Redesign case study" class="cs2-next__img">
-              <span class="cs2-next__title">User Profile Redesign: From Call-Only to Self-Service</span>
-              <a href="user-profile.html" class="primary projects__button">Read case study</a>
+              <img src="images/order-help.webp" alt="Order Help case study" class="cs2-next__img">
+              <span class="cs2-next__title">Order Help: From a Significant Contact Volume Problem to a Self-Service Platform</span>
+              <a href="order-help.html" class="primary projects__button">Read case study</a>
             </div>
             <div class="cs2-next__card">
-              <img src="images/ca-la-carme-overview.png" alt="Ca la Carme home automation case study" class="cs2-next__img">
-              <span class="cs2-next__title">Ca la Carme: From Manual Climate Control to a Self-Healing, Conversational Home System</span>
-              <a href="ca-la-carme.html" class="primary projects__button">Read case study</a>
+              <img src="images/contact-experience.webp" alt="Contact Experience Redesign case study" class="cs2-next__img">
+              <span class="cs2-next__title">Contact Experience Redesign: From Email-First to Channel-First</span>
+              <a href="contact-experience.html" class="primary projects__button">Read case study</a>
             </div>
           </div>
         </div>
@@ -529,7 +553,10 @@
           <div class="cs2-block" id="situation">
             <span class="cs2-label">Situation</span>
             <p>
-              VistaPrint's Contact Us experience hadn't been meaningfully redesigned in years. Customers were defaulting to email — the slowest and lowest-value channel — not by preference, but because the interface made it the path of least resistance. Email contacts carry significantly lower VGP than callback (C2C), and email volume was overindexed relative to stated customer preference data. Leadership aligned on a seven-figure annual revenue key result tied specifically to contact channel mix improvement.
+              Before Ca la Carme, the house ran on smart devices with no shared logic. Two Fujitsu ACs, a dehumidifier, and a Zigbee window sensor all lived inside Home Assistant, but every decision — whether to run an AC, at what temperature, how hard the fan should run — was manual, with no link between electricity price and climate control, and no way to check or act on any of it except through Home Assistant's own dashboard, one device at a time.
+            </p>
+            <p>
+              The cost of that gap surfaced directly on 2026-07-03: a Zigbee window sensor silently dropped a status update and reported "open" for 12.5 hours straight. Because the AC automation hard-blocks on that sensor as a safety condition, it silently skipped every 15-minute cycle overnight while the living room climbed to 27°C — nothing was watching the watcher, so nobody knew until morning. A full Home Assistant crash the previous month (17 hours offline, May 4–5, 2026) had already exposed the same blind spot at a larger scale.
             </p>
           </div>
 
@@ -537,7 +564,7 @@
           <div class="cs2-block" id="task">
             <span class="cs2-label">Task</span>
             <p>
-              Lead end-to-end UX research and design for a full redesign of the contact channel surface. Scope: analytics review, transcript analysis of 30 support interactions, competitive benchmarking of 15 companies, structured evaluation of 4 solution directions, high-fidelity design for desktop and mobile, unmoderated usability testing with 10 participants, and a full A/B/C test specification. Target: ship as P0 in Q3 FY26.
+              Owned the system independently end-to-end — architecture, all 12 production automations, the Telegram bot, and incident response — with no engineering team, no QA process, and no users beyond myself and my household. Every design, deploy, and on-call decision was mine alone.
             </p>
           </div>
 
@@ -545,13 +572,14 @@
           <div class="cs2-block" id="action">
             <span class="cs2-label">Action</span>
             <ul>
-              <li>Reviewed analytics for baseline channel mix, contact volume by type, and drop-off rates on the existing contact page</li>
-              <li>Deep-read 30 customer support transcripts — identified 5 recurring pain patterns including symptom-vs-root-cause confusion and wrong channel selection</li>
-              <li>Benchmarked 15 companies across e-commerce, SaaS, and consumer services — identified 4 patterns: proactive triage, self-service prioritisation, multi-channel transparency, gated contact</li>
-              <li>Evaluated 4 solution directions against 5 criteria (deflection power, friction, assurance, technical complexity, P0 feasibility) — selected Direction 4 (Channel-First) for P0</li>
-              <li>Designed the full experience across 4 states: Help Center banner, channel selection, 2-step callback form, and success states</li>
-              <li>Ran unmoderated usability testing with 10 participants via UserTesting — validated core patterns, refined email hierarchy and callback confirmation</li>
-              <li>Specified A/B/C test: 3 variants, 5 primary metrics, full decision framework</li>
+              <li>Designed and deployed 12 production Home Assistant automations covering two independently-monitored AC zones, a dehumidifier, and system health — each with its own hysteresis or threshold logic, including a 4-tier PVPC electricity-price ladder driving heat/cool setpoints and fan speed</li>
+              <li>Built and shipped a Telegram bot (@CaLaCarmeBot, Claude Sonnet-powered) as a Dockerized Home Assistant add-on, giving natural-language control over the house through three tool calls — <code>call_ha_service</code>, <code>get_ha_state</code>, <code>notify_user</code> — gated by a Yes/No confirmation flow on risky actions</li>
+              <li>Diagnosed the 2026-07-03 stuck window-sensor incident to root cause — a dropped Zigbee IAS Zone notification from a sleepy battery end device — cleared it manually, then shipped a dedicated watchdog automation that pages within 3 hours if it recurs</li>
+              <li>Diagnosed and recovered from the 17-hour HA outage (May 4–5, 2026): restored non-persistent helpers lost in the crash via a purpose-built script, then shipped a clean-shutdown-marker pair so future restarts distinguish a crash from a manual restart automatically</li>
+              <li>Found and fixed two live logic bugs in the AC automation: a hysteresis error that shut cooling off at 24°C before it ever reached its 22°C target, and a variable-sharing bug where the Study AC's fan speed was silently controlled by the Living Room's fan variable</li>
+              <li>Removed a native HA integration (<code>pvpc_hourly_pricing</code>) after diagnosing it as a contributor to crashes — it was throwing exceptions roughly every 60 seconds against a broken upstream API — replacing it with a self-hosted sync job and a hardcoded fallback price</li>
+              <li>Hardened the bot against a class of Claude API failures: added conversation-history sanitization and automatic recovery from <code>BadRequestError</code> states caused by dangling tool-call turns, so the bot clears and retries instead of getting stuck</li>
+              <li>Set and enforced a single deploy path for AC automation changes after discovering the HA REST API silently duplicates automations that already exist in <code>automations.yaml</code> — added a post-deploy automation-count check as a guardrail against silent corruption</li>
             </ul>
           </div>
 
@@ -560,20 +588,20 @@
             <span class="cs2-label">Result</span>
             <div class="cs2-metric-row">
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">7-figure</span>
-                <span class="cs2-metric-card__label">Annual revenue target if channel mix shifts as designed</span>
+                <span class="cs2-metric-card__number">12</span>
+                <span class="cs2-metric-card__label">Automations running in production — climate, humidity, system health</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">10/10</span>
-                <span class="cs2-metric-card__label">Task completion rate in usability testing</span>
+                <span class="cs2-metric-card__number">12.5h → &lt;3h</span>
+                <span class="cs2-metric-card__label">Time to detect a stuck sensor, before vs. after the watchdog automation</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">P0</span>
-                <span class="cs2-metric-card__label">Shipped March 2026 — A/B/C test live</span>
+                <span class="cs2-metric-card__number">24°C → 22°C</span>
+                <span class="cs2-metric-card__label">Actual shutoff temperature reached after fixing a hysteresis bug that cut cooling short</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">3 variants</span>
-                <span class="cs2-metric-card__label">A/B/C test to measure channel mix impact at scale</span>
+                <span class="cs2-metric-card__number">17h outage</span>
+                <span class="cs2-metric-card__label">Full HA crash recovered via a purpose-built helper-restore script</span>
               </div>
             </div>
           </div>
@@ -582,22 +610,22 @@
           <div class="cs2-block" id="delivers">
             <span class="cs2-label">Delivers</span>
             <ul>
-              <li>High-fidelity Figma designs — desktop and mobile, all 4 states (banner, channel selection, callback form, success)</li>
-              <li>Usability test synthesis report — 10 participants, validated patterns and design refinements</li>
-              <li>A/B/C test specification — 3 variants, 5 primary metrics, decision framework</li>
-              <li>Direction 3 (Form-First + Automated Routing) documented as long-term product vision for P1/P2</li>
-              <li>Transcript analysis report — 5 recurring patterns from 30 support interactions</li>
-              <li>Competitive benchmarking analysis — 15 companies, 4 strategic patterns</li>
+              <li>12 production Home Assistant automations (<code>smart_ac_temperature_control</code>, <code>smart_dehumidifier_control</code>, <code>window_sensor_stale_watchdog</code>, and 9 others), with <code>smart_ac_automations.yaml</code> as the single source of truth</li>
+              <li><code>ca_la_carme</code> HA add-on — the Dockerized Telegram bot, rebuildable on demand via <code>ha addons rebuild local_ca_la_carme</code></li>
+              <li><code>smart_ac_deploy.py</code>, <code>smart_dehumidifier_deploy.py</code>, <code>ha_watchdog_deploy.py</code> — deploy scripts that splice automation YAML onto the Pi via SCP, each with a verification step</li>
+              <li><code>ha_restore_helpers.py</code> — recovery script for restoring non-persistent helpers after a crash</li>
+              <li><code>esios_price_sync.py</code> plus a macOS launchd job — hourly PVPC electricity-price sync, replacing a native integration that was contributing to crashes</li>
             </ul>
           </div>
 
-          <!-- 6. STAKEHOLDERS MANAGED -->
-          <div class="cs2-block" id="stakeholders">
-            <span class="cs2-label">Stakeholders managed</span>
+          <!-- 6. CONSTRAINTS MANAGED -->
+          <div class="cs2-block" id="constraints">
+            <span class="cs2-label">Constraints managed</span>
             <ul>
-              <li><strong>Product triad (PM + Engineering)</strong> — direction selection, P0 scope, and feasibility constraints</li>
-              <li><strong>Leadership</strong> — seven-figure annual revenue KR alignment; channel mix as strategic priority</li>
-              <li><strong>CARE Operations</strong> — callback working hours, agent capacity, and out-of-hours experience</li>
+              <li><strong>Zigbee mesh reliability</strong> — a sleepy battery end device (SONOFF SNZB-04P) can drop an IAS Zone status notification entirely; anything that hard-blocks on its state needs independent staleness detection, not just a clean happy path</li>
+              <li><strong>Docker rebuild vs. restart</strong> — the bot's code is baked into its image (<code>COPY bot.py /</code>), so every behaviour change needs a full add-on rebuild, not a restart; this shaped the entire deploy workflow</li>
+              <li><strong>No Python at the HAOS shell level</strong> — automations that need it (PVPC sync, restart diagnostics) can't run as native <code>shell_command</code>s until an add-on like AppDaemon provides a runtime; worked around with a Mac-side launchd job in the meantime</li>
+              <li><strong>Unreliable upstream APIs</strong> — the native <code>pvpc_hourly_pricing</code> integration and the REE API behind it broke outright and had to be removed rather than patched, in favour of a self-hosted sync with a hardcoded fallback price</li>
             </ul>
           </div>
 
@@ -605,19 +633,24 @@
           <div class="cs2-block" id="documentation">
             <span class="cs2-label">Documentation prepared</span>
             <ul>
-              <li>Transcript analysis report — 30 interactions, 5 patterns, design implications</li>
-              <li>Competitive benchmarking analysis — 15 companies, 4 strategic patterns</li>
-              <li>Solution direction evaluation matrix — 4 directions scored against 5 criteria</li>
-              <li>Usability test plan and synthesis report — 10 participants, UserTesting</li>
-              <li>A/B/C test specification — variants, metrics, guardrails, and decision framework</li>
+              <li><code>HANDOFF.md</code> — the living reference for infrastructure, every automation's logic and entity IDs, incident history, and standing deploy rules; the source for this case study</li>
+              <li>Deploy scripts as executable documentation — <code>smart_ac_deploy.py</code>, <code>smart_dehumidifier_deploy.py</code>, and <code>ha_watchdog_deploy.py</code> each encode the one correct deploy path for their automation</li>
+              <li>A power-outage recovery checklist — manual-intervention steps for the dehumidifier, Broadlink IR blasters, and DHCP/IP drift</li>
+              <li>A documented automation-count guardrail (<code>grep -c '^- id:' automations.yaml</code>, expected count) to catch silent deploy corruption before it ships</li>
             </ul>
           </div>
 
-          <!-- 8. DESIGN SYSTEM USED -->
+          <!-- 8. DESIGN/TECHNICAL SYSTEM USED -->
           <div class="cs2-block" id="design-system">
-            <span class="cs2-label">Design system used</span>
+            <span class="cs2-label">Technical system used</span>
             <div class="cs2-chips">
-              <a href="https://vista.design/swan" target="_blank" rel="noopener" class="cs2-chip">SWAN design system</a>
+              <span class="cs2-chip">Claude Sonnet (Anthropic API)</span>
+              <span class="cs2-chip">Home Assistant (HAOS, Raspberry Pi)</span>
+              <span class="cs2-chip">Telegram Bot API</span>
+              <span class="cs2-chip">e·sios PVPC API</span>
+              <span class="cs2-chip">Zigbee (ZHA)</span>
+              <span class="cs2-chip">Broadlink IR / SmartIR</span>
+              <span class="cs2-chip">Docker add-on architecture</span>
             </div>
           </div>
 
@@ -730,7 +763,7 @@
           const res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ messages: history, page: 'contact-experience' }),
+            body: JSON.stringify({ messages: history, page: 'ca-la-carme' }),
           });
           const data = await res.json();
           if (data.reply) {
