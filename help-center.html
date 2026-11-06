@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RG9B9LDKWE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RG9B9LDKWE');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center Redesign | Portfolio</title>
+  <link rel="icon" type="image/webp" href="images/favicon.webp">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/chat.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ── CS2 TEMPLATE STYLES ── */
+
+    .case-study__close-link {
+      z-index: 1000;
+    }
+
+    /* 80% page width — 10% margin on each side */
+    .case-study__section {
+      padding-inline: 10% !important;
+      max-width: 100% !important;
+      min-width: unset !important;
+    }
+
+    body {
+      padding-bottom: 56px;
+    }
+
+
+    /* ── Two-column layout shell ── */
+    .cs2-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .cs2-images { order: 1; }
+
+    /* ── Mobile: rail as slide-in overlay ── */
+    .cs2-rail {
+      order: 2;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: #f7efe5;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.28s ease;
+      overflow: hidden;
+    }
+
+    .cs2-rail.cs2-rail--open {
+      transform: translateX(0);
+    }
+
+    .cs2-mobile-rail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #222;
+      color: #f5f0e8;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .cs2-mobile-rail-close {
+      background: none;
+      border: none;
+      color: #f5f0e8;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      padding: 0;
+    }
+    .cs2-mobile-rail-close:hover { opacity: 1; }
+
+    body.cs2-rail-open .case-study__close-link { display: none; }
+
+    @media (min-width: 1280px) {
+      .cs2-layout {
+        grid-template-columns: 8fr 4fr;
+        column-gap: 40px;
+        align-items: start;
+      }
+
+      .cs2-images { order: unset; }
+
+      .cs2-rail {
+        order: unset;
+        position: sticky;
+        top: 24px;
+        align-self: start;
+        height: calc(100vh - 48px);
+        transform: none;
+        transition: none;
+        overflow: hidden;
+      }
+
+      .cs2-mobile-rail-header {
+        display: none;
+      }
+
+      .chat-bubble {
+        display: none !important;
+      }
+
+      .cs2-rail-scroll {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+      }
+
+      .cs2-qa-input-wrap {
+        flex-shrink: 0;
+        border-top: 1px solid #e0dbd3;
+        padding-top: 10px;
+        background-color: #f7efe5;
+      }
+
+      .cs2-rail:has(.cs2-qa-list--active) .cs2-qa-input-wrap {
+        border-top: none;
+      }
+
+      .cs2-qa-input-wrap .chat-drawer__input-row {
+        border-top: none !important;
+      }
+    }
+
+    @media (max-width: 1279px) {
+      .cs2-rail-scroll {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        min-height: 0;
+      }
+
+      .cs2-qa-input-wrap {
+        flex-shrink: 0;
+        border-top: 1px solid #e0dbd3;
+        padding-top: 10px;
+        background-color: #f7efe5;
+        padding-inline: 20px;
+      }
+
+      .cs2-rail:has(.cs2-qa-list--active) .cs2-qa-input-wrap {
+        border-top: none;
+      }
+
+      .cs2-qa-input-wrap .chat-drawer__input-row {
+        border-top: none !important;
+      }
+    }
+
+    /* ── Thanks for reading ── */
+    .cs2-next {
+      padding-top: 64px;
+    }
+
+    .cs2-next__heading {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #222;
+      margin: 0 0 24px 0;
+      padding-top: 56px;
+      overflow: visible;
+    }
+
+    @media (min-width: 768px) {
+      .cs2-next__heading { font-size: 2.625rem; }
+    }
+
+    @keyframes balloon-float {
+      0%, 100% { transform: translateY(0px)   rotate(-1.5deg); }
+      50%      { transform: translateY(-5.5px)  rotate(1.25deg); }
+    }
+
+    .cs2-next__heart {
+      display: inline-block;
+      margin-left: 8px;
+      vertical-align: middle;
+      animation: balloon-float 2.4s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .cs2-next__cards {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+    }
+
+    .cs2-next__card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .cs2-next__img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+    }
+
+    .cs2-next__sub {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #666;
+      margin: -8px 0 24px 0;
+    }
+
+    .cs2-next__title {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1.35;
+      flex: 1;
+    }
+
+    /* ── Image column ── */
+    .cs2-image-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .cs2-image-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cs2-image-item img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      border: 1px solid #d4cfc8;
+      object-fit: cover;
+    }
+
+    /* ── Rail blocks ── */
+    .cs2-block {
+      margin-bottom: 32px;
+    }
+
+    .cs2-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .cs2-label {
+      display: inline-block;
+      background-color: #222222;
+      color: #f5f0e8;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .cs2-block p {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222222;
+      margin: 0 0 8px 0;
+    }
+
+    .cs2-block p:last-child { margin-bottom: 0; }
+
+    .cs2-block ul {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222222;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .cs2-block ul li { margin-bottom: 4px; }
+    .cs2-block ul li:last-child { margin-bottom: 0; }
+    .cs2-block strong { font-weight: 700; }
+
+    /* ── Metric cards ── */
+    .cs2-metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .cs2-metric-card {
+      background-color: #f0ece4;
+      border-radius: 4px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .cs2-metric-card__number {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #222222;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .cs2-metric-card__label {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    /* ── Design system chips ── */
+    .cs2-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .cs2-chip {
+      background-color: #ede8df;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #444444;
+    }
+
+    /* ── Cover image ── */
+    .cs2-cover-img {
+      width: 100%;
+      display: block;
+      margin-bottom: 32px;
+      border-radius: 4px;
+    }
+
+    /* ── Inline Q&A ── */
+    .cs2-qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .cs2-qa-list--active {
+      border-top: 1px solid #d6cfc6;
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    .cs2-qa-input-wrap {
+      position: sticky;
+      bottom: 0;
+      background-color: #f7efe5;
+      padding-top: 8px;
+    }
+
+    .cs2-qa-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .cs2-qa-item__q {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      font-weight: 400;
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: #222222;
+      color: #f5f0e8;
+      align-self: flex-end;
+      margin: 0;
+    }
+
+    .cs2-qa-item__a {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      font-weight: 400;
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: #e8e3db;
+      color: #222222;
+      align-self: flex-start;
+      margin: 0;
+    }
+
+    .cs2-qa-item__loading {
+      font-family: Arsenal, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      max-width: 88%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background-color: #e8e3db;
+      color: #888;
+      align-self: flex-start;
+      font-style: italic;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body class="case-study">
+
+  <div class="case-study__close-container">
+    <a href="index.html" class="case-study__close-link" aria-label="Return to main page">
+      <img class="case-study__close-icon" src="images/close_icon.svg" alt="Close the case study">
+    </a>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section class="case-study__section intro" id="intro">
+
+    <h1 class="header1 case-study__header1">
+      Help Center Redesign: From a Contact-First Page to an Intent-Driven Triage Hub
+    </h1>
+
+    <img
+      class="cs2-cover-img"
+      src="images/help-center-cover.webp"
+      alt="Laptop showing the redesigned VistaPrint Help Center homepage"
+      style="display: none;"
+    />
+
+  </section>
+
+  <!-- ── TWO-COLUMN BODY ── -->
+  <section class="case-study__section" id="body">
+    <div class="cs2-layout">
+
+      <!-- ── LEFT: IMAGE COLUMN ── -->
+      <div class="cs2-images">
+        <div class="cs2-image-stack">
+
+          <figure class="cs2-image-item" style="margin:0">
+            <h3 class="header3">Before</h3>
+            <img
+              src="images/help-center-old.webp"
+              alt="Original Help Center homepage: a Help is here search bar, an order selection area, popular questions, three contact cards for phone, live chat (offline) and email, and a long Browse Help Center list of article links"
+            />
+            <figcaption class="capttion case-study__caption">Before — contact options and popular questions come first, and articles sit in a long list at the bottom</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <h3 class="header3">After</h3>
+            <img
+              src="images/help-center-home.webp"
+              alt="Redesigned Help Center homepage: a search bar with five intent shortcuts, two large help cards for orders and design, three promoted articles, and a grid of six categories above a contact banner"
+            />
+            <figcaption class="capttion case-study__caption">Homepage — search-first header with intent shortcuts, two help entry points, and six jobs-to-be-done categories</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/help-center-spoke.webp"
+              alt="Orders and Delivery category page with a signed-in module asking which recent order the customer needs help with, followed by articles and four topic cards"
+            />
+            <figcaption class="capttion case-study__caption">Category page — order-aware help for signed-in customers, then articles and topics</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/help-center-topic.webp"
+              alt="Topic page titled Edit your design with featured articles, guides, an article list, and a sidebar with search and related topic chips"
+            />
+            <figcaption class="capttion case-study__caption">Topic page — featured articles, guides and articles, with search and related topics alongside</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/help-center-contact.webp"
+              alt="Contact Us page with a Vista Assistant chat card and a phone callback card, an order help entry point, popular articles and popular topics"
+            />
+            <figcaption class="capttion case-study__caption">Contact Us page — chat and callback channels with availability, plus an order help entry point</figcaption>
+          </figure>
+
+        </div>
+
+        <!-- Thanks for reading -->
+        <div class="cs2-next">
+          <h2 class="cs2-next__heading">Thanks for reading <span class="cs2-next__heart">🖤</span></h2>
+          <p class="cs2-next__sub">There's more to explore — here are two other projects worth your time.</p>
+          <div class="cs2-next__cards">
+            <div class="cs2-next__card">
+              <img src="images/contact-experience.webp" alt="Contact Experience Redesign case study" class="cs2-next__img">
+              <span class="cs2-next__title">Contact Experience Redesign: From Email-First to Channel-First</span>
+              <a href="contact-experience.html" class="primary projects__button">Read case study</a>
+            </div>
+            <div class="cs2-next__card">
+              <img src="images/order-help.webp" alt="Order Help case study" class="cs2-next__img">
+              <span class="cs2-next__title">Order Help: From a Significant Contact Volume Problem to a Self-Service Platform</span>
+              <a href="order-help.html" class="primary projects__button">Read case study</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /cs2-images -->
+
+      <!-- ── RIGHT: TEXT RAIL ── -->
+      <div class="cs2-rail" id="cs2-rail">
+        <div class="cs2-mobile-rail-header">
+          <span>About this project</span>
+          <button class="cs2-mobile-rail-close" id="cs2-rail-close" aria-label="Close">✕</button>
+        </div>
+        <div class="cs2-rail-scroll">
+
+          <!-- 1. SITUATION -->
+          <div class="cs2-block" id="situation">
+            <span class="cs2-label">Situation</span>
+            <p>
+              The Help Center homepage is VistaPrint's main self-service entry point, but it was organised around internal content categories, and the path to contact was clearer than the path to an answer. Over 90 days (Feb–May 2026), 35.0% of homepage sessions ended in a contact and 34.8% dropped off with no action, so about 70% got no self-service value. Search was seen by 99.8% of visitors but used by around 5%, and 80% never reached the category section. Customer Support received ~1.1M inbound contacts in Feb–Apr 2026. The work was tied to a quarterly goal of growing article views from search, and to a content-platform migration that meant the content model and page design had to be designed together.
+            </p>
+          </div>
+
+          <!-- 2. TASK -->
+          <div class="cs2-block" id="task">
+            <span class="cs2-label">Task</span>
+            <p>
+              Own the UX workstream as part of the Product–Design–Engineering triad: discovery, information architecture, interaction design, prototyping, usability testing and developer handoff for the Help Center homepage, category and topic pages, search entry points and a dedicated Contact Us page. Deeper contact flows were out of scope and delivered separately.
+            </p>
+          </div>
+
+          <!-- 3. ACTION -->
+          <div class="cs2-block" id="action">
+            <span class="cs2-label">Action</span>
+            <ul>
+              <li>Combined ~335K sessions of analytics, 30 session replays, ~1.1M support contacts (1,000-transcript sample) and a benchmark of 23 Help Centers to find where self-service broke down</li>
+              <li>Facilitated six moderated interviews with US small-business customers. Five of six still chose to contact support even when they believed the answer was on the page, so contact stayed available but moved below self-service content</li>
+              <li>Defined a six-category, jobs-to-be-done information architecture, validated by UX Research with a 20-participant tree test and a 10-participant label test</li>
+              <li>Designed a search-first header with intent shortcuts chosen by contact volume, two entry points above the fold (order help and design help), and a dedicated Contact Us page</li>
+              <li>Built a SWAN-based React prototype and a nine-component library with desktop and mobile variants, then ran an unmoderated usability test with 10 participants</li>
+              <li>Made three scoping calls: light-touch order awareness on the homepage with deeper behaviour in the order spoke; content-managed rather than algorithmic "Articles for you"; and no new category for two low-volume, low-success tree-test tasks</li>
+            </ul>
+          </div>
+
+          <!-- 4. RESULT -->
+          <div class="cs2-block" id="result">
+            <span class="cs2-label">Result</span>
+            <div class="cs2-metric-row">
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">−3.0%</span>
+                <span class="cs2-metric-card__label">Customer Support case rate vs control (±2.7%) — primary metric, 50% en-US A/B</span>
+              </div>
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">+1.0%</span>
+                <span class="cs2-metric-card__label">Variable gross profit per visitor (±9.0%) — trending up</span>
+              </div>
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">+1.0%</span>
+                <span class="cs2-metric-card__label">Variable transaction profit per visitor (±9.1%) — trending up</span>
+              </div>
+              <div class="cs2-metric-card">
+                <span class="cs2-metric-card__number">+2.8%</span>
+                <span class="cs2-metric-card__label">Revenue per visitor (±9.4%) — trending up alongside lower contact</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. DELIVERS -->
+          <div class="cs2-block" id="delivers">
+            <span class="cs2-label">Delivers</span>
+            <ul>
+              <li>Six-category information architecture with topics and article mapping</li>
+              <li>Designs for the home, category, topic, article, search results and Contact Us pages (desktop and mobile)</li>
+              <li>Nine-component React library on SWAN with annotated, dev-ready specs</li>
+              <li>Usability test report with prioritised fixes</li>
+              <li>A composable page system reusable by other Cimpress brands</li>
+            </ul>
+          </div>
+
+          <!-- 6. STAKEHOLDERS MANAGED -->
+          <div class="cs2-block" id="stakeholders">
+            <span class="cs2-label">Stakeholders managed</span>
+            <ul>
+              <li><strong>Product</strong> — scope, impact model and domain review</li>
+              <li><strong>Engineering</strong> — content-platform architecture, entry-point destinations, signed-in states</li>
+              <li><strong>Analytics</strong> — experiment design and success metrics</li>
+              <li><strong>UX Research</strong> — IA validation and the review of label changes</li>
+              <li><strong>Content Management</strong> — IA implementation and how promoted articles are curated</li>
+              <li><strong>Customer Support &amp; Ops</strong> — contact volume, repeat-contact evidence and contact-page access</li>
+            </ul>
+          </div>
+
+          <!-- 7. DOCUMENTATION PREPARED -->
+          <div class="cs2-block" id="documentation">
+            <span class="cs2-label">Documentation prepared</span>
+            <ul>
+              <li>Discovery hub and design brief</li>
+              <li>Analytics, session-replay, contact-friction and competitor benchmark reports</li>
+              <li>Research plan and interview findings</li>
+              <li>Information architecture and component specs with engineering handoff</li>
+              <li>Usability test report</li>
+              <li>Design sections of the domain review and experiment plan, both written with Product</li>
+            </ul>
+          </div>
+
+          <!-- 8. DESIGN SYSTEM USED -->
+          <div class="cs2-block" id="design-system">
+            <span class="cs2-label">Design system used</span>
+            <div class="cs2-chips">
+              <a href="https://vista.design/swan" target="_blank" rel="noopener" class="cs2-chip">SWAN design system</a>
+            </div>
+          </div>
+
+          <!-- Q&A answer list -->
+          <div class="cs2-qa-list" id="cs2-qa-list"></div>
+
+        </div>
+        <!-- /cs2-rail-scroll -->
+
+        <!-- Input pinned at bottom -->
+        <div class="cs2-qa-input-wrap">
+          <div class="chat-drawer__input-row" style="border-top: none; padding-inline: 0;">
+            <textarea
+              class="chat-drawer__input"
+              id="cs2-input"
+              placeholder="Ask anything about this project…"
+              rows="1"
+              aria-label="Ask about this case study"
+            ></textarea>
+            <button class="chat-drawer__send" id="cs2-send" disabled aria-label="Send question">Send</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- /cs2-rail -->
+
+    </div>
+  </section>
+
+  <button class="chat-bubble" id="cs2-bubble" aria-label="Ask about Iura" aria-expanded="false">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.477 2 2 6.253 2 11.5c0 2.32.87 4.444 2.295 6.07L3 21l3.82-1.17A10.1 10.1 0 0 0 12 21c5.523 0 10-4.253 10-9.5S17.523 2 12 2Z"></path>
+    </svg>
+  </button>
+
+  <script>
+    (function () {
+      const bubble = document.getElementById('cs2-bubble');
+      const rail = document.getElementById('cs2-rail');
+      const closeBtn = document.getElementById('cs2-rail-close');
+
+      if (bubble && rail) {
+        bubble.addEventListener('click', () => {
+          rail.classList.add('cs2-rail--open');
+          document.body.classList.add('cs2-rail-open');
+          bubble.setAttribute('aria-expanded', 'true');
+        });
+      }
+      if (closeBtn && rail) {
+        closeBtn.addEventListener('click', () => {
+          rail.classList.remove('cs2-rail--open');
+          document.body.classList.remove('cs2-rail-open');
+          if (bubble) bubble.setAttribute('aria-expanded', 'false');
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const list = document.getElementById('cs2-qa-list');
+      const railScroll = document.querySelector('.cs2-rail-scroll');
+      const input = document.getElementById('cs2-input');
+      const sendBtn = document.getElementById('cs2-send');
+      const history = [];
+      let loading = false;
+
+      input.addEventListener('input', () => {
+        sendBtn.disabled = input.value.trim() === '' || loading;
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          if (!sendBtn.disabled) submit(input.value.trim());
+        }
+      });
+
+      sendBtn.addEventListener('click', () => {
+        if (!sendBtn.disabled) submit(input.value.trim());
+      });
+
+      async function submit(text) {
+        if (!text || loading) return;
+        loading = true;
+        sendBtn.disabled = true;
+        input.value = '';
+        input.style.height = 'auto';
+
+        list.classList.add('cs2-qa-list--active');
+
+        const item = document.createElement('div');
+        item.className = 'cs2-qa-item';
+        const q = document.createElement('p');
+        q.className = 'cs2-qa-item__q';
+        q.textContent = text;
+        const a = document.createElement('p');
+        a.className = 'cs2-qa-item__loading';
+        a.textContent = 'Thinking…';
+        item.appendChild(q);
+        item.appendChild(a);
+        list.appendChild(item);
+        setTimeout(() => { if (railScroll) railScroll.scrollTop = railScroll.scrollHeight; }, 50);
+
+        history.push({ role: 'user', content: text });
+
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages: history, page: 'help-center' }),
+          });
+          const data = await res.json();
+          if (data.reply) {
+            a.className = 'cs2-qa-item__a';
+            a.textContent = data.reply;
+            history.push({ role: 'assistant', content: data.reply });
+          } else {
+            a.className = 'cs2-qa-item__a';
+            a.textContent = 'Something went wrong — try again.';
+          }
+          setTimeout(() => { if (railScroll) railScroll.scrollTop = railScroll.scrollHeight; }, 50);
+        } catch {
+          a.className = 'cs2-qa-item__a';
+          a.textContent = 'Something went wrong — try again.';
+          setTimeout(() => { if (railScroll) railScroll.scrollTop = railScroll.scrollHeight; }, 50);
+        }
+
+        loading = false;
+        sendBtn.disabled = input.value.trim() === '';
+      }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const bodySection = document.getElementById('body');
+      if (!bodySection) return;
+      let prevY = window.scrollY;
+      let scrollingDown = false;
+      let timer;
+      window.addEventListener('scroll', () => {
+        scrollingDown = window.scrollY > prevY;
+        prevY = window.scrollY;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const top = bodySection.getBoundingClientRect().top;
+          if (scrollingDown && top > 0 && top < window.innerHeight) {
+            bodySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 120);
+      }, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>
