@@ -228,7 +228,7 @@ The contact form uses a placeholder endpoint:
 - ~~Experience dates~~ — confirmed and corrected 2026-07-22: VistaPrint 2024–present, Lynk & Co 2022–2024, Freelance 2021–2022. "Years experience" stat updated from 6+ to 5+ to match.
 - **Lab project counts** — update when Tuza or the accessibility framework ships. (`lab.html` is not currently tracked in git / not linked from live nav — see Recent Changes below.)
 
-### 3. Homepage cover images are ~39MB total (noted 2026-07-28)
+### 3. ~~Homepage cover images are ~39MB total~~ — resolved 2026-11-06 (see Recent Changes)
 The three personal-project covers are all SVG-wrapped full-size JPEGs, loaded on `index.html`:
 
 | File | Size |
@@ -242,6 +242,11 @@ That's the single biggest performance problem on the site — the homepage pulls
 ---
 
 ## Recent Changes
+
+### 2026-11-06
+- **Homepage covers converted to WebP:** `tuza-cover.webp` (51KB), `daily-digest-cover.webp` (123KB), `ca-la-carme-cover.webp` (216KB) replace the 38MB of SVG-wrapped JPEGs. Embedded JPEG extracted, cropped to the SVG viewport (matters for Daily Digest, whose embedded image is taller than its viewBox), resized to 1600px wide, WebP q80. References updated in `index.html` and `daily-digest.html`. Colour checked against originals (all sRGB, mean RGB within 1–4 levels).
+- The old `*-cover.svg` files are no longer referenced but were left in `images/`. **New covers should be WebP ~1600px wide, not SVG-wrapped exports.**
+- Spotted, not fixed: `images/About me.png` 404s on the local server (likely the `%20` in the URL not being decoded by `server.js`) — check whether the live site has the same problem.
 
 ### 2026-07-28
 - **Backfilled a documentation gap from the prior session (2026-07-22):** `daily-digest.html` (5th CS2 case study, personal AI-curated newspaper) had already shipped and been committed (`a9146ed`) but was never written up here — this entry closes that gap. It's registered in `api/chat.js` as Case Study 6, cross-linked from `order-help.html`, `contact-experience.html`, `tuza.html`, and `user-profile.html`, and has a project card on `index.html`.
