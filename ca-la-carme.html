@@ -455,8 +455,8 @@
 
     <img
       class="cs2-cover-img"
-      src="images/ca-la-carme-overview.png"
-      alt="Home Assistant overview dashboard showing every zone's climate, window, and savings state at a glance"
+      src="images/ca-la-carme-panel-home.png"
+      alt="Black-and-white e-ink wall panel showing both rooms' climate, solar, battery and savings"
       style="display: none;"
     />
 
@@ -472,11 +472,51 @@
 
           <figure class="cs2-image-item" style="margin:0">
             <img
-              src="images/ca-la-carme-overview.png"
-              alt="Home Assistant overview dashboard showing both AC zones off, window states, dehumidifier status, and accrued savings in one view"
+              src="images/ca-la-carme-panel-home.png"
+              alt="Black-and-white wall panel showing the Living Room at 20.3 degrees and the Study at 18.5 degrees, each with humidity, heating mode and AC controls, above solar output, battery level, electricity price and savings tiles"
             />
-            <figcaption class="capttion case-study__caption">Home overview — every zone's climate, window, and savings state in one glance, no per-device digging required</figcaption>
+            <figcaption class="capttion case-study__caption">Wall panel — both rooms' climate and AC controls, plus solar, battery, grid price and savings, on one screen. It is black and white because it runs on a Boox NoteAir e-ink display.</figcaption>
           </figure>
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/ca-la-carme-panel-energy.png"
+              alt="Energy view of the black-and-white wall panel: a grey and black donut showing 32 percent self-sufficiency, live solar, battery and grid figures, a net-result estimate, and a solar production chart beside the day-ahead electricity price chart"
+            />
+            <figcaption class="capttion case-study__caption">Energy view — self-sufficiency, live solar, battery and grid flows, and the day-ahead electricity price. On e-ink, grey tones and dash patterns separate the categories instead of colour.</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/ca-la-carme-panel-water.png"
+              alt="Water view of the black-and-white wall panel: hose and irrigation valve cards with litres used today, battery level and run-time controls, above a donut chart of daily water use split into household and irrigation"
+            />
+            <figcaption class="capttion case-study__caption">Water view — the hose and irrigation valves with run-time controls and battery level, plus daily, monthly and yearly water use split into household and irrigation, with cost.</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/ca-la-carme-panel-devices.png"
+              alt="Devices and health view of the wall panel listing both AC blasters, both thermometers, both window sensors, the dehumidifier and the panel itself, with status, last-seen time and battery level"
+            />
+            <figcaption class="capttion case-study__caption">Devices &amp; health — status, last-seen time and battery for every sensor, IR blaster and the panel itself, so a silent device shows up at a glance.</figcaption>
+          </figure>
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/ca-la-carme-panel-automations.png"
+              alt="Automations view of the wall panel listing the automations on the instance with the time each last triggered and an ON state, covering climate, irrigation, lighting, vacuum, maintenance and reporting"
+            />
+            <figcaption class="capttion case-study__caption">Automations view — 27 live automations across climate, irrigation, lighting, health and reporting, each with its last-triggered time and state (the list also shows two retired vacuum entries still in the registry).</figcaption>
+          </figure>
+
+          <figure class="cs2-image-item" style="margin:0">
+            <img
+              src="images/ca-la-carme-panel-garden.webp"
+              alt="Garden view of the wall panel: a full-colour aerial 3D model of the house roof with solar panels and the terraced garden below"
+            />
+            <figcaption class="capttion case-study__caption">Garden view — a live 3D digital twin of the garden embedded in the panel. It is the one deliberate exception to the panel's black-and-white, no-animation design.</figcaption>
+          </figure>
+
+
 
           <figure class="cs2-image-item" style="margin:0">
             <img
@@ -484,38 +524,6 @@
               alt="Telegram conversation with the Ca la Carme bot: a natural-language 'What's the situation?' query answered with full home state, a request to run both ACs met with a clarifying question, and automated daily energy reports"
             />
             <figcaption class="capttion case-study__caption">Natural-language control — the bot answers state queries directly, asks a clarifying question before acting on an ambiguous request, and posts a daily savings/spend report unprompted</figcaption>
-          </figure>
-
-          <figure class="cs2-image-item" style="margin:0">
-            <img
-              src="images/ca-la-carme-thermometer-history.png"
-              alt="History graph of the Living Room thermometer's temperature over the previous 24 hours"
-            />
-            <figcaption class="capttion case-study__caption">Per-room thermometer history — Living Room and Study each reason from their own sensor, not a shared reading</figcaption>
-          </figure>
-
-          <figure class="cs2-image-item" style="margin:0">
-            <img
-              src="images/ca-la-carme-savings-history.png"
-              alt="History graph of estimated AC savings accumulating over the month, reaching €8.65"
-            />
-            <figcaption class="capttion case-study__caption">AC savings tracked over time — accrued estimate from running the AC during solar surplus instead of paying grid price</figcaption>
-          </figure>
-
-          <figure class="cs2-image-item" style="margin:0">
-            <img
-              src="images/ca-la-carme-automation-logic.png"
-              alt="Home Assistant automation editor showing the Smart AC Temperature Control automation's branching choose-between-options logic"
-            />
-            <figcaption class="capttion case-study__caption">Inside Smart AC Temperature Control — the season/tier branching logic that drives heat, cool, and fan-speed decisions</figcaption>
-          </figure>
-
-          <figure class="cs2-image-item" style="margin:0">
-            <img
-              src="images/ca-la-carme-automations-list.png"
-              alt="Home Assistant automations list showing 19 automations covering climate, security, maintenance, and reporting"
-            />
-            <figcaption class="capttion case-study__caption">19 automations running on this instance — climate, security, maintenance, and reporting, all deployed and monitored independently</figcaption>
           </figure>
 
         </div>
@@ -555,16 +563,13 @@
             <p>
               Before Ca la Carme, the house ran on smart devices with no shared logic. Two Fujitsu ACs, a dehumidifier, and a Zigbee window sensor all lived inside Home Assistant, but every decision — whether to run an AC, at what temperature, how hard the fan should run — was manual, with no link between electricity price and climate control, and no way to check or act on any of it except through Home Assistant's own dashboard, one device at a time.
             </p>
-            <p>
-              The cost of that gap surfaced directly on 2026-07-03: a Zigbee window sensor silently dropped a status update and reported "open" for 12.5 hours straight. Because the AC automation hard-blocks on that sensor as a safety condition, it silently skipped every 15-minute cycle overnight while the living room climbed to 27°C — nothing was watching the watcher, so nobody knew until morning. A full Home Assistant crash the previous month (17 hours offline, May 4–5, 2026) had already exposed the same blind spot at a larger scale.
-            </p>
           </div>
 
           <!-- 2. TASK -->
           <div class="cs2-block" id="task">
             <span class="cs2-label">Task</span>
             <p>
-              Owned the system independently end-to-end — architecture, all 12 production automations, the Telegram bot, and incident response — with no engineering team, no QA process, and no users beyond myself and my household. Every design, deploy, and on-call decision was mine alone.
+              Designed an e-ink wall panel as the control surface for the house, and owned the system behind it — automation logic, the Telegram bot, and incident response — with no engineering team and no QA process; the only users are my household. Every design, deploy, and on-call decision was mine, working with Claude as a build partner.
             </p>
           </div>
 
@@ -572,14 +577,17 @@
           <div class="cs2-block" id="action">
             <span class="cs2-label">Action</span>
             <ul>
-              <li>Designed and deployed 12 production Home Assistant automations covering two independently-monitored AC zones, a dehumidifier, and system health — each with its own hysteresis or threshold logic, including a 4-tier PVPC electricity-price ladder driving heat/cool setpoints and fan speed</li>
-              <li>Built and shipped a Telegram bot (@CaLaCarmeBot, Claude Sonnet-powered) as a Dockerized Home Assistant add-on, giving natural-language control over the house through three tool calls — <code>call_ha_service</code>, <code>get_ha_state</code>, <code>notify_user</code> — gated by a Yes/No confirmation flow on risky actions</li>
-              <li>Diagnosed the 2026-07-03 stuck window-sensor incident to root cause — a dropped Zigbee IAS Zone notification from a sleepy battery end device — cleared it manually, then shipped a dedicated watchdog automation that pages within 3 hours if it recurs</li>
-              <li>Diagnosed and recovered from the 17-hour HA outage (May 4–5, 2026): restored non-persistent helpers lost in the crash via a purpose-built script, then shipped a clean-shutdown-marker pair so future restarts distinguish a crash from a manual restart automatically</li>
-              <li>Found and fixed two live logic bugs in the AC automation: a hysteresis error that shut cooling off at 24°C before it ever reached its 22°C target, and a variable-sharing bug where the Study AC's fan speed was silently controlled by the Living Room's fan variable</li>
-              <li>Removed a native HA integration (<code>pvpc_hourly_pricing</code>) after diagnosing it as a contributor to crashes — it was throwing exceptions roughly every 60 seconds against a broken upstream API — replacing it with a self-hosted sync job and a hardcoded fallback price</li>
-              <li>Hardened the bot against a class of Claude API failures: added conversation-history sanitization and automatic recovery from <code>BadRequestError</code> states caused by dangling tool-call turns, so the bot clears and retries instead of getting stuck</li>
-              <li>Set and enforced a single deploy path for AC automation changes after discovering the HA REST API silently duplicates automations that already exist in <code>automations.yaml</code> — added a post-deploy automation-count check as a guardrail against silent corruption</li>
+              <li>Briefed, designed, and built a wall-mounted control panel for a Boox NoteAir e-ink tablet with Claude — Claude Design for the concept, then a single-file app — to replace Home Assistant's default dashboard for daily use: per-room climate and quick controls as the primary screen, plus five more views (energy, water, devices, automations, garden). Live since 2026-07-29</li>
+              <li>Designed for the medium: e-ink is monochrome and ghosts on fast redraws, so there is no animation anywhere and, apart from the Garden view's live 3D model, no colour. State is shown by inverting black and white (AC on is a filled block, off is outlined), grey tones separate categories in the charts, and every layout is built on the display's 1872 × 1404 canvas</li>
+              <li>Made the home screen the control surface: both rooms' temperature, humidity, window and AC state on one screen, with AC on/off and setpoint buttons, a plain HEAT or COOL label set from room temperature, and an "auto will reset this" note on manual overrides. The AC status is deliberately a plain label, not a filled pill, so it is not mistaken for a button</li>
+              <li>Gave every other view one job: Energy (solar, battery, house load, the day-ahead price chart, and a cost ledger priced at real hourly prices), Water (household and irrigation use and cost, with the valve controls), Devices (last-seen time and battery for every device), and Automations (every automation with its state)</li>
+              <li>Built it to stay current on a slow screen: a 60-second poll, tap-to-inspect on charts, auto-reload when a new version is deployed, and a fix for a tablet viewport-height bug that took five attempts — the first four each used a different viewport measurement and failed somewhere, and the last measures the app container itself</li>
+              <li>Iterated on it from daily use: requests such as "show all the automations in one tab" (2026-10-23) and a heat/cool button (2026-11-06) came straight from living with it</li>
+              <li>Designed the climate logic the panel controls as two independent loops that never overlap: a summer/shoulder loop (4-tier PVPC electricity-price ladder, solar and battery fan ladder, ON at 26°C and OFF at 24°C) and a temperature-gated winter loop built on 2026-10-21 (time-of-day bands, 2-hour maximum run, solar boost) — plus a dehumidifier loop, window-safety rules, and health watchdogs</li>
+              <li>Built and run a Telegram bot (@CaLaCarmeBot, Claude Sonnet 4.6) as a Dockerized Home Assistant add-on with seven tools — service calls, state and history reads, notifications, delayed actions, and config-file reads and edits — gated by a Yes/No confirmation on risky actions. After it stated an invented cause for an irrigation fault (2026-08-30), added a correction and a guard, and automatic recovery from Claude API errors caused by dangling tool-call turns</li>
+              <li>Automated garden irrigation (LinkTap valves water at sunset every third day and skip when the AEMET forecast shows rain), unlocked real solar, battery, and consumption data (5 → 134 data points) through the FusionSolar app integration after the installer declined local access, and rebuilt the water-tariff model from six real quarterly bills, reconciled to the cent — the first model understated garden water by about 2.8×</li>
+              <li>Diagnosed a window sensor that stuck "open" for 12.5 hours (2026-07-03) and silently blocked overnight cooling — a dropped Zigbee IAS Zone notification from a sleepy battery device — then shipped a watchdog that alerts after 3 hours of continuous "open" (living room only); recovered from a 17-hour Home Assistant outage (May 4–5, 2026) with a restore script and a clean-shutdown marker so every restart is classified as crash or clean</li>
+              <li>Found and fixed logic bugs through daily use: an inverted guard that stopped the AC from ever turning itself off (2026-07-20), a morning pre-heat window that fell between 5-minute checks and never ran (2026-11-04), and a study AC that ran for 10.5 hours before a 2-hour run cap was added (2026-11-06). Replaced the crash-causing native PVPC integration with a self-hosted price sync, and set a single deploy path for the summer AC automation with a count check that aborts a bad deploy</li>
             </ul>
           </div>
 
@@ -588,20 +596,20 @@
             <span class="cs2-label">Result</span>
             <div class="cs2-metric-row">
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">12</span>
-                <span class="cs2-metric-card__label">Automations running in production — climate, humidity, system health</span>
+                <span class="cs2-metric-card__number">12.5h → ≤3h</span>
+                <span class="cs2-metric-card__label">Time to detect a stuck window sensor, before vs. after the watchdog (living room; it fires after 3 hours of "open")</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">12.5h → &lt;3h</span>
-                <span class="cs2-metric-card__label">Time to detect a stuck sensor, before vs. after the watchdog automation</span>
+                <span class="cs2-metric-card__number">5 → 134</span>
+                <span class="cs2-metric-card__label">Real solar, battery, and consumption data points available to the logic and the panel, after the installer declined local access</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">24°C → 22°C</span>
-                <span class="cs2-metric-card__label">Actual shutoff temperature reached after fixing a hysteresis bug that cut cooling short</span>
+                <span class="cs2-metric-card__number">62%</span>
+                <span class="cs2-metric-card__label">Share of six real water bills that is fixed charges — found by rebuilding the tariff model to the cent</span>
               </div>
               <div class="cs2-metric-card">
-                <span class="cs2-metric-card__number">€8.65/mo</span>
-                <span class="cs2-metric-card__label">Estimated cost avoided by shifting AC runtime onto solar surplus — tracked and reported by the system itself, nightly, without being asked (estimated from modelled draw; neither AC has a power meter)</span>
+                <span class="cs2-metric-card__number">€31.70</span>
+                <span class="cs2-metric-card__label">Estimated AC cost avoided on solar surplus, 14 Jul – 6 Nov (cooling season; about €0 since October). Estimated from assumed fan wattage — neither AC has a power meter</span>
               </div>
             </div>
           </div>
@@ -610,11 +618,13 @@
           <div class="cs2-block" id="delivers">
             <span class="cs2-label">Delivers</span>
             <ul>
-              <li>12 production Home Assistant automations (<code>smart_ac_temperature_control</code>, <code>smart_dehumidifier_control</code>, <code>window_sensor_stale_watchdog</code>, and 9 others), with <code>smart_ac_automations.yaml</code> as the single source of truth</li>
-              <li><code>ca_la_carme</code> HA add-on — the Dockerized Telegram bot, rebuildable on demand via <code>ha addons rebuild local_ca_la_carme</code></li>
-              <li><code>smart_ac_deploy.py</code>, <code>smart_dehumidifier_deploy.py</code>, <code>ha_watchdog_deploy.py</code> — deploy scripts that splice automation YAML onto the Pi via SCP, each with a verification step</li>
+              <li>E-ink wall panel — <code>panel/index.html</code>, a single-file app with six views built for the NoteAir's 1872 × 1404 canvas, deployed by <code>deploy_panel.py</code></li>
+              <li>A 3D garden digital twin served from the Pi and embedded in the panel's Garden view</li>
+              <li>27 live Home Assistant automations, including the two mutually exclusive climate loops (<code>smart_ac_automations.yaml</code> for summer and shoulder, <code>winter_smart_ac_automation.yaml</code> for winter), the dehumidifier loop, the window-sensor watchdog, irrigation, and nightly energy, water, and irrigation history logs that feed the panel</li>
+              <li><code>ca_la_carme</code> HA add-on (v1.3.0) — the Dockerized Telegram bot with seven tools, rebuildable on demand via <code>ha addons rebuild local_ca_la_carme</code></li>
+              <li>Deploy scripts for each automation, each with a verification step, plus <code>sync_from_pi.py</code> to detect drift between the repo and the Pi</li>
               <li><code>ha_restore_helpers.py</code> — recovery script for restoring non-persistent helpers after a crash</li>
-              <li><code>esios_price_sync.py</code> plus a macOS launchd job — hourly PVPC electricity-price sync, replacing a native integration that was contributing to crashes</li>
+              <li><code>esios_price_sync.py</code> — hourly PVPC electricity-price sync, run by a Home Assistant automation on the Pi, replacing a native integration that was contributing to crashes</li>
             </ul>
           </div>
 
@@ -622,8 +632,11 @@
           <div class="cs2-block" id="constraints">
             <span class="cs2-label">Constraints managed</span>
             <ul>
-              <li><strong>Zigbee mesh reliability</strong> — a sleepy battery end device (SONOFF SNZB-04P) can drop an IAS Zone status notification entirely; anything that hard-blocks on its state needs independent staleness detection, not just a clean happy path</li>
-              <li><strong>Unreliable upstream APIs</strong> — the native <code>pvpc_hourly_pricing</code> integration and the REE API behind it broke outright and had to be removed rather than patched, in favour of a self-hosted sync with a hardcoded fallback price</li>
+              <li><strong>E-ink and a closed network</strong> — monochrome, no animation (it ghosts), slow redraws, and a fixed 1872 × 1404 canvas shaped every layout decision on the panel; it is reachable only on the home network</li>
+              <li><strong>One-way IR control and no meters</strong> — the ACs give no state or power feedback, so the panel and the logic cannot confirm what an AC is doing, and savings can only be estimated</li>
+              <li><strong>Zigbee mesh reliability</strong> — sleepy battery sensors can drop a notification entirely, and they depend on mains-powered routers: the study window sensor went missing after a power cut took a router offline (2026-10-25)</li>
+              <li><strong>Unreliable upstream access</strong> — the native PVPC integration and the API behind it broke and had to be replaced, and the solar installer declined local access, so energy data comes through a third-party app integration</li>
+              <li><strong>Network drift</strong> — a changed DHCP address for the irrigation gateway made the valves unavailable (2026-10-09); reserving addresses is the lasting fix</li>
             </ul>
           </div>
 
@@ -631,21 +644,26 @@
           <div class="cs2-block" id="documentation">
             <span class="cs2-label">Documentation prepared</span>
             <ul>
+              <li><code>design.md</code> — the e-ink panel's design document, with written design briefs for the panel and for its Energy view</li>
               <li><code>HANDOFF.md</code> — the living reference for infrastructure, every automation's logic and entity IDs, incident history, and standing deploy rules; the source for this case study</li>
-              <li>Deploy scripts as executable documentation — <code>smart_ac_deploy.py</code>, <code>smart_dehumidifier_deploy.py</code>, and <code>ha_watchdog_deploy.py</code> each encode the one correct deploy path for their automation</li>
-              <li>A power-outage recovery checklist — manual-intervention steps for the dehumidifier, Broadlink IR blasters, and DHCP/IP drift</li>
-              <li>A documented automation-count guardrail (<code>grep -c '^- id:' automations.yaml</code>, expected count) to catch silent deploy corruption before it ships</li>
+              <li><code>AGENTS.md</code> — operating rules for the AI assistant, including deploy rules and safety checks such as verifying routers before re-pairing a sensor</li>
+              <li>A power-outage recovery checklist and a smart-AC test checklist</li>
+              <li>A documented automation-count guardrail to catch silent deploy corruption before it ships</li>
             </ul>
           </div>
 
-          <!-- 8. DESIGN/TECHNICAL SYSTEM USED -->
+          <!-- 8. TECHNICAL SYSTEM USED -->
           <div class="cs2-block" id="design-system">
             <span class="cs2-label">Technical system used</span>
             <div class="cs2-chips">
+              <span class="cs2-chip">Boox NoteAir e-ink panel</span>
               <span class="cs2-chip">Claude Sonnet (Anthropic API)</span>
               <span class="cs2-chip">Home Assistant (HAOS, Raspberry Pi)</span>
               <span class="cs2-chip">Telegram Bot API</span>
               <span class="cs2-chip">e·sios PVPC API</span>
+              <span class="cs2-chip">AEMET forecasts</span>
+              <span class="cs2-chip">Huawei SUN2000 inverter + LUNA2000 battery</span>
+              <span class="cs2-chip">LinkTap irrigation valves</span>
               <span class="cs2-chip">Zigbee (ZHA)</span>
               <span class="cs2-chip">Broadlink IR / SmartIR</span>
               <span class="cs2-chip">Docker add-on architecture</span>
